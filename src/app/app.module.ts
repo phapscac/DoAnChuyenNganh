@@ -6,6 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ListProductComponent } from './Product/list-product/list-product.component';
 import { RegisterComponent } from './Register/Register.component';
+import { RegisterrComponent } from './registerr/registerr.component';
 
 @NgModule({
   declarations: [	
@@ -13,7 +14,8 @@ import { RegisterComponent } from './Register/Register.component';
     FooterComponent,
     ProductDetailComponent,
     ListProductComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegisterrComponent
   ],
     
 

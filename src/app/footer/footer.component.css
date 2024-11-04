@@ -1,118 +1,106 @@
+/* CSS cho footer với nền màu sáng */
 footer {
-  background-color: #f8f9fa;
-  padding: 40px 0;
+  background-color: #f8f9fa; /* Nền xám nhạt */
+  color: #333; /* Màu chữ đen đậm */
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0; /* Đường viền trên */
 }
 
 footer h5 {
+  font-size: 1.2rem;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  color: #333; /* Màu tiêu đề */
 }
 
-footer p {
-  font-size: 14px;
-  color: #6c757d;
+footer .contact-info li,
+footer .support-policy li {
+  list-style: none;
+  margin: 10px 0;
+  color: #555; /* Màu chữ xám đậm */
 }
 
-footer a {
-  color: #343a40;
+footer .contact-info li i,
+footer .support-policy a {
+  color: #555;
+  font-size: 1.1rem;
+  margin-right: 8px;
+}
+
+footer .contact-info span {
+  font-size: 0.95rem;
+}
+
+footer .support-policy a {
+  color: #007bff; /* Màu xanh dương cho liên kết */
   text-decoration: none;
+  transition: color 0.3s;
 }
 
-footer a:hover {
-  color: #007bff;
-  text-decoration: underline;
+footer .support-policy a:hover {
+  color: #0056b3; /* Đổi màu khi hover */
 }
 
+/* CSS cho khung Google Map */
 footer .map-container {
-  position: relative;
-  overflow: hidden;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
-}
-
-footer .map-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  border: 0;
+  max-width: 300px;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
 }
 
-footer .text-center {
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 10px 0;
-  color: #343a40;
+/* CSS cho phần cuối footer */
+footer .p-3 {
+  background-color: rgba(0, 0, 0, 0.05); /* Nền xám nhạt hơn cho phần copyright */
+  color: #333;
+  font-size: 0.9rem;
 }
 
-footer .text-center a {
+footer .p-3 a {
   color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-footer .text-center a:hover {
+footer .p-3 a:hover {
   color: #0056b3;
 }
-
+/* CSS cho contact-info */
 .contact-info {
-  padding-left: 0;
-  list-style: none;
+  font-size: 1rem;
+  color: #333; /* Màu chữ xám đậm */
 }
 
 .contact-info li {
-  margin-bottom: 10px;
   display: flex;
   align-items: center;
-}
-
-.contact-info i {
-  margin-right: 10px;
-  color: #007bff;
-}
-
-.contact-info span {
-  font-size: 14px;
-  color: #6c757d;
-}
-
-.contact-info a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.contact-info a:hover {
-  color: #0056b3;
-  text-decoration: underline;
-}
-
-
-
-.support-policy {
-  padding-left: 0;
-  list-style: none;
-  margin-top: 0;
-  
-}
-
-.support-policy li {
   margin-bottom: 10px;
-  display: flex;
-  align-items: center;
+  color: #555; /* Màu chữ xám */
 }
 
-.support-policy a {
-  color: #343a40;
+.contact-info li i {
+  font-size: 1.2rem;
+  color: #007bff; /* Màu xanh cho biểu tượng */
+  margin-right: 8px;
+  transition: color 0.3s;
+}
+
+.contact-info li i:hover {
+  color: #0056b3; /* Màu xanh đậm hơn khi hover */
+}
+
+.contact-info li span {
+  font-size: 0.95rem;
+}
+
+.contact-info li a {
+  color: #007bff; /* Màu xanh cho liên kết */
   text-decoration: none;
-  font-size: 14px;
+  transition: color 0.3s;
 }
 
-.support-policy a:hover {
-  color: #007bff;
-  text-decoration: underline;
-}
-
-.support-policy h5 {
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #343a40;
-  display: block; 
-  margin-top: 0; 
+.contact-info li a:hover {
+  color: #0056b3; /* Màu xanh đậm hơn khi hover */
 }
