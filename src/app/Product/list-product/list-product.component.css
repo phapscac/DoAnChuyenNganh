@@ -1,0 +1,16 @@
+.product-image {
+    transition: transform 0.3s ease, border 0.3s ease;
+    border-radius: 5px;
+    border: 1px solid #F5CBA7; /* Màu da và viền mỏng */
+    z-index: 1;
+}
+
+.product-image:hover {
+    transform: scale(1.1);
+    z-index: 10; /* Đảm bảo ảnh phóng to nằm trên các phần tử khác */
+}
+
+.product-card {
+    position: relative;
+    z-index: 0;
+}
