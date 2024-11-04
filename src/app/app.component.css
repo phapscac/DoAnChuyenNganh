@@ -1,0 +1,47 @@
+.menu {
+    background-color: #0072C6;
+    overflow: hidden;
+  }
+
+  .menu a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  .menu a:hover {
+    background-color: #005A9E;
+  }
+  .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .search-container input[type=text] {
+    padding: 6px;
+    border: none;
+    font-size: 16px;
+    width: 400px;
+  }
+
+  .search-container button {
+    padding: 6px 10px;
+    background: #0072C6;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  .hover-effect {
+    color: aliceblue;
+    transition: background-color 0.3s ease;
+  }
+
+  .hover-effect:hover {
+    background-color: #007bff;
+    color: white;
+  }
