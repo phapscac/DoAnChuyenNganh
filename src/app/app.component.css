@@ -1,47 +1,59 @@
 .menu {
     background-color: #0072C6;
     overflow: hidden;
-  }
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease; /* Thêm hiệu ứng chuyển động */
+}
 
-  .menu a {
+.menu a {
     float: left;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-  }
+}
 
-  .menu a:hover {
+.menu a:hover {
     background-color: #005A9E;
-  }
-  .search-container {
+}
+
+.search-container {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px 0;
-  }
+}
 
-  .search-container input[type=text] {
+.search-container input[type=text] {
     padding: 6px;
     border: none;
     font-size: 16px;
     width: 400px;
-  }
+}
 
-  .search-container button {
+.search-container button {
     padding: 6px 10px;
     background: #0072C6;
     color: white;
     font-size: 16px;
     border: none;
     cursor: pointer;
-  }
-  .hover-effect {
+}
+
+.hover-effect {
     color: aliceblue;
     transition: background-color 0.3s ease;
-  }
+}
 
-  .hover-effect:hover {
+.hover-effect:hover {
     background-color: #007bff;
     color: white;
-  }
+}
+
+/* CSS cho menu khi cố định */
+.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
