@@ -1,23 +1,23 @@
 /* CSS cho footer với nền màu sáng */
 footer {
-  background-color: #f8f9fa; /* Nền xám nhạt */
-  color: #333; /* Màu chữ đen đậm */
+  background-color: #f8f9fa; 
+  color: #333; 
   padding-top: 20px;
-  border-top: 1px solid #e0e0e0; /* Đường viền trên */
+  border-top: 1px solid #e0e0e0; 
 }
 
 footer h5 {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 15px;
-  color: #333; /* Màu tiêu đề */
+  color: #333; 
 }
 
 footer .contact-info li,
 footer .support-policy li {
   list-style: none;
   margin: 10px 0;
-  color: #555; /* Màu chữ xám đậm */
+  color: #555; 
 }
 
 footer .contact-info li i,
@@ -32,13 +32,13 @@ footer .contact-info span {
 }
 
 footer .support-policy a {
-  color: #007bff; /* Màu xanh dương cho liên kết */
+  color: #007bff; 
   text-decoration: none;
   transition: color 0.3s;
 }
 
 footer .support-policy a:hover {
-  color: #0056b3; /* Đổi màu khi hover */
+  color: #0056b3; 
 }
 
 /* CSS cho khung Google Map */
@@ -48,12 +48,12 @@ footer .map-container {
   margin: 0 auto;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 /* CSS cho phần cuối footer */
 footer .p-3 {
-  background-color: rgba(0, 0, 0, 0.05); /* Nền xám nhạt hơn cho phần copyright */
+  background-color: rgba(0, 0, 0, 0.05); 
   color: #333;
   font-size: 0.9rem;
 }
@@ -70,25 +70,25 @@ footer .p-3 a:hover {
 /* CSS cho contact-info */
 .contact-info {
   font-size: 1rem;
-  color: #333; /* Màu chữ xám đậm */
+  color: #333; 
 }
 
 .contact-info li {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
-  color: #555; /* Màu chữ xám */
+  color: #555; 
 }
 
 .contact-info li i {
   font-size: 1.2rem;
-  color: #007bff; /* Màu xanh cho biểu tượng */
+  color: #007bff; 
   margin-right: 8px;
   transition: color 0.3s;
 }
 
 .contact-info li i:hover {
-  color: #0056b3; /* Màu xanh đậm hơn khi hover */
+  color: #0056b3; 
 }
 
 .contact-info li span {
@@ -96,11 +96,38 @@ footer .p-3 a:hover {
 }
 
 .contact-info li a {
-  color: #007bff; /* Màu xanh cho liên kết */
+  color: #007bff; 
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .contact-info li a:hover {
-  color: #0056b3; /* Màu xanh đậm hơn khi hover */
+  color: #0056b3; 
+}
+.support-policy a {
+  color: #000; /* Màu chữ mặc định */
+  text-decoration: none; /* Bỏ gạch chân */
+  transition: color 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển tiếp cho màu sắc và phóng to */
+}
+
+.support-policy a:hover {
+  color: #007bff !important; /* Màu chữ khi hover */
+  transform: scale(1.6) !important; /* Phóng to 10% khi hover */
+}
+
+
+
+
+
+.icon h5 {
+  margin-bottom: 10px; 
+}
+
+.icon a {
+  transition: transform 0.3s, color 0.3s; 
+}
+
+.icon a:hover {
+  color: #007bff !important; 
+  transform: scale(1.2) !important; 
 }
