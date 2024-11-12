@@ -26,6 +26,7 @@
     <h3>{{ service.name }}</h3>
   </div>
 </div>
+
 <p class="text-center display-4 font-weight: bold;" style="color: #007bff;">SẢN PHẨM</p>
 <div class="row">
   <div  *ngFor="let product of products" class="col-sm-3 d-flex flex-column align-items-center">
@@ -33,4 +34,5 @@
     <h3>{{ product.name }}</h3>
     <a [routerLink]="['/product-detail']">Xem chi tiết</a>
   </div>
+  
 </div>

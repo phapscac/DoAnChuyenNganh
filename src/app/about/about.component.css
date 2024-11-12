@@ -1,0 +1,144 @@
+/* Định dạng chung */
+.wrap-main {
+    width: 100%;
+    clear: both;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.chitiet-nd {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.title-main span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* Định dạng nội dung chính */
+.content-main {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6em;
+    font-size: 16px;
+    color: #333;
+}
+
+.content-main p {
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
+.content-main span {
+    font-size: 18px;
+    color: #333;
+}
+
+.content-main strong {
+    color: #B22222;
+}
+
+/* Định dạng danh sách công việc */
+.content-main .check-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.content-main .check-item span:first-child {
+    color: #0000FF;
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+.content-main .check-item span:last-child {
+    font-size: 18px;
+}
+.content-main ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.content-main ul li {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+  
+.content-main ul li::before {
+    content: "✅";
+    margin-right: 8px;
+    color: #28a745;
+}
+/* Định dạng hình ảnh */
+.content-main img {
+    width: 100%;
+    max-width: 1500px;
+    height: auto;
+    border: 0;
+    outline: 0;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+
+/* Định dạng thông tin liên hệ */
+.content-main .contact-info {
+    font-size: 18px;
+    line-height: 2em;
+    color: #333;
+    text-align: center;
+}
+
+.content-main .contact-info strong {
+    color: #B22222;
+}
+
+.content-main .contact-info a {
+    color: #d50000;
+    text-decoration: none;
+}
+
+.content-main .contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Định dạng chia sẻ */
+.share {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.share b {
+    margin-right: 10px;
+}
+
+.social-plugin {
+    display: flex;
+    gap: 10px;
+}
+
+.social-plugin .a2a_button_facebook,
+.social-plugin .a2a_button_twitter,
+.social-plugin .a2a_dd {
+    display: inline-flex;
+    align-items: center;
+    background-color: #1a73e8;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.social-plugin .a2a_button_facebook:hover,
+.social-plugin .a2a_button_twitter:hover,
+.social-plugin .a2a_dd:hover {
+    background-color: #0b63ce;
+}
+
