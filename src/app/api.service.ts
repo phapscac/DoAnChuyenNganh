@@ -1,5 +1,6 @@
+// api.service.ts
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -9,9 +10,23 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  callAPI(endpoint: string, body: any): Observable<any> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  // Gọi API GET
+  getData(url: string): Observable<any> {
+    return this.http.get(url);
+  }
 
-    return this.http.post(endpoint, body, { headers });
-}
+  // Gọi API POST
+  postData(url: string, payload: any): Observable<any> {
+    return this.http.post(url, payload);
+  }
+
+  // Gọi API PUT
+  updateData(url: string, payload: any): Observable<any> {
+    return this.http.put(url, payload);
+  }
+
+  // Gọi API DELETE
+  deleteData(url: string): Observable<any> {
+    return this.http.delete(url);
+  }
 }
