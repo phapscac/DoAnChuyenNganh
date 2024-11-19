@@ -8,6 +8,7 @@ import { ListProductComponent } from './Product/list-product/list-product.compon
 import { RegisterComponent } from './Register/Register.component';
 import { RegisterrComponent } from './registerr/registerr.component';
 import { AboutComponent } from './about/about.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [	
@@ -17,13 +18,15 @@ import { AboutComponent } from './about/about.component';
     ListProductComponent,
     RegisterComponent,
     RegisterrComponent,
-    AboutComponent
+    AboutComponent,
   ],
     
 
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+
   ],
   providers: [
     provideClientHydration()
