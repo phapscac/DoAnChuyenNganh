@@ -1,0 +1,63 @@
+/* Căn chỉnh container chính */
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+/* Bảng thông tin công ty */
+.company-info table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.company-info table td {
+    padding: 8px;
+    vertical-align: top;
+    font-size: 16px;
+}
+
+.company-name {
+    font-size: 20px;
+    text-align: center;
+    padding-bottom: 10px;
+    color: #007bff;
+}
+
+/* Form liên hệ */
+.contact-form {
+    flex: 1;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.contact-form .form-row {
+    display: flex;
+    gap: 10px;
+}
+
+.contact-form .contact-input {
+    flex: 1;
+    margin-bottom: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.contact-form .btn {
+    margin-top: 10px;
+}

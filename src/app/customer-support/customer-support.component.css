@@ -1,0 +1,78 @@
+.chitiet-nd {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px; 
+    color: #333;
+    line-height: 1.6;
+}
+
+.title-main {
+    text-align: center; 
+    font-size: 32px; 
+    font-weight: bold; 
+    color: #007bff; 
+    text-transform: uppercase; 
+    margin-bottom: 15px; 
+    letter-spacing: 1.5px;
+    background-color: #f0f0f0; 
+    padding: 10px; 
+    border-radius: 5px; 
+}
+
+.title-pro-detail {
+    font-size: 20px; 
+    color: #555;
+    font-weight: 600; 
+    margin-bottom: 20px; 
+    text-align: left; 
+}
+
+.time-main {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.content-main {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.share {
+    margin-top: 30px;
+    background-color: #f0f0f0; 
+    padding: 15px; 
+    border-radius: 5px; 
+}
+
+.share b {
+    font-size: 18px;
+    color: #007bff;
+}
+
+.list-news-other {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.list-news-other li {
+    margin: 8px 0;
+  
+    padding: 1px; 
+    border-radius: 4px; 
+    transition: background-color 0.3s; 
+}
+
+
+
+.list-news-other a {
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+}
+
+.list-news-other a:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
