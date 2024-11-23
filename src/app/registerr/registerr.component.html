@@ -1,17 +1,24 @@
 <div class="register-container">
   <h2>Đăng Ký</h2>
-  <form (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="dangky()">
     <div class="form-group">
       <label for="username">Tên đăng nhập</label>
-      <input type="text" id="username" name="username" required>
+      <input [(ngModel)]="user.username" type="text" id="username" name="username" class="form-control" required>
     </div>
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="email" id="email" class="form-control" name="email" required>
+      <input [(ngModel)]="user.email" type="email" id="email" name="email" class="form-control" required>
     </div>
     <div class="form-group">
       <label for="password">Mật khẩu</label>
-      <input type="password" id="password" class="form-control"  name="password" required>
+      <input [(ngModel)]="user.password" type="password" id="password" name="password" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="confirmPassword">Xác nhận mật khẩu</label>
+      <input [(ngModel)]="user.confirmPassword" type="password" id="confirmPassword" name="confirmPassword" class="form-control" required>
+    </div>
+    <div *ngIf="Message" class="alert" [ngClass]="{ 'alert-success': successMessage, 'alert-danger': errorMessage }">
+      {{ Message }}
     </div>
     <button type="submit" class="btn btn-primary">Đăng Ký</button>
   </form>

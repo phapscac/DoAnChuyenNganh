@@ -18,8 +18,9 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { ShippingPolicyComponent } from './shipping-policy/shipping-policy.component';
 import { InformationUsageComponent } from './information-usage/information-usage.component';
 import { ContactComponent } from './contact/contact.component';
-
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [	
@@ -39,7 +40,9 @@ import { HttpClientModule } from '@angular/common/http';
     PrivacyPolicyComponent,
     ShippingPolicyComponent,
     InformationUsageComponent,
-    ContactComponent
+    ContactComponent,
+    ChangePasswordComponent
+  
   ],
     
 
@@ -47,6 +50,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
 
   ],
   providers: [
