@@ -16,8 +16,11 @@ export class ApiService {
   }
 
   // Gọi API POST
-  postData(url: string, payload: any): Observable<any> {
-    return this.http.post(url, payload);
+  
+  postData(url: string, payload: any, options?: any): Observable<any> {
+
+    return this.http.post(url, payload, options);
+
   }
 
   // Gọi API PUT

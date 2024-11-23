@@ -15,6 +15,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { ShippingPolicyComponent } from './shipping-policy/shipping-policy.component';
 import { InformationUsageComponent } from './information-usage/information-usage.component';
 import { ContactComponent } from './contact/contact.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 const routes: Routes = [
@@ -61,6 +62,9 @@ const routes: Routes = [
       {
         path:'contact',
         component: ContactComponent
+      },
+      {path:'change-password',
+        component: ChangePasswordComponent
       },
     
 ];

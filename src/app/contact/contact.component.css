@@ -1,52 +1,97 @@
-/* Căn chỉnh container chính */
-.contact-section {
+/* Tổng quan */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.wrap-main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.title-main {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007bff;
+    text-transform: uppercase;
+}
+
+/* Bố cục liên hệ */
+.contact-article {
     display: flex;
+    flex-direction: row;
+    gap: 20px;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 20px;
-    margin: 20px 0;
+    margin-bottom: 20px;
 }
 
-/* Bảng thông tin công ty */
-.company-info table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #fff;
-    padding: 15px;
-    border: 1px solid #ddd;
+.contact-text {
+    flex: 1;
+    background-color: #f1f1f1;
+    padding: 20px;
     border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 50%;
 }
 
-.company-info table td {
-    padding: 8px;
-    vertical-align: top;
-    font-size: 16px;
+.contact-text p {
+    margin: 10px 0;
+    line-height: 1.6;
 }
 
-.company-name {
-    font-size: 20px;
-    text-align: center;
-    padding-bottom: 10px;
+.contact-text .company-name {
+    font-weight: bold;
+    font-size: 1.2rem;
     color: #007bff;
+}
+
+.contact-text p span {
+    display: inline-block;
+    margin-bottom: 5px;
 }
 
 /* Form liên hệ */
 .contact-form {
     flex: 1;
-    background: #fff;
-    padding: 15px;
-    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #f9f9f9;
     border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 50%;
 }
 
 .contact-form .form-row {
     display: flex;
-    gap: 10px;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.contact-form .form-row .contact-input {
+    flex: 1; /* Các ô sẽ chia đều chiều rộng */
+}
+
+.contact-form .form-row .contact-input input {
+    width: 100%; /* Đảm bảo input chiếm toàn bộ chiều rộng của container */
+}
+
+.contact-form .form-row input {
+    flex: 1;
 }
 
 .contact-form .contact-input {
-    flex: 1;
+    width: 100%;
     margin-bottom: 15px;
+
 }
 
 .contact-form input,
@@ -54,10 +99,79 @@
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form textarea {
+    resize: none;
+    height: 150px;
 }
 
 .contact-form .btn {
     margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+
+.contact-form .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.contact-form .btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+}
+
+.contact-form .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.contact-form .file-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-form .file-input input[type="file"] {
+    flex: 1;
+    padding: 8px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn
+{
+    margin-right: 10px;
+}
+
+input:invalid {
+    border-color: red;
+}
+
+input:invalid:focus {
+    outline-color: red;
+}
+
+input:valid {
+    border-color: green;
+}
+
+
+/* Map */
+.contact-map iframe {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

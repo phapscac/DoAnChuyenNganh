@@ -22,16 +22,33 @@
     <a href="/productss">Sản Phẩm</a>
     <a href="#">Hình Ảnh Công Trình</a>
     <a href="#">Tin Tức</a>
-    <a href="#">Video</a>
+    <a href="/change-password">Video</a>
     <a href="/contact">Liên Hệ</a>
     <a href="/register">Đăng nhập</a>
     <a href="/registerr">Đăng ký</a>
-    <div class="search-container">
-        <input class="form-control me-2" type="search" placeholder="Nhập để tìm kiếm sản phẩm dịch vụ" aria-label="Search">
-        <button class="btn btn-outline-success hover-effect" type="submit">Tìm</button>
+        <div class="search-container">
+      <input [(ngModel)]="searchQuery" class="form-control me-2" type="search" placeholder="Nhập để tìm kiếm sản phẩm dịch vụ" aria-label="Search">
+      <button class="btn btn-outline-success hover-effect" type="button" (click)="onSearch()">Tìm</button>
+    </div>
+    
+    <div *ngIf="searchResults.products.length > 0 ">
+      <h3>Kết quả tìm kiếm</h3>
+      <div *ngIf="searchResults.products.length > 0">
+        <h4>Sản phẩm</h4>
+        <ul>
+          <li *ngFor="let product of searchResults.products">
+            {{ product.name }}
+          </li>
+        </ul>
+      </div>
+     
+    </div>
+    <div *ngIf="searchResults.products.length === 0 ">
+      
     </div>
 </div>
 
 <router-outlet></router-outlet> 
 
   <app-footer></app-footer>
+  
