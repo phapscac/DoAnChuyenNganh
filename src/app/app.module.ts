@@ -10,6 +10,7 @@ import { RegisterrComponent } from './registerr/registerr.component';
 import { AboutComponent } from './about/about.component';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   declarations: [	
     AppComponent,
