@@ -47,7 +47,7 @@ export class RegisterrComponent implements OnInit {
     };
 
     // Call API to register
-    this.apiService.postData('http://localhost:50598/api/Account/register', body).subscribe(
+    this.apiService.postData('api/Account/register', body).subscribe(
       data => {
         if (data.success) {
           this.Message = 'Đăng ký thành công';

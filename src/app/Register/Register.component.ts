@@ -1,4 +1,4 @@
-
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service'; 
 ​
@@ -14,9 +14,10 @@ interface User {
 })
 export class RegisterComponent implements OnInit {
 
-  constructor( private apiService: ApiService) {
-   
-   }
+  constructor( 
+    private apiService: ApiService,
+    private router: Router
+  ) { }
 
   ngOnInit( ) {
   }
@@ -34,24 +35,24 @@ export class RegisterComponent implements OnInit {
     password: this.user.password
     }
     console.log(body);
-    this.apiService.postData('http://localhost:50598/api/Account/login', body).subscribe(
-      data => {
+    this.apiService.postData('api/Account/login', body).subscribe({
+      next: (data) => {
         if (data.success) {
           this.message='Đăng nhập thành công';
           this.isSuccess = true;
           localStorage.setItem('accessToken', data.data.token.accessToken);
           console.log(data);
+          this.router.navigate(['/home']);
         } else {
           this.message='Đăng nhập thất bại';
           this.isSuccess = false;
         }
       },
-      error => {
-        console.error('Lỗi đăng nhập:', error); // Hiển thị chi tiết lỗi trong bảng điều khiển
-        this.message='Đăng nhập thất bại: Sai thông tin tài khoản hoặc lỗi hệ thống!';
+      error: (error) => {
+        this.message = error?.message || 'Đăng nhập thất bại';
         this.isSuccess = false;
       }
-    );
+    });
     
-}
+  }
 }

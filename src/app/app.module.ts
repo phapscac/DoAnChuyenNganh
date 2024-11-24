@@ -21,6 +21,10 @@ import { ContactComponent } from './contact/contact.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { HomeComponent } from './home/home.component';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
+
+
 
 @NgModule({
   declarations: [	
@@ -41,7 +45,10 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     ShippingPolicyComponent,
     InformationUsageComponent,
     ContactComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    HomeComponent,
+    MainLayoutComponent,
+
   
   ],
     
