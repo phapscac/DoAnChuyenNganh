@@ -1,0 +1,60 @@
+<div class="wrap-main w-clear">
+    <div class="title-main"><span>Liên hệ</span></div>
+
+    <div class="content-main">
+        <div class="contact-article row">
+            <div class="contact-text col-lg-6">
+                <p class="pp2">
+                    <span class="company-name">CÔNG TY TNHH THƯƠNG MẠI VÀ DỊCH VỤ KHANG NGHỊ</span>
+                </p>
+                <p><strong>Văn Phòng:</strong> 124/4 tổ 6, KP1, đường Lê Văn Khương, Hiệp Thành, Quận 12, TPHCM</p>
+                <p><strong>Mã số thuế:</strong> 0317314936</p>
+                <p><strong>Hotline:</strong> 0979 700 004 - Mr Châu</p>
+                <p><strong>Email:</strong> khangnghibusinessgmail.com</p>
+                <p><strong>Website:</strong> yourwebsite.com</p>
+            </div>
+            <form class="contact-form validation-contact col-lg-6" id="form-contact" novalidate method="post" action="" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="contact-input col-sm-6">
+                        <input type="text" class="form-control text-sm" id="fullname-contact" name="dataContact[fullname]" placeholder="Họ tên"  required>
+                        <div class="invalid-feedback">Vui lòng nhập họ và tên</div>
+                    </div>
+                    <div class="contact-input col-sm-6">
+                        <input type="tel" class="form-control text-sm" id="phone-contact" name="dataContact[phone]" placeholder="Số điện thoại"  pattern="^[0-9]{10}$" 
+                        title="Số điện thoại phải từ 10 đến 11 chữ số" required>
+                        <div class="invalid-feedback">Vui lòng nhập số điện thoại hợp lệ .</div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="contact-input col-sm-6">
+                        <input type="text" class="form-control text-sm" id="address-contact" name="dataContact[address]" placeholder="Địa chỉ" required>
+                        <div class="invalid-feedback">Vui lòng nhập địa chỉ</div>
+                    </div>
+                    <div class="contact-input col-sm-6">
+                        <input type="email" class="form-control text-sm" id="email-contact" name="dataContact[email]" placeholder="Email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+                        title="Vui lòng nhập địa chỉ email hợp lệ"  required>
+                        <div class="invalid-feedback">Vui lòng nhập địa chỉ email hợp lệ.</div>
+                    </div>
+                </div>
+                <div class="contact-input">
+                    <input type="text" class="form-control text-sm" id="subject-contact" name="dataContact[subject]" placeholder="Chủ đề" required>
+                    <div class="invalid-feedback">Vui lòng nhập chủ đề</div>
+                </div>
+                <div class="contact-input">
+                    <textarea class="form-control text-sm" id="content-contact" name="dataContact[content]" placeholder="Nội dung" required></textarea>
+                    <div class="invalid-feedback">Vui lòng nhập nội dung</div>
+                </div>
+                <div class="file-input">
+                    <input type="file" class="custom-file-input" name="file_attach">
+                    <label class="custom-file-label" for="file_attach">Đính kèm file</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Gửi</button>
+                <button type="reset" class="btn btn-secondary">Nhập lại</button>
+                <input type="hidden" name="submit-contact" value="1">
+            </form>
+        </div>
+        <div class="contact-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0572728099073!2d106.62625947316987!3d10.806925558634246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752be27ea41e05%3A0xfa77697a39f13ab0!2zMTQwIMSQLiBMw6ogVHLhu41uZyBU4bqlbiwgVMOieSBUaOG6oW5oLCBUw6JuIFBow7osIEjhu5MgQ2jDrSBNaW5oIDcwMDAwMCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1730691189321!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>
+        </div>
+    </div>
+</div>

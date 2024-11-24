@@ -1,0 +1,327 @@
+body {
+  margin: 0;
+  display: flex;
+  font-family: Arial, sans-serif;
+}
+
+#wrapper {
+  display: flex;
+  height: 100vh;
+  flex-direction: row;
+}
+
+#accordionSidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #4e73df;
+  color: white;
+  padding-top: 20px;
+  z-index: 1000;
+ 
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+.sidebar-brand-icon {
+  font-size: 2rem;
+  margin-right: 10px;
+}
+
+.sidebar-brand-text {
+  font-weight: bold;
+}
+
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Đẩy icon thông báo và người dùng sang bên phải */
+  align-items: center;
+  position: fixed; /* Đặt navbar cố định */
+  top: 0;
+  right:  0;
+  width: 86%;
+  height: 60px;
+  z-index: 1050; /* Đảm bảo navbar nằm trên sidebar */
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  padding: 0 20px;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  
+}
+
+.navbar.nav-item {
+  margin-left: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+.topbar-divider {
+  border-left: 1px solid #ddd;
+  height: 30px;
+  margin-left: 20px;
+}
+
+.img-profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  #accordionSidebar {
+    left: -250px; /* Ẩn sidebar mặc định */
+  
+    transition: all 0.3s;
+  }
+
+  #accordionSidebar.show {
+    left: 0; /* Hiện sidebar */
+  }
+
+  #content-wrapper {
+    margin-left: 0; /* Xóa khoảng trống khi sidebar ẩn */
+  }
+}
+.sidebar {
+  width: 250px;
+  background-color: #4e73df;
+  color: white;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.sidebar .sidebar-header {
+  font-size: 1rem;
+  margin: 15px 0;
+  text-transform: uppercase;
+  color: #ced4da;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar .sidebar-header:hover,
+.sidebar .sidebar-header.active {
+  background-color:  rgba(0, 0, 0, 0.1);;
+  color: white;
+}
+
+.sidebar .dropdown {
+  display: none;
+  margin-left: 10px;
+}
+
+.sidebar .dropdown a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 8px 15px;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+.sidebar .dropdown a:hover {
+  background-color: rgba(0, 0, 0, 0.1);;
+}
+
+.sidebar .sidebar-header.active + .dropdown {
+  display: block;
+}
+
+
+.main-content {
+  flex: 1;
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+.navbar {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #e3e6f0;
+}
+
+.navbar .navbar-search {
+  width: 50%;
+  max-width: 400px;
+}
+
+.navbar .form-control {
+  border-radius: 20px;
+  font-size: 0.875rem;
+}
+
+.navbar .btn-primary {
+  border-radius: 20px;
+}
+
+
+#content-wrapper {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  padding: 20px;
+}
+
+
+
+/* Notifications */
+.navbar .nav-item.dropdown.no-arrow {
+  position: relative;
+}
+
+.navbar .nav-item .badge-counter {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #e74a3b;
+  border-radius: 50%;
+  padding: 3px 6px;
+}
+
+.navbar .dropdown-list {
+  width: 300px;
+  font-size: 0.875rem;
+}
+
+.dropdown-list .dropdown-header {
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #4e73df;
+  background-color: #f8f9fc;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #e3e6f0;
+}
+
+.dropdown-list .dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-list .dropdown-item .icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-list .dropdown-item .icon-circle.bg-primary {
+  background-color: #4e73df;
+}
+
+.dropdown-list .dropdown-item .small {
+  font-size: 0.75rem;
+  color: #858796;
+}
+
+/* User Information */
+.navbar .img-profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.navbar .nav-item .dropdown-menu {
+  min-width: 200px;
+  font-size: 0.875rem;
+}
+
+.navbar .dropdown-menu .dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.navbar .dropdown-menu .dropdown-item i {
+  font-size: 1rem;
+  margin-right: 10px;
+  color: #6c757d;
+}
+
+.navbar .dropdown-divider {
+  margin: 0.5rem 0;
+}
+#sidebarToggleTop img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain; /* Đảm bảo hình ảnh không bị méo */
+  display: block; /* Đảm bảo hình ảnh không bị ẩn */
+  z-index: 10; /* Đảm bảo logo không bị che khuất */
+}
+/* Cải thiện kiểu dáng cho logo */
+.sidebar-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain; /* Đảm bảo logo không bị méo */
+  border-radius: 50%; /* Bo góc logo thành hình tròn */
+  transition: transform 0.3s ease-in-out; /* Thêm hiệu ứng khi hover */
+}
+
+.sidebar-logo:hover {
+  transform: scale(1.1); /* Phóng to logo khi hover */
+}
+
+/* Cải thiện bố cục sidebar-brand */
+.sidebar-brand {
+  display: flex;
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  padding: 10px 15px; /* Thêm khoảng đệm cho đẹp */
+  transition: background-color 0.3s ease-in-out; /* Hiệu ứng thay đổi màu nền khi hover */
+  white-space: nowrap; /* Ngăn không cho chữ xuống dòng */
+}
+
+.sidebar-brand:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Tạo hiệu ứng nền khi hover */
+  border-radius: 10px; /* Bo tròn góc của thanh sidebar-brand */
+}
+
+/* Tùy chỉnh cho phần tên thương hiệu */
+.sidebar-brand-text {
+  font-size: 1.25rem; /* Kích thước chữ lớn hơn */
+  font-weight: bold; /* Làm đậm chữ */
+  color:#ced4da; /* Màu chữ đậm */
+  margin-left: 10px; /* Thêm khoảng cách giữa logo và tên */
+  transition: color 0.3s ease; /* Hiệu ứng thay đổi màu chữ khi hover */
+  white-space: nowrap; /* Ngăn chữ xuống dòng */
+}
+
+.sidebar-brand:hover .sidebar-brand-text {
+  color: #007bff; /* Thay đổi màu chữ khi hover */
+}
+
+.main-content {
+  flex: 1;
+  background-color: #f8f9fa;
+  padding: 70px;
+}

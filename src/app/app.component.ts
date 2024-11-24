@@ -1,5 +1,6 @@
 import { Component, HostListener, Renderer2, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { ProductSearchService } from './product-search.service';  
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,32 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+searchQuery: string = '';
+searchResults: { products: any[]} = { products: [] };
+
+
+
   title = 'doanchuyennganh';
   private sticky: number = 0;
 
-  constructor(private renderer: Renderer2, @Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(private renderer: Renderer2, 
+   private productSearchService: ProductSearchService,  
+    @Inject(PLATFORM_ID) private platformId: Object) {}
+
+
+onSearch(): void {
+  if (this.searchQuery.trim()) {
+    this.productSearchService.searchProduct(this.searchQuery).subscribe(
+      productResults => {
+        this.searchResults.products = productResults;
+      },
+      error => {
+        console.error('Lỗi khi tìm kiếm sản phẩm:', error);
+      }
+    );
+}
+}
+
 
   ngOnInit(): void {
     // Kiểm tra xem mã có đang chạy trong trình duyệt hay không
