@@ -66,7 +66,7 @@ console.log('Access Token:', accessToken);
 
     // Gửi API
     this.apiService
-      .postData('http://localhost:50598/api/Account/change-password', body, { headers })
+      .postData('api/Account/change-password', body, { headers })
       .subscribe(
         (data: any) => {
           if (data.success) {
@@ -81,6 +81,7 @@ console.log('Access Token:', accessToken);
           console.error('Lỗi đổi mật khẩu:', error);
           this.message = 'Đổi mật khẩu thất bại: Lỗi hệ thống.';
           this.isSuccess = false;
+          
         }
       );
   }
