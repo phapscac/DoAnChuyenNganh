@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --primary-color: #6941c6;
+    --primary-color-hover: #9e7eeb;
+    --primary-active-bg-color: #f3ecfe;
+    --primary-background-color: #f5f5f5;
+    --primary-content-color: #fff;
+    --primary-text-color: #000;
+    --sidebar-text-color: #717171;
+  
+    --color-green: #44bd32;
+    --color-green-hover: #8ff480;
+    --color-red: #e30019;
+    --color-red-hover: #f37684;
+    --color-blue: #0859ec;
+    --color-blue-hover: #518bf6;
+    --color-lightblue: #00c0ec;
+    --color-lightblue-hover: #8ae4f8;
+  
+    --overlay-color: #00000075;
+  
+    --form-submit-bg: #6941c6;
+  
+    --checked-label-bg: #5AB2FF;
+  
+    --radius: 0.3rem;
+    --border-color: #dcdcdc;
+    --box-shadow: 1px 1px 5px -1px #0000004e, -1px -1px 5px -1px #0000004e;
+  
+    --loader-color: var(--loader-color-light);
+    --loader-color-light: #fff;
+    --loader-color-dark: #000;
+  }
