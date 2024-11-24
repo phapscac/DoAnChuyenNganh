@@ -17,7 +17,7 @@
               <div class="sidebar-content">
                 <div class="sidebar-header">Quản lý nhân viên</div>
                 <div class="dropdown">
-                  <a href="#">Profile</a>
+                  <a href="/admin/dashboard">Profile</a>
                   <a href="#">Log out</a>
                 </div>
           
@@ -29,7 +29,7 @@
                 </div>
                 <div class="sidebar-header">Quản lý thiết bị</div>
                 <div class="dropdown">
-                  <a href="#">Quản Lý Loại Sản Phẩm</a>
+                  <a href="/admin/add-product">Thêm thiết bị</a>
                   <a href="#">Quản Lý Sản Phẩm</a>
                   <a href="#">Quản Lý Đơn Hàng</a>
                 </div>
@@ -153,6 +153,9 @@
       
                
               </nav>
+          </div>
+          <div class="main-content">
+            <router-outlet></router-outlet>
           </div>
       </div>
       

@@ -319,3 +319,9 @@ body {
 .sidebar-brand:hover .sidebar-brand-text {
   color: #007bff; /* Thay đổi màu chữ khi hover */
 }
+
+.main-content {
+  flex: 1;
+  background-color: #f8f9fa;
+  padding: 70px;
+}

@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
-import { env } from './env/env';
+import { env } from '../env/env';
 
 @Injectable({
   providedIn: 'root'
@@ -21,11 +21,6 @@ export class ApiService {
   }
 
   // Gọi API POST
-<<<<<<< HEAD
-
-  
-=======
->>>>>>> oanh
   postData(url: string, payload: any, options?: any): Observable<any> {
 
     return this.http
@@ -48,13 +43,10 @@ export class ApiService {
         .pipe(catchError(this.handleError));
   }
 
-<<<<<<< HEAD
-=======
   // Xử lý lỗi
   handleError(error: HttpErrorResponse): Observable<never> {
     return throwError(() => 
       error.error
     );
   }
->>>>>>> oanh
 }
