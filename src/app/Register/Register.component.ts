@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit {
         }
       },
       error: (error) => {
-        this.message = error?.message || 'Đăng nhập thất bại';
+        this.message = error.error?.message || 'Đăng nhập thất bại';
         this.isSuccess = false;
       }
     });
