@@ -82,7 +82,7 @@ i {
 
 @keyframes web-loader-r {
   0% {
-      transform: translate(74px,40px) scale(1):
+      transform: translate(74px,40px) scale(1);
   }
 
   100% {
@@ -162,7 +162,7 @@ i {
   position: relative;
   transform: translateZ(0) scale(0.78);
   backface-visibility: hidden;
-  transform-origin: 0 0; /* see note above */
+  transform-origin: 0 0;
 }
 
   .web-loader div {
@@ -1384,13 +1384,13 @@ button:disabled {
   transform: scale(0);
 }
 
-   .page-dropdown-content.left {
-       left: 0;
-   }
+  .page-dropdown-content.left {
+    left: 0;
+  }
 
-   .page-dropdown-content.right {
-       right: 0;
-   }
+  .page-dropdown-content.right {
+    right: 0;
+  }
 
   .page-dropdown-content.show {
       visibility: visible;
