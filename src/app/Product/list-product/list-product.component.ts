@@ -4,6 +4,8 @@ import { ApiService } from '../../api.service';
  interface Data {
   ProductList: any;
  }
+
+
 @Component({
   selector: 'app-list-product',
   templateUrl: './list-product.component.html',
