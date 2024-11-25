@@ -8,7 +8,7 @@ import { RegisterComponent } from './Register/Register.component';
 import { RegisterrComponent } from './registerr/registerr.component';
 import { AboutComponent } from './about/about.component';
 import { ServicesComponent } from './services/services.component';
-
+import { ListProductComponent } from './Product/list-product/list-product.component';
 import { CustomerSupportComponent } from './customer-support/customer-support.component';
 import { RepairQuoteComponent } from './repair-quote/repair-quote.component';
 import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
@@ -23,11 +23,6 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { HomeComponent } from './home/home.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { SharedModule } from './shared/shared.module';
-
-
-
-
-
 
 @NgModule({
   declarations: [	
@@ -49,9 +44,7 @@ import { SharedModule } from './shared/shared.module';
     ChangePasswordComponent,
     HomeComponent,
     MainLayoutComponent,
-   
-
-  
+    ListProductComponent
   ],
     
 
