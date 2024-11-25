@@ -19,37 +19,7 @@
                     </div>
                 </li>
     
-                <li>
-                    <div class="sidebar-item">
-                        <a class="sidebar-link" href="/admin/orders">
-                            <i class="sidebar-icon fa-solid fa-cart-flatbed"></i>
-                            <span class="sidebar-text">Đơn hàng</span>
-                        </a>
-                        <i class="sidebar-arrow fa-solid fa-chevron-right"></i>
-                    </div>
-                    <div class="sidebar-expandation">
-                        <ul>
-                            <li>
-                                <a href="/admin/orders/create">Tạo dơn hàng</a>
-                            </li>
-                            <li>
-                                <a href="/admin/orders?filter_by=unaccepted">Chờ xác nhận</a>
-                            </li>
-                            <li>
-                                <a href="/admin/orders?filter_by=accepted">Chờ giao hàng</a>
-                            </li>
-                            <li>
-                                <a href="/admin/orders?filter_by=completed">Đã giao hàng</a>
-                            </li>
-                            <li>
-                                <a href="/admin/orders?filter_by=cancelled">Đã hủy</a>
-                            </li>
-                            <li>
-                                <a href="/admin/orders?filter_by=all">Tất cả đơn hàng</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+              
     
                 <li>
                     <div class="sidebar-item">
@@ -79,44 +49,40 @@
                             <li>
                                 <a href="/admin/products?status=out-of-stock">Sản phẩm hết hàng</a>
                             </li>
-                            <li>
-                                <a href="/admin/products?status=inactive">Sản phẩm chưa kích hoạt</a>
-                            </li>
-                            <li>
-                                <a href="/admin/products?status=deleted">Sản phẩm đã xóa</a>
-                            </li>
+                            
                         </ul>
                     </div>
                 </li>
-    
+
+
+                
                 <li>
                     <div class="sidebar-item">
-                        <a class="sidebar-link" href="/admin/reviews">
-                            <i class="sidebar-icon fa-solid fa-star-half-stroke"></i>
-                            <span class="sidebar-text">Đánh giá sản phẩm</span>
-                        </a>
+                        <div class="sidebar-link">
+                            <i class="fa-solid fa-screwdriver-wrench sidebar-icon" ></i>
+                            <span class="sidebar-text">Dịch vụ</span>
+                        </div>
                         <i class="sidebar-arrow fa-solid fa-chevron-right"></i>
                     </div>
                     <div class="sidebar-expandation">
                         <ul>
                             <li>
-                                <a href="/admin/reviews">Tất cả đánh giá</a>
+                                <a href="/admin/categories">Danh sách danh mục</a>
                             </li>
                             <li>
-                                <a href="/admin/reviews?status=not-approved">Đánh giá chưa duyệt</a>
-                            </li>
-                            <li>
-                                <a href="/admin/reviews?status=approved">Đánh giá đã duyệt</a>
+                                <a href="/admin/brands">Danh sách hãng</a>
                             </li>
                         </ul>
                     </div>
                 </li>
     
+    
+    
                 <li>
                     <div class="sidebar-item">
                         <div class="sidebar-link">
                             <i class="sidebar-icon fa-solid fa-table-list"></i>
-                            <span class="sidebar-text">Danh mục/Hãng</span>
+                            <span class="sidebar-text">Danh mục</span>
                         </div>
                         <i class="sidebar-arrow fa-solid fa-chevron-right"></i>
                     </div>
@@ -244,6 +210,8 @@
         </div>
     </div>
     <div class="main">
+       
+
         <router-outlet></router-outlet> 
     </div>
 
