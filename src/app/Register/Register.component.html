@@ -31,7 +31,7 @@
         />
       </div>
       <button type="submit" class="btn btn-primary w-100" (click)="dangNhap()">Đăng nhập</button>
-      <div *ngIf="message" class="alert" [ngClass]="{ 'alert-success': isSuccess, 'alert-danger': !isSuccess }">
+      <div *ngIf="message" class="alert mt-2" [ngClass]="{ 'alert-success': isSuccess, 'alert-danger': !isSuccess }">
         {{ message }}
       </div>
       <div class="text-center mt-3">

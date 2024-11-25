@@ -17,7 +17,7 @@
       <label for="confirmPassword">Xác nhận mật khẩu</label>
       <input [(ngModel)]="user.confirmPassword" type="password" id="confirmPassword" name="confirmPassword" class="form-control" required>
     </div>
-    <div *ngIf="Message" class="alert" [ngClass]="{ 'alert-success': successMessage, 'alert-danger': errorMessage }">
+    <div *ngIf="Message" class="alert mt-2" [ngClass]="{ 'alert-success': successMessage, 'alert-danger': errorMessage }">
       {{ Message }}
     </div>
     <button type="submit" class="btn btn-primary">Đăng Ký</button>

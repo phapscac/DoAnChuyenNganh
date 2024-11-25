@@ -46,7 +46,7 @@ export class ApiService {
   // Xử lý lỗi
   handleError(error: HttpErrorResponse): Observable<never> {
     return throwError(() => 
-      error.error
+      error
     );
   }
 }
