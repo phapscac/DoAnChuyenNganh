@@ -30,9 +30,8 @@
 <p class="text-center display-4 font-weight: bold;" style="color: #007bff;">SẢN PHẨM</p>
 <div class="row">
   <div  *ngFor="let product of data.ProductList" class="col-sm-3 d-flex flex-column align-items-center">
-    <img *ngIf="product.productImages.length > 0" src="http://res.cloudinary.com/dqchxdcjs/image/upload/v1732515181/J43yVjomFsSgZqoUHrQin8-5XZA.jpg" [alt]="product.productName" class="img-fluid product-image">
+    <img *ngIf="product.productImages.length > 0" [src]="product.productImages[0].imageUrl" [alt]="product.productName" class="img-fluid product-image">
     <h3>{{product.productName }}</h3>
     <a [routerLink]="['/product-detail']">Xem chi tiết</a>
   </div>
-  
 </div>
