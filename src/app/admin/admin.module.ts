@@ -7,6 +7,8 @@ import { ApiService } from '../api.service';
 import { AddProductComponent } from '../add-product/add-product.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProductListComponent } from '../product-list/product-list.component';
+import { ServiceListComponent } from './service-list/service-list.component';
+import { AddServiceComponent } from './add-service/add-service.component';
 
 
 @NgModule({
@@ -15,6 +17,8 @@ import { ProductListComponent } from '../product-list/product-list.component';
     LayoutComponent,
     AddProductComponent,
     ProductListComponent,
+    ServiceListComponent,
+    AddServiceComponent,
   ],
   imports: [
     CommonModule,

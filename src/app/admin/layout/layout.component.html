@@ -1,5 +1,8 @@
 
+
+
 <div class="container-fluid p-0 d-flex web-wrapper">
+
     <div class="sidebar px-3 h-100 d-flex flex-column">
 
         <div class="logo-wrapper w-100 pt-4 pb-5">
@@ -67,16 +70,16 @@
                 
                 <li>
                     <div class="sidebar-item">
-                        <div class="sidebar-link">
+                        <a class="sidebar-link" href="/admin/service-list">
                             <i class="fa-solid fa-screwdriver-wrench sidebar-icon" ></i>
                             <span class="sidebar-text">Dịch vụ</span>
-                        </div>
+                        </a>
                         <i class="sidebar-arrow fa-solid fa-chevron-right"></i>
                     </div>
                     <div class="sidebar-expandation">
                         <ul>
                             <li>
-                                <a href="/admin">Thêm dịch vụ</a>
+                                <a href="/admin/add-service">Thêm dịch vụ</a>
                             </li>
                             <li>
                                 <a href="/admin">Danh sách hãng</a>
@@ -142,6 +145,23 @@
                         <ul>
                             <li>
                                 <a href="javascript:">Tạo khuyến mãi</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="sidebar-item">
+                        <a class="sidebar-link" href="javascript:void(0)">
+                            <i class="fa-solid fa-file-contract sidebar-icon"></i>
+                            <span class="sidebar-text">Hợp đồng</span>
+                        </a>
+                        <i class="sidebar-arrow fa-solid fa-chevron-right"></i>
+                    </div>
+                    <div class="sidebar-expandation">
+                        <ul>
+                            <li>
+                                <a href="javascript:">Tạo hợp đồng</a>
                             </li>
                             
                         </ul>
@@ -245,7 +265,11 @@
             </a>
         </div>
     </div>
+
     <div class="main">
+
+
+        
        
 
         <router-outlet></router-outlet> 
