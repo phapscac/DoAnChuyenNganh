@@ -6,6 +6,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { ApiService } from '../api.service';
 import { AddProductComponent } from '../add-product/add-product.component';
 import { SharedModule } from '../shared/shared.module';
+import { ProductListComponent } from '../product-list/product-list.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { SharedModule } from '../shared/shared.module';
     DashboardComponent,
     LayoutComponent,
     AddProductComponent,
+    ProductListComponent,
   ],
   imports: [
     CommonModule,

@@ -3,8 +3,8 @@
     <div class="sidebar px-3 h-100 d-flex flex-column">
 
         <div class="logo-wrapper w-100 pt-4 pb-5">
-            <a href="index.html">
-                <img src="/stech-logo-text-color.png" />
+            <a href="/admin/">
+                <img src="/4.png" />
             </a>
         </div>
     
@@ -12,7 +12,7 @@
             <ul class="p-0">
                 <li>
                     <div class="sidebar-item">
-                        <a class="sidebar-link" href="index.html">
+                        <a class="sidebar-link" href="/admin/">
                             <i class="sidebar-icon fa-solid fa-house"></i>
                             <span class="sidebar-text">Tổng quan</span>
                         </a>
@@ -23,16 +23,25 @@
     
                 <li>
                     <div class="sidebar-item">
-                        <a class="sidebar-link" href="/admin/customers">
+                        <a class="sidebar-link" href="/admin/">
                             <i class="sidebar-icon fa-solid fa-users"></i>
                             <span class="sidebar-text">Khách hàng</span>
                         </a>
+                        <i class="sidebar-arrow fa-solid fa-chevron-right"></i>
+                    </div>
+                    <div class="sidebar-expandation">
+                        <ul>
+                            <li>
+                                <a href="/admin/add-product">Thêm khách hàng</a>
+                            </li>
+                            
+                        </ul>
                     </div>
                 </li>
     
                 <li>
                     <div class="sidebar-item active">
-                        <a class="sidebar-link" href="/admin/add-product">
+                        <a class="sidebar-link" href="/admin/product-list">
                             <i class="sidebar-icon fa-solid fa-boxes-packing"></i>
                             <span class="sidebar-text">Sản phẩm</span>
                         </a>
@@ -44,10 +53,10 @@
                                 <a href="/admin/add-product">Thêm sản phẩm</a>
                             </li>
                             <li>
-                                <a href="/admin/products?status=out-of-stock-soon">Sản phẩm sắp hết hàng</a>
+                                <a href="/admin/">Sản phẩm sắp hết hàng</a>
                             </li>
                             <li>
-                                <a href="/admin/products?status=out-of-stock">Sản phẩm hết hàng</a>
+                                <a href="/admin/">Sản phẩm hết hàng</a>
                             </li>
                             
                         </ul>
@@ -67,10 +76,10 @@
                     <div class="sidebar-expandation">
                         <ul>
                             <li>
-                                <a href="/admin/categories">Danh sách danh mục</a>
+                                <a href="/admin">Thêm dịch vụ</a>
                             </li>
                             <li>
-                                <a href="/admin/brands">Danh sách hãng</a>
+                                <a href="/admin">Danh sách hãng</a>
                             </li>
                         </ul>
                     </div>
@@ -127,6 +136,15 @@
                             <i class="sidebar-icon fa-solid fa-tags"></i>
                             <span class="sidebar-text">Khuyến mãi</span>
                         </a>
+                        <i class="sidebar-arrow fa-solid fa-chevron-right"></i>
+                    </div>
+                    <div class="sidebar-expandation">
+                        <ul>
+                            <li>
+                                <a href="javascript:">Tạo khuyến mãi</a>
+                            </li>
+                            
+                        </ul>
                     </div>
                 </li>
     
@@ -136,7 +154,16 @@
                             <i class="sidebar-icon fa-solid fa-users-gear"></i>
                             <span class="sidebar-text">Nhân viên</span>
                         </a>
+                        <i class="sidebar-arrow fa-solid fa-chevron-right"></i>
                     </div>
+                    <div class="sidebar-expandation">
+                        <ul>
+                            <li>
+                                <a href="javascript:">Thêm nhân viên</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
                 </li>
     
                 <li>
@@ -144,6 +171,15 @@
                         <a class="sidebar-link" href="javascript:void(0)">
                             <i class="sidebar-icon fa-solid fa-chart-bar"></i>
                             <span class="sidebar-text">Báo cáo</span>
+                        </a>
+                    </div>
+                </li>
+                
+                <li>
+                    <div class="sidebar-item">
+                        <a class="sidebar-link" href="javascript:void(0)">
+                            <i class="fa-regular fa-calendar-check sidebar-icon"></i>
+                            <span class="sidebar-text">Lịch làm việc</span>
                         </a>
                     </div>
                 </li>

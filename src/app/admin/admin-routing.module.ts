@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutComponent } from './layout/layout.component';
 import { AddProductComponent } from '../add-product/add-product.component';
+import { ProductListComponent } from '../product-list/product-list.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent },
       {path: 'add-product', component: AddProductComponent},
+      {path: 'product-list', component: ProductListComponent},
       // Thêm các route con khác tại đây
     ]
   }
