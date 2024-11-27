@@ -395,7 +395,7 @@
         font-size: 1.1rem;
     }
 
-.main > header {
+.main header {
     position: relative;
     height: 4rem;
     background: var(--primary-content-color);
