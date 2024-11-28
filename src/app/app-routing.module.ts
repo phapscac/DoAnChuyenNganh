@@ -18,6 +18,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { HomeComponent } from './home/home.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 const routes: Routes = [
    
@@ -53,6 +54,8 @@ const routes: Routes = [
             component: ContactComponent},
           {path:'change-password',
             component: ChangePasswordComponent},
+            { path: 'search-results', component:SearchResultsComponent},
+
     
        
       ]},

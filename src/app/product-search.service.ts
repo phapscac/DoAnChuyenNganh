@@ -8,13 +8,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductSearchService {
-  private baseUrl = 'http://localhost:50598/api/Products/search';
+  private baseUrl = 'api/Products/search';
 
   constructor(private apiService: ApiService){} 
 
-  searchProduct(query: string): Observable<any> {
-    // Gửi tham số query thay vì keyword
-    return this.apiService.getData(this.baseUrl + '?query=' + query);
+  searchProducts(query: string): Observable<any> {
+    return this.apiService.getDataa(`${this.baseUrl}`, { params: { query } });
   }
   
   

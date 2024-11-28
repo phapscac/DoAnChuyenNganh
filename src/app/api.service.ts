@@ -1,6 +1,6 @@
 // api.service.ts
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse,HttpParams } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { env } from '../env/env';
 
@@ -18,6 +18,16 @@ export class ApiService {
     return this.http
         .get(`${this.apiUrl}/${url}`,payload)
         .pipe(catchError(this.handleError));
+  }
+
+  getDataa(url: string, options?: { params?: any }): Observable<any> {
+    let params = new HttpParams();
+    if (options?.params) {
+      Object.keys(options.params).forEach(key => {
+        params = params.set(key, options.params[key]);
+      });
+    }
+    return this.http.get<any>(url, { params });
   }
 
   // Gọi API POST
