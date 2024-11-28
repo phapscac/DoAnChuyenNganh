@@ -23,6 +23,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { HomeComponent } from './home/home.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { SharedModule } from './shared/shared.module';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { SharedModule } from './shared/shared.module';
     ChangePasswordComponent,
     HomeComponent,
     MainLayoutComponent,
-    ListProductComponent
+    ListProductComponent,
+    SearchResultsComponent
   ],
     
 

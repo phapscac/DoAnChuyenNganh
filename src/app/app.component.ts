@@ -21,18 +21,18 @@ searchResults: { products: any[]} = { products: [] };
     @Inject(PLATFORM_ID) private platformId: Object) {}
 
 
-onSearch(): void {
-  if (this.searchQuery.trim()) {
-    this.productSearchService.searchProduct(this.searchQuery).subscribe(
-      productResults => {
-        this.searchResults.products = productResults;
-      },
-      error => {
-        console.error('Lỗi khi tìm kiếm sản phẩm:', error);
+    onSearch(): void {
+      if (this.searchQuery.trim()) {
+        this.productSearchService.searchProducts(this.searchQuery).subscribe(
+          (productResults: any) => {
+            this.searchResults.products = productResults;
+          },
+          (error: any) => {
+            console.error('Lỗi khi tìm kiếm sản phẩm:', error);
+          }
+        );
       }
-    );
-}
-}
+    }
 
 
   ngOnInit(): void {
