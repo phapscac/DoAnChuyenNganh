@@ -26,7 +26,10 @@ export class ListProductComponent implements OnInit {
   }
 
   getAllProduct(){
-     this.apiService.getData('api/products').subscribe({
+    const body ={
+
+    }
+     this.apiService.getData('api/products',body).subscribe({
        next: (reponse) => {
          if (reponse.success) {
             this.data.ProductList = reponse.data.items;

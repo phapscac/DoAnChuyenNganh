@@ -1,0 +1,22 @@
+<div style="height: 100%; width: 100%;">
+    <div class="col-sm-4 select-row mt-2">
+        <span class="mx-1 text-color">Số dòng: </span>
+        <p-dropdown class="row-number" appendTo="body"  #dropdown [options]="options" optionLabel="label" optionValue="value" [(ngModel)]="pageSize" (ngModelChange)="first = 0;onRowsChange()" 
+        />
+    </div>
+    <div class="pagination-container flex align-items-center justify-content-end">
+        <span class="mx-1 text-color">Tổng số dòng: <span [appFormatNumber]="totalRows" format="currency"></span></span>
+        <p-paginator
+            #paginator 
+            *ngIf="isReSearch"
+            (onPageChange)="onPageChange($event)"         
+            [first]="first"
+            [rows]="pageSize"
+            [alwaysShow]="false"
+            [pageLinkSize]="4"
+            [totalRecords]="totalRows"
+            [showFirstLastIcon]="(totalRows/pageSize) > 4"
+            [styleClass]='"direct-container"'                           
+        />    
+    </div>
+</div>

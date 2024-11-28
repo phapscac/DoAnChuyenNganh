@@ -1,0 +1,11 @@
+<input matInput
+    name="ShipTimeTo2"
+    [format]="24"
+    [ngModel]="value"
+    [ngxMatTimepicker]="pickerD" 
+    [disabled]="disabled"
+    [placeholder]="placeholder"                                         
+    readonly />
+<ngx-mat-timepicker color="accent" [appendToInput]="false" (timeSet)="timeSet($event)"  enableKeyboardInput="true"
+                    #pickerD></ngx-mat-timepicker>
+

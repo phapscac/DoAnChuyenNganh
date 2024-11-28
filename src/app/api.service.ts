@@ -14,9 +14,9 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   // Gọi API GET
-  getData(url: string): Observable<any> {
+  getData(url: string,payload:any): Observable<any> {
     return this.http
-        .get(`${this.apiUrl}/${url}`)
+        .get(`${this.apiUrl}/${url}`,payload)
         .pipe(catchError(this.handleError));
   }
 

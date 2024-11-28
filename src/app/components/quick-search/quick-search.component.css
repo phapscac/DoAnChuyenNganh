@@ -1,0 +1,48 @@
+
+.show-panel .active {
+    background-color: #E3F2FD;
+    font-weight: bold;
+    
+  }
+
+  
+  .show-panel td{
+    font-size: 14px;
+    line-height: 20px;
+    padding: 5px 5px;
+  
+  }
+  .show-panel th{
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0 5px;
+  
+  }
+  .show-panel tr:hover{
+    font-weight: bold;
+    background-color: #E3F2FD; 
+  }
+  
+  .show-panel a.functionExtend{
+    color: blue;
+    cursor: pointer;
+  }
+  .show-panel a.functionExtend:hover{
+    color: inherit;
+  }
+  .overlayPanel{
+    border: 1px solid #f5f5f5 !important;
+
+  }
+
+  .overlayPanel .p-overlaypanel-content{
+    padding: 0;
+  }
+
+  
+  
+    
+    
+  
+  
+  

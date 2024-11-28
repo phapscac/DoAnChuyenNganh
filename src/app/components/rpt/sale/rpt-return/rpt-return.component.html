@@ -1,0 +1,151 @@
+<ng-container *ngIf="data.SaleReturn">
+    <div id="printSession" class="print-style" style="display: none;">
+        <div class="row">
+            <div class="col-8 py-0">
+                <app-rpt-header></app-rpt-header>
+            </div>
+            <div class="col-4 py-0">
+                <ul class="list-unstyled text-right">
+                    <li><strong>Số CT: </strong>{{data.SaleReturn.Code}}</li>
+                    <li><strong>Ngày chứng từ: </strong><span [appFormatDate]="data.SaleReturn.VoucherDate" format="dateFilter"></span></li>
+                    <li><strong>Hạn thanh toán: </strong><span [appFormatDate]="data.SaleReturn.DueDate" format="dateFilter"></span></li>
+                    <li><strong>CT bán hàng: </strong>{{data.SaleInvoiceCode}}</li>
+                                
+                </ul>
+            </div>
+        </div>
+        <div class="row headerSession">
+            <div class="col-12 py-0">
+                <ul class="list-unstyled">
+                    <li class="text-uppercase text-center font-medium">HÀNG BÁN TRẢ LẠI</li>
+                </ul>
+            </div>          
+        </div>
+        <div class="row">
+            <div class="col-10 py-0 mb-3">
+                <ul class="list-unstyled">
+                    <li><strong>Mã KH: </strong><span class="text-uppercase">{{data.SaleReturn.CustomerCode}}</span></li>
+                    <li><strong>Tên KH: </strong><span class="text-uppercase">{{data.SaleReturn.CustomerName}}</span></li>
+                    <li><strong>Địa chỉ: </strong><span class="text-uppercase">{{data.SaleReturn.Address}}</span></li>
+                    <li><strong>Điện thoại: </strong><span class="text-uppercase">{{data.SaleReturn.CustomerPhone}}</span></li>
+                    <li class="reasonText">
+                        <strong>Lý do: </strong>
+                        <div [innerHTML]="data.SaleReturn.CancelationSumary"></div>
+                    </li> 
+                    <li><strong>Ghi chú: </strong>{{data.SaleReturn.Notes}}</li>
+                </ul>
+            </div>
+            <div class="col-2 py-0 qrCode">
+                <img class="mt-3" [src]="data.Barcode" alt="" data-action="zoom" />
+            </div>
+            
+        </div>
+        <div class="">
+            <div id="" class="position-relative table m-0" >
+                <table class="table table-edit m-0">
+                    <thead>
+                        <tr>
+                            <th>#</th>                
+                            <th class="text-left" style="white-space: nowrap">Mã hàng</th>
+                            <th class="text-left" style="white-space: nowrap">Tên hàng</th>
+                            <th class="text-center" style="white-space: nowrap">ĐVT</th>
+                            <th class="text-center" style="white-space: nowrap">SL</th>
+                            <th class="text-center" style="white-space: nowrap">Đơn giá</th>
+                            <!-- <th class="text-center">Giảm<br />(%)</th>
+                            <th class="text-center">Giảm<br />giá</th> -->
+                            <th class="text-center" style="white-space: nowrap">Thành tiền</th>
+                            <th class="text-center" style="white-space: nowrap">CK(%)</th>
+                            <th class="text-center" style="white-space: nowrap">Thuế(%)</th>
+                            <!-- <th class="text-center">VAT</th> -->
+                            <th class="text-center" style="white-space: nowrap">Tổng tiền</th>
+                            <th class="text-center w-8rem" style="white-space: nowrap">Ghi chú</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(item of data.SaleReturnDetails; track $index; let  i = $index){
+                            <tr >
+                                <td class="text-center">{{$index + 1}}</td>
+                                <td>{{item.ProductCode}}</td>
+                                <td>{{item.ProductName}}
+                                    <!-- <br *ngIf="item.LocalName" /><i *ngIf="item.LocalName">({{item.LocalName}})</i> -->
+                                </td>
+                                <td>{{item.UnitName}}</td>
+                                <td class="text-right font-bold" [appFormatNumber]="item.Quantity" format="quantity" ></td>
+                                <td class="text-right" [appFormatNumber]="item.Price" format="currency" ></td>
+                                <!-- <td class="text-right" [appFormatNumber]="item.DiscountPercent" format="quantity" ></td>
+                                <td class="text-right" [appFormatNumber]="item.DiscountAmount" format="currency" ></td> -->
+                                <td class="text-right" [appFormatNumber]="item.Amount" format="currency" ></td>
+                                <!-- <td class="text-right" [appFormatNumber]="item.TaxID == 1 ? 0 : item.TaxPercent" format="currency" ></td>     -->
+                                <td class="text-right" [appFormatNumber]="item.DiscountPercent" format="quantity" ></td>
+                                <td class="text-right" [appFormatNumber]="item.TaxPercent" format="currency" ></td>
+                                <td class="text-right" [appFormatNumber]="item.TotalAmount" format="currency" ></td>
+                                <td>{{item.Notes}}{{item.Notes == null || item.Notes == '' ? '' : '-'}}{{item.UnitNotes}}</td>
+                            </tr>
+                        }       
+                    </tbody>       
+                </table>
+            </div>
+        </div>
+        <div class="clearfix">         
+            <div class="pull-right py-0 col-4 col-offset-8">
+                <table class="table-amount">
+                    <tbody>
+                        <tr>
+                            <td>Thành tiền:</td>
+                            <td class="text-right"><span [appFormatNumber]="data.SaleReturn.Amount + data.SaleReturn.TaxAmount" format="currency" class="text-right"></span> ({{data.SaleReturn.CurrencyID}})</td>
+                        </tr>               
+                        <!--Giảm giá hóa đơn-->
+                        <tr>
+                            <td>Giảm giá:</td>
+                            <td class="text-right">
+                                {{data.SaleReturn.DiscountTotalAmount>0?'-': ''}}
+                                <span [appFormatNumber]="data.SaleReturn.DiscountTotalAmount" format="currency"></span> ({{data.SaleReturn.CurrencyID}})
+                            </td>
+                        </tr>                     
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Tổng tiền: </td>
+                            <td class="text-right"><span [appFormatNumber]="data.SaleReturn.TotalAmount" format="currency"></span> ({{data.SaleReturn.CurrencyID}})</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>          
+        </div>
+        <table class="signature"> 
+            <tr>
+                <td>
+                    <p>Người lập</p><br/>
+                    
+                </td>          
+                <td>                  
+                    <p>Nhân viên bán hàng<br/><span>(Ký, ghi rõ họ tên)</span></p>
+                </td>
+                <td>                  
+                    <p>Quản lý<br/><span>(Ký, ghi rõ họ tên)</span></p>
+                </td>
+                <!-- <td style="vertical-align: bottom"><p>Thủ kho</p></td> -->
+                
+            </tr>
+            <tr id="footerPrint">
+                <td>
+                    <p>{{data.SaleReturn.FullName}}</p>
+                </td>
+            </tr>
+            <!-- <tr id="footerPrint">
+                <td>
+                    <p><span>Người giao: {{data.Order.ShipperName}}</span></p>
+                </td>
+                <td>
+                    <p>Thủ kho</p>
+    
+                </td>
+                <td>
+                    <p class="datePrint" >{{data.OrderPrintData.PrintDateText}}</p>
+                    <p><span>{{printName}}</span>: <span [appFormatDate]="data.OrderPrintData.PrintDate" format="timeSecondFilter"></span><span *ngIf="data.OrderPrintData.PrintCount>1">- {{data.OrderPrintData.PrintCount}}</span></p>
+    
+                </td>
+            </tr> -->
+        </table>
+    </div>
+    </ng-container>

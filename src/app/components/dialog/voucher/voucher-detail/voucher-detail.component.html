@@ -1,0 +1,127 @@
+<ng-container *ngIf="data.master && voucherReferenceSelected">
+    <ng-container *ngIf="voucherReferenceSelected.Type == -1">
+        <!-- Đơn đặt hàng -->
+        <ng-container *ngIf="voucherReferenceSelected.RefType == 101">   
+            <app-sale-order-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-sale-order-dialog>        
+        </ng-container>
+        <!-- Bán hàng -->
+        <ng-container *ngIf="voucherReferenceSelected.RefType == 102">   
+            <app-sale-invoice-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-sale-invoice-dialog>
+        </ng-container>
+        <!-- Hàng bán trả lại -->
+        <ng-container *ngIf="voucherReferenceSelected.RefType == 103">   
+            <app-sale-return-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-sale-return-dialog>
+        </ng-container>
+        <!-- Mua hàng -->
+        <ng-container *ngIf="voucherReferenceSelected.RefType == 202">   
+            <app-purchase-invoice-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-purchase-invoice-dialog>
+        </ng-container>
+        <!-- Hàng mua trả lại -->
+        <ng-container *ngIf="voucherReferenceSelected.RefType == 203">   
+            <app-purchase-return-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-purchase-return-dialog>
+        </ng-container>
+        <!-- 301:Phiếu thu / 405:Phiếu thu tạm ứng bán hàng / 406:Phiếu thu khác / 416:Phiếu thu tiền bán hàng không thu được / 417:Phiếu thu tiền khách trả dư /
+            423:Phiếu thu đối tượng chưa xác định -->
+        <ng-container *ngIf="[301, 405, 406, 416, 417, 423].includes(voucherReferenceSelected.RefType)">   
+            <app-cash-in-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-cash-in-dialog>
+        </ng-container>
+        <!-- 302: Phiếu chi / 304: Phiếu chi chi phí HĐKD / 428: Phiếu hoàn tiền khách hàng / 409:Phiếu chi tạm ứng mua hàng / 422: Phiếu chi hộ / 433:Chi Tạm ứng nhân viên-->
+        <ng-container *ngIf="[302, 304, 307, 428, 409, 422, 433].includes(voucherReferenceSelected.RefType)">   
+            <app-cash-out-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-cash-out-dialog>
+        </ng-container>
+        <!-- Phiếu chuyển tiền giữa 2 tài khoản ngân hàng -->
+        <ng-container *ngIf="voucherReferenceSelected.RefType == 430">   
+            <app-payment-transfer-bank-to-bank-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-payment-transfer-bank-to-bank-dialog>
+        </ng-container>
+        <!-- 303:Chiết khấu/hỗ trợ  *chưa thấy modal-->
+         <!-- 401: Phiếu thu bán hàng / 424: Phiếu thu cấn trừ đối tượng chưa xác định (PaymentTypeID = 44) -->
+        <ng-container *ngIf="[401, 424].includes(voucherReferenceSelected.RefType)">
+            @if (voucherReferenceSelected.paymentTypeID == 1 || voucherReferenceSelected.paymentTypeID == 44) {
+                <app-customer-payment-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-customer-payment-dialog>
+            }
+            @else {
+                <app-cash-in-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-cash-in-dialog>
+            }             
+        </ng-container>
+        <!-- Phiếu chi hàng bán trả lại : paymentTypeID:5 (có hóa đơn) -->
+        <ng-container *ngIf="voucherReferenceSelected.RefType == 402">                
+            @if (voucherReferenceSelected.paymentTypeID == 5) {
+                <app-customer-refurn-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-customer-refurn-dialog>
+            }
+            @else {
+                <app-cash-out-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-cash-out-dialog>
+            }             
+        </ng-container>
+        <!-- Phieu chi mua hàng : paymentTypeID:8 (có hóa đơn) -->
+        <ng-container *ngIf="voucherReferenceSelected.RefType == 403">                
+            @if (voucherReferenceSelected.paymentTypeID == 8) {
+                <app-vendor-payment-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-vendor-payment-dialog>
+            }
+            @else {
+                <app-cash-out-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-cash-out-dialog>
+            }             
+        </ng-container>
+        <!-- Phiếu thu hàng mua trả lại : paymentTypeID:38 (có hóa đơn) -->
+        <ng-container *ngIf="voucherReferenceSelected.RefType == 418">                
+            @if (voucherReferenceSelected.paymentTypeID == 38) {
+                <app-vendor-refurn-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-vendor-refurn-dialog>
+            }
+            @else { 
+                <app-cash-in-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-cash-in-dialog>
+            }             
+        </ng-container>
+        <!-- 421: Phiếu cấn trừ mua&bán -->
+        <ng-container *ngIf="voucherReferenceSelected.RefType == 421">   
+            <app-customer-vendor-payment-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-customer-vendor-payment-dialog>
+        </ng-container>
+        <!-- 425: Phiếu điều chỉnh ngân hàng -->
+        <ng-container *ngIf="voucherReferenceSelected.RefType == 425">   
+            <app-payment-adjust-bank-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-payment-adjust-bank-dialog>
+        </ng-container>
+        <!-- 426:Phiếu chuyển tiền ngân hàng / 427: Phiếu rút tiền ngân hàng / 429: Phiếu thu lãi ngân hàng-->
+        <ng-container *ngIf="[426, 427, 429].includes(voucherReferenceSelected.RefType)">   
+            <app-payment-transfer-bank-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-payment-transfer-bank-dialog>
+        </ng-container>
+        <!-- 431:Mua hàng không thanh toán -->
+        <ng-container *ngIf="voucherReferenceSelected.RefType == 431">   
+            <app-vendor-payment-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-vendor-payment-dialog>
+        </ng-container>
+        <!-- Số dư đầu kỳ khách hàng -->
+        <ng-container *ngIf="[601, 602].includes(voucherReferenceSelected.RefType)">   
+            <app-customer-opening-balance-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-customer-opening-balance-dialog>
+        </ng-container>
+        <!-- Số dư đầu kỳ nhà cung cấp -->
+        <ng-container *ngIf="[603, 604].includes(voucherReferenceSelected.RefType)">   
+            <app-vendor-opening-balance-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-vendor-opening-balance-dialog>
+        </ng-container>
+        <!-- 605:Phiếu điều chỉnh tăng công nợ khách hàng / 606:Phiếu điều chỉnh giảm công nợ khách hàng / 
+             607:Phiếu điều chỉnh tăng công nợ NCC / 608:Phiếu điều chỉnh giảm công nợ NCC -->
+        <ng-container *ngIf="[605, 606, 607, 608].includes(voucherReferenceSelected.RefType)">   
+            <app-payment-adjust-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-payment-adjust-dialog>
+        </ng-container>
+        <!-- 901:Hóa đơn xuất điều chỉnh -->
+        <ng-container *ngIf="voucherReferenceSelected.RefType == 901">   
+            <app-e-sale-invoice-editor-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-e-sale-invoice-editor-dialog>
+        </ng-container>
+        <!-- 902:Hóa đơn nhận điều chỉnh -->
+        <ng-container *ngIf="voucherReferenceSelected.RefType == 902">   
+            <app-e-purchase-invoice-editor-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-e-purchase-invoice-editor-dialog>
+        </ng-container>
+        <!-- 432,4321:Phiếu gán công nợ -->
+        <ng-container *ngIf="[432, 4321].includes(voucherReferenceSelected.RefType)">   
+            <app-debt-assigment-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-debt-assigment-dialog>
+        </ng-container>
+        <!-- 434:Thu Tạm ứng nhân viên -->
+        <ng-container *ngIf="voucherReferenceSelected.RefType == 434">   
+            <app-employee-payment-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-employee-payment-dialog>
+        </ng-container>
+        <!-- 435:Dịch vụ thuê ngoài -->
+        <ng-container *ngIf="voucherReferenceSelected.RefType == 435">   
+            <app-cash-in-out-souring-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-cash-in-out-souring-dialog>
+        </ng-container>
+        <!-- 436:Chi dịch vụ thuê ngoài -->
+        <ng-container *ngIf="voucherReferenceSelected.RefType == 436">   
+            <app-cash-in-out-souring-dialog [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-cash-in-out-souring-dialog>
+        </ng-container>
+    </ng-container>
+</ng-container>
