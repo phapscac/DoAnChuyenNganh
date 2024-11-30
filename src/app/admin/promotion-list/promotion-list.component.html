@@ -1,5 +1,5 @@
 <header class="px-3 d-flex align-items-center justify-content-between gap-3">
-    <h4 class="m-0">Quản lý dịch vụ</h4>
+    <h4 class="m-0">Quản lý khuyến mãi</h4>
 
     <div class="d-flex align-items-center gap-4">
         <div class="notification-wrapper position-relative">
@@ -44,24 +44,7 @@
                     </div>
     
                     <div class="filter-contents">
-                        <div class="d-flex flex-wrap flex-lg-nowrap gap-4">
-                            <div>
-                                <p class="filter-content-header">Giá</p>
-    
-                                <div>
-                                </div>
-                            </div>
-    
-                            <div>
-                                <p class="filter-content-header">Tình trạng</p>
-    
-                                <div class="display-grid columns-3">
-                                    
-                                    
-                                    <input type="radio" value="" id="stt_filter-status-all" name="stt_filter-status" hidden />
-                                </div>
-                            </div>
-                        </div>
+                    
     
                         <div class="d-flex flex-wrap flex-lg-nowrap gap-4">
                             <div>
@@ -80,27 +63,6 @@
                                 </div>
                             </div>
                         </div>
-    
-                        <div class="filter-action-wrapper">
-                            <button class="filter-cancel-action page-btn">
-                                <span>BỎ CHỌN</span>
-                            </button>
-                        
-                            <button class="filter-submit-action page-btn btn-blue">
-                                <span>LỌC</span>
-                            </button>
-                        </div>
-    
-                    </div>
-                </div>
-    
-                <div class="filter-item filter-price-range">
-                    <div class="filter-btn">
-                        <span>Giá</span>
-                    </div>
-    
-                    <div class="filter-contents">
-    
     
                         <div class="filter-action-wrapper">
                             <button class="filter-cancel-action page-btn">
@@ -178,12 +140,7 @@
                         <div class="page-dropdown-item" data-value="" data-text="Sắp xếp theo">
                             <span>Sắp xếp theo</span>
                         </div>
-                        <div class="page-dropdown-item" data-value="price-ascending" data-text="Giá tăng dần">
-                            <span>Giá tăng dần</span>
-                        </div>
-                        <div class="page-dropdown-item" data-value="price-descending" data-text="Giá giảm dần">
-                            <span>Giá giảm dần</span>
-                        </div>
+                       
                         <div class="page-dropdown-item" data-value="name-az" data-text="Tên A - Z">
                             <span>Tên A - Z</span>
                         </div>
@@ -193,24 +150,11 @@
                     </div>
                 </div>
     
-                <div class="page-dropdown view-selection">
-                    <div class="page-dropdown-btn" data-selected="">
-                        <span>Dạng xem</span>
-                        <i class="fa-solid fa-caret-down"></i>
-                    </div>
-                    <div class="page-dropdown-content">
-                        <div class="page-dropdown-item" data-value="view-list" data-text="Danh sách">
-                            <span>Danh sách</span>
-                        </div>
-                        <div class="page-dropdown-item" data-value="view-grid" data-text="Lưới">
-                            <span>Lưới</span>
-                        </div>
-                    </div>
-                </div>
+              
     
                 <div class="position-relative">
                     <form class="search-form @form_class_name">
-                        <input type="text" id="search" placeholder="Tìm theo tên/mã dịch vụ" value="" required />
+                        <input type="text" id="search" placeholder="Tìm theo tên/mã khuyến mãi" value="" required />
                         <button type="submit">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
@@ -231,20 +175,7 @@
                 <span>Xóa sản phẩm đã chọn</span>
             </button>
     
-            <button class="page-btn btn-lightblue restore-selected-products">
-                <i class="fa-solid fa-trash-can-arrow-up"></i>
-                <span>Khôi phục sản phẩm đã chọn</span>
-            </button>
-    
-            <button class="page-btn btn-green activate-selected-products">
-                <i class="fa-regular fa-circle-check"></i>
-                <span>Kích hoạt sản phẩm đã chọn</span>
-            </button>
-    
-            <button class="page-btn btn-blue deactivate-selected-products">
-                <i class="fa-regular fa-circle-xmark"></i>
-                <span>Hủy kích hoạt sản phẩm đã chọn</span>
-            </button>
+           
             
         </div>
         <div class="page-table-wrapper mt-2">
@@ -255,9 +186,15 @@
                             <input type="checkbox" id="page-table-checkbox-all" />
                         </th>
                         <th>STT</th>
-                        <th>Hình</th>
-                        <th>Tên dịch vụ</th>
-                        <th>Giá </th>
+                        <th>Mã khuyến mãi</th>
+                        <th>Tên khuyễn mãi</th>
+                        <th>Loại khuyến mãi</th>
+                        <th>Giảm giá</th>
+                        <th>Giảm tối đa</th>
+                        <th>Ngày bắt đầu</th>
+                        <th>Ngày kết thúc</th>
+                        <th>Trạng thái</th>
+                        <th></th>
                        
                         <th></th>
                     </tr>
@@ -281,8 +218,13 @@
                         <td>
                             1.000.000đ
                         </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
 
                         <td>
+
                             <div class="d-flex gap-1 align-items-center justify-content-end">
                                 <a class="page-table-btn btn-lightblue" href="javascript:">
                                     <i class="fa-regular fa-pen-to-square"></i>
@@ -293,7 +235,8 @@
                             </div>
                         </td>
                     </tr>
-                
+                  
+                  
                 </tbody>
             </table>
         </div>
