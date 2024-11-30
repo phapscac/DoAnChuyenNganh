@@ -1,0 +1,216 @@
+  
+       
+            <header class="px-3 d-flex align-items-center justify-content-between gap-3">
+                <h4 class="m-0">Thêm nhân viên</h4>
+            
+                <div class="d-flex align-items-center gap-4">
+                    <div class="notification-wrapper position-relative">
+                        <a class="show-notification" href="javscript:void(0)">
+                            <i class="fa-regular fa-bell"></i>
+                        </a>
+                        <div class="notification-content">
+                            <p>Không có thông báo</p>
+                        </div>
+                    </div>
+            
+                    <div class="user-wrapper position-relative">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="user-image-wrapper">
+                                <img src="../user-no-image.svg" alt="" />
+                            </div>
+                            <i class="show-user-action fa-solid fa-chevron-down cursor-pointer"></i>
+                        </div>
+                        <div class="user-action d-flex flex-column gap-2">
+                            <a href="javascript:void(0)" class="text-nowrap d-flex align-items-center">
+                                <i class="fa-solid fa-circle-info"></i>
+                                <span>Thông tin nhân viên</span>
+                            </a>
+                            <a href="javascript:void(0)" class="text-nowrap d-flex align-items-center click-logout">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                <span>Đăng xuất</span>
+                            </a>
+                        </div>
+                    </div>
+            
+                </div>
+            </header>
+            
+
+            <main>
+                <form id="create-product">
+                    <div class="row m-0 p-3">
+                        <div class="col-12 p-0">
+                            <div class="page-content-box no-border">
+                                <div class="d-flex align-items-start justify-content-between">
+                                    <div class="page-content-header">
+                                        Thông tin chung
+                                    </div>
+                                </div>
+                
+                                <div class="row p-0 m-0">
+                                    <div class="col-12 col-lg-6">
+                                    <div class="page-input-box">
+                                        <label>Mã nhân viên</label>
+                                        <div class="page-input">
+                                            <input type="text" id="product_id" placeholder="Nhập mã nhân viên" />
+                                        </div>
+                                        <span></span> 
+                                    </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                    <div class="page-input-box">
+                                        <label>Tên nhân viên</label>
+                                        <div class="page-input">
+                                            <input type="text" id="product_name" placeholder="Nhập tên nhân viên" value="" />
+                                        </div>
+                                        <span></span>
+                                    </div>
+                                    </div>
+                                    
+                                    <div class="row m-0 p-0">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Số điện thoại</label>
+                                                <div class="page-input">
+                                                    <input type="text" id="product_price" placeholder="Nhập số điện thoại" value="" />
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Email</label>
+                                                <div class="page-input">
+                                                    <input type="text" id="product_original_price" placeholder="Email" value="" />
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row m-0 p-0">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Giới tính</label>
+                                                <div class="page-input">
+                                                    <select id="product_brand">
+                                                        <option selected>Chọn</option>
+                                                        <option value="hang1">Nam</option>
+                                                        <option value="hang1">Nữ</option>
+                                                    </select>
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Địa chỉ</label>
+                                                <div class="page-input">
+                                                    <input type="text" id="product_warranty" placeholder="Nhập địa chỉ" value="" />
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row m-0 p-0">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Chức vụ</label>
+                                                <div class="page-input">
+                                                    <select id="product_brand">
+                                                        <option selected>Chọn chức vụ</option>
+                                                        <option value="hang1">Hãng 1</option>
+                                                    </select>
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Phòng ban</label>
+                                                <div class="page-input">
+                                                    <select id="product_category">
+                                                        <option selected>Chọn phòng ban</option>
+                                                        <option value="d1">Biến tầng</option>
+                                                    </select>
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     
+                                    <div class="row m-0 p-0">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Học vấn</label>
+                                                <div class="page-input">
+                                                    <input type="text" id="product_price" placeholder="Nhập học vấn" value="" />
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Chuyên ngành</label>
+                                                <div class="page-input">
+                                                    <input type="text" id="product_original_price" placeholder="Nhập chuyên ngành" value="" />
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row m-0 p-0">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Ngày tuyển</label>
+                                                <div class="page-input">
+                                                  <input type="date" id="hireDate" name="hireDate" placeholder="Chọn ngày tuyển" required />
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                
+                
+                                </div>
+                            </div>
+                
+                            <div class="page-content-box no-border mt-3">
+                                <div class="page-content-header d-flex justify-content-between">
+                                    Hình ảnh
+                
+                                    <a href="javascript:" class="page-btn btn-border-only click-upload-image">
+                                        <i class="fa-solid fa-plus"></i>
+                                        <span>Thêm</span>
+                                    </a>
+                
+                                    <input type="file" id="upload-product-images" accept="image/*" multiple hidden />
+                                </div>
+                
+                
+                                <div class="display-grid columns-5 align-items-start gap-2 product-images-container">
+                                    
+                                </div>
+                            </div>
+                
+                
+                
+                
+                            <div class="page-content-box no-border d-flex justify-content-end mt-3">
+                                
+                                <button type="submit" class="form-submit-btn page-btn-sm btn-green">Thêm nhân viên</button>
+                            </div>
+                
+                        </div>
+                
+                     
+                
+                    </div>
+                </form>
+            </main>
+       
+
+    
