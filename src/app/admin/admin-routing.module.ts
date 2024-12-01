@@ -15,6 +15,9 @@ import { PromotionListComponent } from './promotion-list/promotion-list.componen
 import { AddPromotionComponent } from './add-promotion/add-promotion.component';
 import { ProductCategoryComponent } from './product-category/product-category.component';
 import { ServiceCategoryComponent } from './service-category/service-category.component';
+import { WarehouseListComponent } from './warehouse-list/warehouse-list.component';
+import { WarehouseInComponent } from './warehouse-in/warehouse-in.component';
+import { WarehouseOutComponent } from './warehouse-out/warehouse-out.component';
 
 
 
@@ -39,6 +42,9 @@ const routes: Routes = [
       {path : 'add-promotion', component: AddPromotionComponent},
       {path : 'product-category', component: ProductCategoryComponent},
       {path : 'service-category', component: ServiceCategoryComponent},
+      {path : 'warehouse-list', component: WarehouseListComponent},
+      {path : 'warehouse-in', component: WarehouseInComponent},
+      {path : 'warehouse-out', component: WarehouseOutComponent},
       // Thêm các route con khác tại đây
     ]
   }

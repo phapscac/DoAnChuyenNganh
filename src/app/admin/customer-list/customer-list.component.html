@@ -102,27 +102,25 @@
                         <th>Số điện thoại </th>
                         <th>Địa chỉ</th>
                         <th>Email</th>
-                        <th>Chức vụ</th>
+                        <th>Loại khách hàng</th>
 
                        
                         <th></th>
                     </tr>
                 </thead>
                 <tbody class="product-list view-list" data-view="view-list">
-                    <tr data-item="sp001">
+                    <tr data-item="sp001" *ngFor="let customer of data. CustomerList ">
                         <td>
                             <input type="checkbox" name="page-table-checkbox" value="sp001" />
                         </td>
                         <td>
-                            1
+                            {{customer.FullName}} 
                         </td>
                         <td>
-                            <div class="">
-                                <img src="https://file.hstatic.net/1000026716/file/card-man-hinh-gigabyte-aorus-geforce-rtx-4090-xtreme-waterforce-24g_f5866b6a7df641f190286f9293dc2de1_grande.jpg" alt="" style="width: 2rem">
-                            </div>
+                            <span class="text-overflow-1">{{customer.phoneNumber}}</span>
                         </td>
                         <td>
-                            <span class="text-overflow-1">Sản phẩm 1</span>
+                            <span class="text-overflow-1">{{customer.faxNumber}}</span>
                         </td>
                         <td>
                             1.000.000đ

@@ -19,6 +19,9 @@ import { AddPromotionComponent } from './add-promotion/add-promotion.component';
 import { FormsModule } from '@angular/forms';
 import { ServiceCategoryComponent } from './service-category/service-category.component';
 import { ProductCategoryComponent } from './product-category/product-category.component';
+import { WarehouseListComponent } from './warehouse-list/warehouse-list.component';
+import { WarehouseInComponent } from './warehouse-in/warehouse-in.component';
+import { WarehouseOutComponent } from './warehouse-out/warehouse-out.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { ProductCategoryComponent } from './product-category/product-category.co
     AddPromotionComponent,
     ServiceCategoryComponent,
     ProductCategoryComponent,
+    WarehouseListComponent,
+    WarehouseInComponent,
+    WarehouseOutComponent,
   ],
   imports: [
     CommonModule,

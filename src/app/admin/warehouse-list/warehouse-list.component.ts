@@ -1,42 +1,35 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApiService } from '../../api.service';
-import { on } from 'events';  // Add this line
-declare var bootstrap: any;
+import { ApiService } from '../../api.service'; // Giả sử bạn có một WarehouseService để gọi API
 
 interface Data {
-  ProductCategoryList: any;
+  WarehouseList: any;
  }
-
- 
 @Component({
-  selector: 'app-product-category',
-  templateUrl: './product-category.component.html',
-  styleUrl: './product-category.component.css'
+  selector: 'app-warehouse-list',
+  templateUrl: './warehouse-list.component.html',
+  styleUrls: ['./warehouse-list.component.css']
 })
-export class ProductCategoryComponent {
+export class WarehouseListComponent implements OnInit {
+  warehouses: any[] = [];
 
-  constructor(private api: ApiService, private router: Router)
-  {
-    
-  }
-  ngOnInit() {
-    this.getProductCategory();
-  }
+  constructor(private apiService: ApiService,
+    private router: Router) { }
 
-
-
-  data: Data = {
-    ProductCategoryList: []
+  ngOnInit(): void {
+    this.loadWarehouses();
   }
   selectedProductIds: Set<string> = new Set<string>();
-
-  getProductCategory = () => {
-    this.api.getData('api/Catalogs').subscribe(
+  
+  data: Data = {
+      WarehouseList:[]
+  }
+  loadWarehouses() {
+    this.apiService.getData('api/Warehouses').subscribe(
       {
         next: (reponse) => {
           if (reponse.success) {
-             this.data.ProductCategoryList = reponse.data;
+             this.data.WarehouseList = reponse.data;
           } else {
  
           }
@@ -46,15 +39,15 @@ export class ProductCategoryComponent {
         }
       });
   }
- 
+
   deleteProductCategory = (id: string): void => {
     const apiUrl = `api/Catalogs/delete?catalogId=${id}`; // Thay đổi URL sử dụng query string
     console.log('URL gửi yêu cầu:', apiUrl); // Kiểm tra URL gửi đi
   
-    this.api.deleteData(apiUrl).subscribe({
+    this.apiService.deleteData(apiUrl).subscribe({
       next: (response: { success: boolean }) => {
         if (response.success) {
-          this.getProductCategory();
+          this.loadWarehouses();
         } else {
           console.error('Xóa không thành công.');
         }
@@ -76,7 +69,7 @@ export class ProductCategoryComponent {
 
   toggleAll(event: any) {
     if (event.target.checked) {
-      this.data.ProductCategoryList.forEach((category: any) => this.selectedProductIds.add(category.id));
+      this.data.WarehouseList.forEach((category: any) => this.selectedProductIds.add(category.id));
     } else {
       this.selectedProductIds.clear();
     }
@@ -88,11 +81,11 @@ export class ProductCategoryComponent {
       const apiUrl = `api/Catalogs/delete?catalogId=${id}`; // Thay đổi URL sử dụng query string
       console.log('URL gửi yêu cầu:', apiUrl); // Kiểm tra URL gửi đi
 
-      this.api.deleteData(apiUrl).subscribe({
+      this.apiService.deleteData(apiUrl).subscribe({
         next: (response: { success: boolean }) => {
           if (response.success) {
             this.selectedProductIds.delete(id);
-            this.getProductCategory();
+            this.loadWarehouses();
           } else {
             console.error('Xóa danh mục sản phẩm thất bại');
           }
@@ -104,10 +97,4 @@ export class ProductCategoryComponent {
     });
   }
   
-  
 }
-
- 
-  
-
-

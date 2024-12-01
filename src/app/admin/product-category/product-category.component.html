@@ -135,7 +135,7 @@
                             <h5 class="modal-title" id="addModalLabel">Thêm loại sản phẩm</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body ">
                             <form #addForm="ngForm">
                                 <div class="mb-3">
                                     <label for="dataName" class="form-label">Mã loại sản phẩm</label>
@@ -145,7 +145,7 @@
                                     <label for="dataDescription" class="form-label">Tên loại sản phẩm</label>
                                     <textarea class="form-control" id="dataDescription" name="dataDescription" required></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary" [disabled]="!addForm.form.valid">Lưu</button>
+                                <button type="submit" class="form-submit-btn page-btn-sm btn-green " style="margin-left: 400px;" [disabled]="!addForm.form.valid">Lưu</button>
                             </form>
                         </div>
                     </div>
