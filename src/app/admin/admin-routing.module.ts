@@ -18,6 +18,7 @@ import { ServiceCategoryComponent } from './service-category/service-category.co
 import { WarehouseListComponent } from './warehouse-list/warehouse-list.component';
 import { WarehouseInComponent } from './warehouse-in/warehouse-in.component';
 import { WarehouseOutComponent } from './warehouse-out/warehouse-out.component';
+import { ReportComponent } from './report/report.component';
 
 
 
@@ -45,6 +46,7 @@ const routes: Routes = [
       {path : 'warehouse-list', component: WarehouseListComponent},
       {path : 'warehouse-in', component: WarehouseInComponent},
       {path : 'warehouse-out', component: WarehouseOutComponent},
+      {path : 'report', component: ReportComponent},
       // Thêm các route con khác tại đây
     ]
   }

@@ -1,14 +1,156 @@
-<div class="warehouse-out-container">
-  <h2>Xuất Kho</h2>
-  <form (ngSubmit)="onSubmit()" #warehouseOutForm="ngForm">
-    <div class="form-group">
-      <label for="productName">Tên Sản Phẩm</label>
-      <input type="text" id="productName" name="productName" class="form-control" [(ngModel)]="warehouseOut.productName" required>
-    </div>
-    <div class="form-group">
-      <label for="quantity">Số Lượng</label>
-      <input type="number" id="quantity" name="quantity" class="form-control" [(ngModel)]="warehouseOut.quantity" required>
-    </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!warehouseOutForm.form.valid">Xuất Kho</button>
-  </form>
-</div>
+  
+       
+            <header class="px-3 d-flex align-items-center justify-content-between gap-3">
+              <h4 class="m-0">Xuất kho</h4>
+          
+              <div class="d-flex align-items-center gap-4">
+                  <div class="notification-wrapper position-relative">
+                      <a class="show-notification" href="javscript:void(0)">
+                          <i class="fa-regular fa-bell"></i>
+                      </a>
+                      <div class="notification-content">
+                          <p>Không có thông báo</p>
+                      </div>
+                  </div>
+          
+                  <div class="user-wrapper position-relative">
+                      <div class="d-flex align-items-center gap-2">
+                          <div class="user-image-wrapper">
+                              <img src="../user-no-image.svg" alt="" />
+                          </div>
+                          <i class="show-user-action fa-solid fa-chevron-down cursor-pointer"></i>
+                      </div>
+                      <div class="user-action d-flex flex-column gap-2">
+                          <a href="javascript:void(0)" class="text-nowrap d-flex align-items-center">
+                              <i class="fa-solid fa-circle-info"></i>
+                              <span>Thông tin nhân viên</span>
+                          </a>
+                          <a href="javascript:void(0)" class="text-nowrap d-flex align-items-center click-logout">
+                              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                              <span>Đăng xuất</span>
+                          </a>
+                      </div>
+                  </div>
+          
+              </div>
+          </header>
+          
+
+          <main>
+              <form id="create-product">
+                  <div class="row m-0 p-3">
+                      <div class="col-12 p-0">
+                          <div class="page-content-box no-border">
+                              <div class="d-flex align-items-start justify-content-between">
+                                  <div class="page-content-header">
+                                      Thông tin chung
+                                  </div>
+                              </div>
+              
+                              <div class="row p-0 m-0">
+                                  <div class="col-12 col-lg-6">
+                                  <div class="page-input-box">
+                                      <label>Mã xuất kho </label>
+                                      <div class="page-input">
+                                          <input type="text" id="product_id" placeholder="Nhập mã xuất kho" />
+                                      </div>
+                                      <span></span> 
+                                  </div>
+                                  </div>
+                                  <div class="col-12 col-lg-6">
+                                    <div class="page-input-box">
+                                      <label>Ngày xuất</label>
+                                      <div class="page-input">
+                                        <input type="date" id="hireDate" name="hireDate" placeholder="Chọn ngày xuất" required />
+                                      </div>
+                                      <span></span>
+                                  </div>
+                                  </div>
+                                  
+                                
+                                  
+                                  <div class="row m-0 p-0">
+                                      <div class="col-12 col-lg-6">
+                                          <div class="page-input-box">
+                                              <label>Kho hàng</label>
+                                              <div class="page-input">
+                                                  <select id="product_brand">
+                                                      <option selected>--Chọn kho hàng--</option>
+                                                      <option value="hang1">Kho A</option>
+                                                  </select>
+                                              </div>
+                                              <span></span>
+                                          </div>
+                                      </div>
+                                      <div class="col-12 col-lg-6">
+                                        <div class="page-input-box">
+                                          <label>Hợp đồng</label>
+                                          <div class="page-input">
+                                              <select id="product_brand">
+                                                  <option selected>--Chọn hợp đồng--</option>
+                                                  <option value="hang1">Hãng 1</option>
+                                              </select>
+                                          </div>
+                                          <span></span>
+                                      </div>
+                                      </div>
+                                  </div>             
+                                  <div class="row m-0 p-0">
+                                          <div class="page-input-box">
+                                              <label>Ghi chú</label>
+                                              <div class="page-input">
+                                                <textarea class="form-control" id="dataDescription" name="dataDescription" placeholder="Nhập ghi chú nếu cần" required></textarea>
+                                              </div>
+                                              <span></span>
+                                          </div> 
+                                  </div>
+
+                                  <div class="d-flex align-items-start justify-content-between">
+                                    <div class="page-content-header">
+                                       Chi tiết sản phẩm
+                                    </div>
+                                </div>
+                                  <table class="table table-bordered">
+                                      <thead>
+                                          <tr>
+                                              <th>Sản Phẩm</th>
+                                              <th>Số Lượng</th>
+                                              <th>Đơn Giá</th>
+                                              <th>Thành Tiền</th>
+                                              <th>Hành Động</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody id="productDetails">
+                                          <!-- Các dòng sản phẩm sẽ được thêm động tại đây -->
+                                      </tbody>
+                                  </table>
+                          
+                                  <div class="d-flex justify-content-between">
+                                      <button class="btn btn-primary" id="addProduct">Thêm Sản Phẩm</button>
+                                      <h5>Tổng Tiền: <span id="totalAmount">0</span> VND</h5>
+                                  </div>
+                          
+                                  <!-- Nút lưu và hủy -->
+                                  <div class="mt-4 text-center">
+                                      <button class="btn btn-success me-2">Lưu Phiếu Nhập</button>
+                                      <button class="btn btn-danger">Hủy Bỏ</button>
+                                  </div>
+              
+              
+                              </div>
+                          </div>
+              
+                         
+              
+              
+              
+                      </div>
+              
+                   
+              
+                  </div>
+              </form>
+          </main>
+     
+
+  

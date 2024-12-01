@@ -1,0 +1,93 @@
+/* Reset các kiểu mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Định dạng header */
+header {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+
+
+header nav ul {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Phần lọc báo cáo */
+.filter {
+    margin: 20px;
+    padding: 15px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}
+
+.filter label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.filter input, .filter select {
+    margin-right: 15px;
+    padding: 5px;
+}
+
+.filter button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter button:hover {
+    background-color: #45a049;
+}
+
+/* Phần báo cáo */
+.reports {
+    margin: 20px;
+}
+
+#reportChart {
+    width: 60%!important;  /* Điều chỉnh chiều rộng */
+    height: 350px !important;  /* Điều chỉnh chiều cao */
+}
+
+#reportTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#reportTable th, #reportTable td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+#reportTable th {
+    background-color: #f4f4f4;
+}
+
