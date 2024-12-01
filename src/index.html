@@ -16,8 +16,7 @@
           integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link type="text/css" rel="stylesheet" href="/style.css" />
-
-
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
   
@@ -32,6 +31,8 @@
     });
   </script>
 
+  
+
 
 
 
@@ -41,6 +42,55 @@
   <app-root></app-root>
   <router-outlet></router-outlet> 
   <app-footer></app-footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var ctx = document.getElementById('reportChart').getContext('2d');
+      
+      var chart = new Chart(ctx, {
+        type: 'bar', // Loại biểu đồ
+        data: {
+          labels: ['Sản phẩm A', 'Sản phẩm B', 'Sản phẩm C'],
+          datasets: [{
+            label: 'Doanh thu',
+            data: [1000, 2000, 1500],
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+      // Ví dụ về cách chèn dữ liệu vào bảng báo cáo
+      var tableBody = document.querySelector('#reportTable tbody');
+      var row = document.createElement('tr');
+      row.innerHTML = `
+        <td>SP001</td>
+        <td>Sản phẩm A</td>
+        <td>1,000,000 VNĐ</td>
+        <td>100</td>
+        <td>Còn hàng</td>
+      `;
+      tableBody.appendChild(row);
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
   <!-- Bootstrap JS and jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
