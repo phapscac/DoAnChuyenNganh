@@ -1,0 +1,14 @@
+<div class="warehouse-out-container">
+  <h2>Xuất Kho</h2>
+  <form (ngSubmit)="onSubmit()" #warehouseOutForm="ngForm">
+    <div class="form-group">
+      <label for="productName">Tên Sản Phẩm</label>
+      <input type="text" id="productName" name="productName" class="form-control" [(ngModel)]="warehouseOut.productName" required>
+    </div>
+    <div class="form-group">
+      <label for="quantity">Số Lượng</label>
+      <input type="number" id="quantity" name="quantity" class="form-control" [(ngModel)]="warehouseOut.quantity" required>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!warehouseOutForm.form.valid">Xuất Kho</button>
+  </form>
+</div>
