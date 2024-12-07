@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ProductListComponent } from '../product-list/product-list.component';
 import { ServiceListComponent } from './service-list/service-list.component';
 import { AddServiceComponent } from './add-service/add-service.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AddServiceComponent } from './add-service/add-service.component';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
    
   ]
 })

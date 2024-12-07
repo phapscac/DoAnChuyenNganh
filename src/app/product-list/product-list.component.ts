@@ -52,10 +52,7 @@ export class ProductListComponent {
   }
 
   getAllProduct(){
-    const body ={
-
-    }
-    this.apiService.getData('api/products',body).subscribe({
+    this.apiService.getData('api/products').subscribe({
       next: (reponse) => {
         if (reponse.success) {
            this.data.ProductList = reponse.data.items;

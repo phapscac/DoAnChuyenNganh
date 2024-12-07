@@ -14,9 +14,9 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   // Gọi API GET
-  getData(url: string,payload:any): Observable<any> {
+  getData(url: string): Observable<any> {
     return this.http
-        .get(`${this.apiUrl}/${url}`,payload)
+        .get(`${this.apiUrl}/${url}`)
         .pipe(catchError(this.handleError));
   }
 
@@ -35,6 +35,14 @@ export class ApiService {
 
     return this.http
         .post(`${this.apiUrl}/${url}`, payload, options)
+        .pipe(catchError(this.handleError));;
+
+  }
+
+  postDataa(url: string, payload: any, options?: any): Observable<any> {
+
+    return this.http
+        .post(`${url}`, payload, options)
         .pipe(catchError(this.handleError));;
 
   }
