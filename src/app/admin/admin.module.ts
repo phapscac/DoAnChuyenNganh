@@ -23,6 +23,7 @@ import { WarehouseListComponent } from './warehouse-list/warehouse-list.componen
 import { WarehouseInComponent } from './warehouse-in/warehouse-in.component';
 import { WarehouseOutComponent } from './warehouse-out/warehouse-out.component';
 import { ReportComponent } from './report/report.component';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { ReportComponent } from './report/report.component';
     WarehouseInComponent,
     WarehouseOutComponent,
     ReportComponent,
+    EditCustomerComponent,
   ],
   imports: [
     CommonModule,

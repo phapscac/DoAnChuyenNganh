@@ -88,13 +88,14 @@
                         <td>
                         
                         </td>
+                        <td></td>
 
                         <td>
                             <div class="d-flex gap-1 align-items-center justify-content-end">
-                                <a class="page-table-btn btn-lightblue" href="javascript:">
+                                <a  (click)="openModal()" class="page-table-btn btn-lightblue" href="javascript:"(click)="editCategory(category)">
                                     <i class="fa-regular fa-pen-to-square"></i>
                                 </a>
-                                <button class="page-table-btn btn-red delete-product" (click)=" deleteProductCategory(category.catalogId)">
+                                <button class="page-table-btn btn-red delete-product" (click)=" deleteserviceCategory(category.catalogId)">
                                     <i class="fa-solid fa-trash-can"></i>
                                 </button>
                             </div>
@@ -105,21 +106,7 @@
             </table>
         </div>
     
-        <div class="d-flex justify-content-end mt-2 w-100">
-            <div class="pagination-box">
-                <a href="javascript:void(0)" class="pagination-item" data-page="previous">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </a>
-                <a href="javascript:void(0)" class="pagination-item current" data-page="1">1</a>
-                <a href="javascript:void(0)" class="pagination-item" data-page="2">2</a>
-                <a href="javascript:void(0)" class="pagination-item" data-page="3">3</a>
-                <a href="javascript:void(0)" class="pagination-item" data-page="4">4</a>
-                <a href="javascript:void(0)" class="pagination-item" data-page="5">5</a>
-                <a href="javascript:void(0)" class="pagination-item" data-page="next">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-            </div>
-        </div>
+      
         <div class="page-content-box no-border d-flex justify-content-end mt-3">
                                 
                                <!-- Nút Thêm -->
@@ -129,7 +116,7 @@
                     </button>
                     
                     <!-- Modal -->
-                    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+                    <div id="addModal" class="modal fade" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true" #addModal>
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -138,14 +125,14 @@
                           </div>
                           <div class="modal-body">
                             <!-- Form Nhập Dữ Liệu -->
-                            <form #addForm="ngForm">
+                            <form #addForm="ngForm" (ngSubmit)="addCategory()">
                               <div class="mb-3">
                                 <label for="dataName" class="form-label">Mã loại dịch vụ</label>
-                                <input type="text" class="form-control" id="dataName" name="dataName"  required>
+                                <input type="text" class="form-control" id="dataName" name="dataName" [(ngModel)]="serviceCategory.catalogId" required>
                               </div>
                               <div class="mb-3">
                                 <label for="dataDescription" class="form-label">Tên loại dịch vụ</label>
-                                <textarea class="form-control" id="dataDescription" name="dataDescription"  required></textarea>
+                                <textarea class="form-control" id="dataDescription" name="dataDescription" [(ngModel)]="serviceCategory.catalogName" required></textarea>
                               </div>
                               <button type="submit" class="form-submit-btn page-btn-sm btn-green " style="margin-left: 400px;" [disabled]="!addForm.form.valid">Lưu</button>
                             </form>
@@ -153,6 +140,31 @@
                         </div>
                       </div>
                     </div>
+                    <div id="editModal" class="modal fade" tabindex="-1" aria-labelledby="editModalLabel"  [class.show]="isModalOpen" [attr.inert]="isModalOpen ? null : true" style="display: none;">
+
+                        <div class="modal-dialog"> 
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="editModalLabel">Chỉnh sửa loại dịch vụ</h5>
+                              <button type="button" (click)="closeModal()"class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <form #editForm="ngForm" (ngSubmit)="updateCategory()">
+                                <div class="mb-3">
+                                  <label for="editDataName" class="form-label">Mã loại dịch vụ</label>
+                                  <input type="text" class="form-control" id="editDataName" name="editDataName" [(ngModel)]="serviceCategory.catalogId" required>
+                                </div>
+                                <div class="mb-3">
+                                  <label for="editDataDescription" class="form-label">Tên loại dịch vụ</label>
+                                  <textarea class="form-control" id="editDataDescription" name="editDataDescription" [(ngModel)]="serviceCategory.catalogName" required></textarea>
+                                </div>
+                                <button type="submit" class="form-submit-btn page-btn-sm btn-green" style="margin-left: 400px;" [disabled]="!editForm.form.valid">Lưu</button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    
         </div>
     
     </section>

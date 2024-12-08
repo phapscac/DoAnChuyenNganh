@@ -3,6 +3,24 @@ import { Router } from '@angular/router';
 import { ApiService } from '../../api.service'; // Giả sử bạn có một WarehouseService để gọi API
 import { isPlatformBrowser } from '@angular/common'
 
+interface Product {
+  productId: string;
+  productName: string;
+}
+interface Warehouse {
+  warehouseId: string;
+  warehouseName: string;
+}
+interface Constract{
+  constractId: string;
+  constractName: string;
+}
+interface Data {
+  Products: Product[];
+  Warehouses: Warehouse[];
+  Constracts: Constract[];
+}
+
 
 @Component({
   selector: 'app-warehouse-out',
@@ -10,7 +28,7 @@ import { isPlatformBrowser } from '@angular/common'
   styleUrls: ['./warehouse-out.component.css']
 })
 export class WarehouseOutComponent implements AfterViewInit {
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object,private apiService: ApiService) {}
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
@@ -38,4 +56,61 @@ export class WarehouseOutComponent implements AfterViewInit {
       }
     }
   }
+  data: Data = {
+    Products: [],
+    Warehouses: [],
+    Constracts: []
+
+  };
+  
+  
+  getWarehouses() {
+    this.apiService.getData('api/Warehouses/all').subscribe({
+      next: (response) => {
+        if (response.success) {
+          this.data.Warehouses = response.data;
+        } else {
+          console.error('Lỗi khi lấy danh sách kho:', response.message);
+        }
+      },
+      error: (error) => {
+        console.error('Lỗi khi lấy danh sách kho:', error);
+      }
+    });
+  }
+  getProducts() {
+    this.apiService.getData('api/Products').subscribe({
+      next: (response) => {
+        if (response.success) {
+          this.data.Products = response.data;
+        } else {
+          console.error('Lỗi khi lấy danh sách sản phẩm:', response.message);
+        }
+      },
+      error: (error) => {
+        console.error('Lỗi khi lấy danh sách sản phẩm:', error);
+      }
+    });
+  }
+  getConstracts() {
+    this.apiService.getData('/api/contracts?filterBy=yourFilterValue').subscribe({
+      next: (response) => {
+        if (response.success) {
+          this.data.Constracts = response.data;
+        } else {
+          console.error('Lỗi khi lấy danh sách hợp đồng:', response.message);
+        }
+      },
+      error: (error) => {
+        console.error('Lỗi khi lấy danh sách hợp đồng:', error);
+      }
+    });
+  }
+  ngOnInit(): void {
+  
+    this.getWarehouses();
+    this.getProducts();
+    this.getConstracts();
+  }
+
 }
