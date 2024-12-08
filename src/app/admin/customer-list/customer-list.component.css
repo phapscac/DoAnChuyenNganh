@@ -1,0 +1,42 @@
+.page-table-wrapper {
+    overflow-x: auto; /* Kích hoạt thanh trượt ngang */
+    white-space: nowrap; /* Tránh ngắt dòng bên trong bảng */
+}
+
+.page-table {
+    min-width: 1000px; /* Đảm bảo bảng không bị co nhỏ */
+    border-collapse: collapse; /* Bảng gọn gàng */
+}
+/* Các kiểu chung cho thông báo */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 9999;
+  }
+  
+  /* Thông báo thành công */
+  .notification.success {
+    background-color: #28a745; /* Màu xanh cho thành công */
+    opacity: 1;
+  }
+  
+  /* Thông báo thất bại */
+  .notification.error {
+    background-color: #dc3545; /* Màu đỏ cho thất bại */
+    opacity: 1;
+  }
+  
+  /* Thông báo khi thông báo đang hiện */
+  .notification.show {
+    opacity: 1;
+  }
+  

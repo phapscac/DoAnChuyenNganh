@@ -19,6 +19,7 @@ import { WarehouseListComponent } from './warehouse-list/warehouse-list.componen
 import { WarehouseInComponent } from './warehouse-in/warehouse-in.component';
 import { WarehouseOutComponent } from './warehouse-out/warehouse-out.component';
 import { ReportComponent } from './report/report.component';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 
 
 
@@ -47,6 +48,7 @@ const routes: Routes = [
       {path : 'warehouse-in', component: WarehouseInComponent},
       {path : 'warehouse-out', component: WarehouseOutComponent},
       {path : 'report', component: ReportComponent},
+      {path : 'edit-customer/:id', component: EditCustomerComponent},
       // Thêm các route con khác tại đây
     ]
   }
