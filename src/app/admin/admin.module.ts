@@ -10,6 +10,7 @@ import { ProductListComponent } from '../product-list/product-list.component';
 import { ServiceListComponent } from './service-list/service-list.component';
 import { AddServiceComponent } from './add-service/add-service.component';
 import { FormsModule } from '@angular/forms';
+
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { AddContractComponent } from './add-contract/add-contract.component';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
