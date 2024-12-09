@@ -1,0 +1,167 @@
+<header class="px-3 d-flex align-items-center justify-content-between gap-3">
+    <h4 class="m-0">Danh mục sản phẩm</h4>
+
+    <div class="d-flex align-items-center gap-4">
+        <div class="notification-wrapper position-relative">
+            <a class="show-notification" href="javscript:void(0)">
+                <i class="fa-regular fa-bell"></i>
+            </a>
+            <div class="notification-content">
+                <p>Không có thông báo</p>
+            </div>
+        </div>
+
+        <div class="user-wrapper position-relative">
+            <div class="d-flex align-items-center gap-2">
+                <div class="user-image-wrapper">
+                    <img src="/user-no-image.svg" alt="" />
+                </div>
+                <i class="show-user-action fa-solid fa-chevron-down cursor-pointer"></i>
+            </div>
+            <div class="user-action d-flex flex-column gap-2">
+                <a href="javascript:void(0)" class="text-nowrap d-flex align-items-center">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span>Thông tin nhân viên</span>
+                </a>
+                <a href="javascript:void(0)" class="text-nowrap d-flex align-items-center click-logout">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Đăng xuất</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</header>
+
+<main>
+    <section class="page-wrapper">
+       
+        <div class="d-flex align-items-center justify-content-between gap-2 flex-wrap">
+          
+    
+            <div class="d-flex gap-2 flex-wrap">
+               
+
+               
+    
+               
+            </div>
+        </div>
+    
+        <div class="hidden-action mt-2">
+            <button class="page-btn btn-red delete-selected-products" (click)="deleteSelectedProducts()">
+                <i class="fa-solid fa-trash-can"></i>
+                <span>Xóa sản phẩm đã chọn</span>
+            </button>
+    
+            
+        </div>
+        <div class="page-table-wrapper mt-2">
+            <table class="page-table order-list">
+                <thead class="page-table-header">
+                    <tr>
+                        <th>
+                            <input type="checkbox" id="page-table-checkbox-all" (change)="toggleAll($event)"/>
+                        </th>
+                        <th>Mã loại sản phẩm</th>
+                        <th>Tên loại sản phẩm</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="product-list view-list" data-view="view-list"  >
+                    <tr data-item="sp001"*ngFor="let category of data.ProductCategoryList " >
+                        <td>
+                            <input type="checkbox" name="page-table-checkbox" value="sp001" [value]="category.catalogId" (change)="toggleSelection(category.catalogId, $event)"/>
+                        </td>
+                       
+                        <td>
+                            {{category.catalogId }}
+                        <td>
+                            <div class="">
+                                <span class="text-overflow-1">{{category.catalogName }}</span>
+                               
+                            </div>
+                        </td>
+                        <td>
+                        </td>
+                        <td></td>
+                        <td>
+                            <div class="d-flex gap-1 align-items-center justify-content-end">
+                                <a  (click)="openModal()"
+                                             class="page-table-btn btn-lightblue" href="javascript:"(click)="editCategory(category)">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </a>
+                                <button class="page-table-btn btn-red delete-product" (click)=" deleteProductCategory(category.catalogId)">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                
+                </tbody>
+            </table>
+        </div>
+    
+        
+        
+        <div class="page-content-box no-border d-flex justify-content-end mt-3">
+                                 
+            <button type="button"  class="form-submit-btn page-btn-sm btn-green" data-bs-toggle="modal" data-bs-target="#addModal">
+                Thêm
+            </button>
+            
+            <div id="addModal" class="modal fade" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true" #addModal>
+                <div class="modal-dialog"> 
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addModalLabel">Thêm loại sản phẩm</h5>
+                            <button type="button"  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body ">
+                            <form #addForm="ngForm" (ngSubmit)="addCategory()">
+                                <div class="mb-3">
+                                    <label for="dataName" class="form-label">Mã loại sản phẩm</label>
+                                    <input type="text" class="form-control" id="dataName" name="dataName"  [(ngModel)]="productCategory.catalogId" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="dataDescription" class="form-label">Tên loại sản phẩm</label>
+                                    <textarea class="form-control" id="dataDescription" name="dataDescription"  [(ngModel)]="productCategory.catalogName" required></textarea>
+                                </div>
+                                <button type="submit"  class="form-submit-btn page-btn-sm btn-green " style="margin-left: 400px;" [disabled]="!addForm.form.valid">Lưu</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="editModal" class="modal fade" tabindex="-1" aria-labelledby="editModalLabel"  [class.show]="isModalOpen" [attr.inert]="isModalOpen ? null : true" style="display: none;">
+
+                <div class="modal-dialog"> 
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="editModalLabel">Chỉnh sửa loại sản phẩm</h5>
+                      <button type="button" (click)="closeModal()"class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form #editForm="ngForm" (ngSubmit)="updateCategory()">
+                        <div class="mb-3">
+                          <label for="editDataName" class="form-label">Mã loại sản phẩm</label>
+                          <input type="text" class="form-control" id="editDataName" name="editDataName" [(ngModel)]="productCategory.catalogId" required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="editDataDescription" class="form-label">Tên loại sản phẩm</label>
+                          <textarea class="form-control" id="editDataDescription" name="editDataDescription" [(ngModel)]="productCategory.catalogName" required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit-btn page-btn-sm btn-green" style="margin-left: 400px;" [disabled]="!editForm.form.valid">Lưu</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+        </div>
+    
+    </section>
+</main>

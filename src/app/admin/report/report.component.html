@@ -1,0 +1,86 @@
+<header class="px-3 d-flex align-items-center justify-content-between gap-3">
+    <h4 class="m-0">Báo cáo</h4>
+
+    <div class="d-flex align-items-center gap-4">
+        <div class="notification-wrapper position-relative">
+            <a class="show-notification" href="javscript:void(0)">
+                <i class="fa-regular fa-bell"></i>
+            </a>
+            <div class="notification-content">
+                <p>Không có thông báo</p>
+            </div>
+        </div>
+
+        <div class="user-wrapper position-relative">
+            <div class="d-flex align-items-center gap-2">
+                <div class="user-image-wrapper">
+                    <img src="/user-no-image.svg" alt="" />
+                </div>
+                <i class="show-user-action fa-solid fa-chevron-down cursor-pointer"></i>
+            </div>
+            <div class="user-action d-flex flex-column gap-2">
+                <a href="javascript:void(0)" class="text-nowrap d-flex align-items-center">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span>Thông tin nhân viên</span>
+                </a>
+                <a href="javascript:void(0)" class="text-nowrap d-flex align-items-center click-logout">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Đăng xuất</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</header>
+<main>
+    <section class="page-wrapper">
+        <section class="filter">
+            <form>
+                <label for="startDate">Từ ngày:</label>
+                <input type="date" id="startDate" name="startDate">
+    
+                <label for="endDate">Đến ngày:</label>
+                <input type="date" id="endDate" name="endDate">
+    
+                <label for="reportType">Chọn loại báo cáo:</label>
+                <select id="reportType" name="reportType">
+                    <option value="product">Sản phẩm</option>
+                    <option value="customer">Khách hàng</option>
+                    <option value="contract">Hợp đồng</option>
+                    <option value="stock">Kho hàng</option>
+                    <option value="invoice">Hóa đơn</option>
+                    <option value="staff">Nhân sự</option>
+                    <option value="finance">Tài chính</option>
+                </select>
+    
+                <button type="submit">Tạo báo cáo</button>
+            </form>
+        </section>
+        <section class="reports">
+            <!-- Biểu đồ báo cáo -->
+            <canvas id="reportChart"></canvas>
+
+       
+        <div class="page-table-wrapper mt-2">
+            <table class="page-table order-list" id="reportTable">
+                <thead class="page-table-header">
+                    <tr>
+                        <th>Mã</th>
+                        <th>Tên</th>
+                        <th>Doanh thu</th>
+                        <th>Số lượng</th>
+                        <th>Tình trạng</th>
+
+                       
+                    </tr>
+                </thead>
+                <tbody class="product-list view-list" data-view="view-list">
+                    
+                </tbody>
+            </table>
+        </div>
+        </section>
+    
+    
+    </section>
+</main>

@@ -1,0 +1,155 @@
+
+  
+       <header class="px-3 d-flex align-items-center justify-content-between gap-3">
+  <h4 class="m-0">Tạo khuyến mãi</h4>
+
+  <div class="d-flex align-items-center gap-4">
+      <div class="notification-wrapper position-relative">
+          <a class="show-notification" href="javscript:void(0)">
+              <i class="fa-regular fa-bell"></i>
+          </a>
+          <div class="notification-content">
+              <p>Không có thông báo</p>
+          </div>
+      </div>
+
+      <div class="user-wrapper position-relative">
+          <div class="d-flex align-items-center gap-2">
+              <div class="user-image-wrapper">
+                  <img src="../user-no-image.svg" alt="" />
+              </div>
+              <i class="show-user-action fa-solid fa-chevron-down cursor-pointer"></i>
+          </div>
+          <div class="user-action d-flex flex-column gap-2">
+              <a href="javascript:void(0)" class="text-nowrap d-flex align-items-center">
+                  <i class="fa-solid fa-circle-info"></i>
+                  <span>Thông tin nhân viên</span>
+              </a>
+              <a href="javascript:void(0)" class="text-nowrap d-flex align-items-center click-logout">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                  <span>Đăng xuất</span>
+              </a>
+          </div>
+      </div>
+
+  </div>
+</header>
+
+
+<main>
+  <form id="create-product">
+      <div class="row m-0 p-3">
+          <div class="col-12 p-0">
+              <div class="page-content-box no-border">
+                  <div class="d-flex align-items-start justify-content-between">
+                      <div class="page-content-header">
+                          Thông tin chung
+                      </div>
+                  </div>
+  
+                  <div class="row p-0 m-0">
+                      <div class="col-12 col-lg-6">
+                      <div class="page-input-box">
+                          <label>Mã khuyễn mãi</label>
+                          <div class="page-input">
+                              <input type="text" id="product_id" placeholder="Nhập mã khuyến mãi" />
+                          </div>
+                          <span></span> 
+                      </div>
+                      </div>
+                      <div class="col-12 col-lg-6">
+                      <div class="page-input-box">
+                          <label>Tên khuyến mãi</label>
+                          <div class="page-input">
+                              <input type="text" id="product_name" placeholder="Nhập tên khuyễn mãi" value="" />
+                          </div>
+                          <span></span>
+                      </div>
+                      </div>
+                   
+                      
+                      <div class="row m-0 p-0">
+                        <div class="col-12 col-lg-6">
+                          <div class="page-input-box">
+                              <label>Ngày bắt đầu</label>
+                              <div class="page-input">
+                                <input type="date" id="hireDate" name="hireDate" placeholder="Chọn ngày bắt đầu" required />
+                              </div>
+                              <span></span>
+                          </div>
+                      </div>
+                      <div class="col-12 col-lg-6">
+                        <div class="page-input-box">
+                            <label>Ngày kết thúc</label>
+                            <div class="page-input">
+                              <input type="date" id="hireDate" name="hireDate" placeholder="Chọn kết thúc" required />
+                            </div>
+                            <span></span>
+                        </div>
+                    </div>
+                    
+                      </div>
+                      <div class="row m-0 p-0">
+                        <div class="col-12 col-lg-6">
+                          <div class="page-input-box">
+                              <label>Loại khuyến mãi</label>
+                              <div class="page-input">
+                                <select id="product_brand">
+                                    <option selected>Chọn khuyến mãi</option>
+                                    <option value="hang1">Giảm giá trực tiếp</option>
+                                    <option value="hang1">Giảm giá theo tỷ lệ phần trăm</option>
+                                </select>
+                            </div>
+                              <span></span>
+                          </div>
+                      </div>
+                     
+                    
+                      </div>
+                      
+                      <div class="row m-0 p-0">
+                          <div class="col-12 col-lg-6">
+                              <div class="page-input-box">
+                                  <label>Giảm giá</label>
+                                  <div class="page-input">
+                                    <input type="number" id="product_name" placeholder="Nhập giảm giá" value="" />
+                                </div>
+                                  <span></span>
+                              </div>
+                          </div>
+
+                          <div class="col-12 col-lg-6">
+                              <div class="page-input-box">
+                                  <label>Giảm tối đa</label>
+                                  <div class="page-input">
+                                    <input type="number" id="product_name" placeholder="Nhập số tiền được giảm" value="" />
+                                </div>
+                                  <span></span>
+                              </div>
+                          </div>
+                      </div>
+                       
+                     
+                     
+  
+  
+                  </div>
+              </div>
+  
+            
+  
+  
+              <div class="page-content-box no-border d-flex justify-content-end mt-3">
+                  
+                  <button type="submit" class="form-submit-btn page-btn-sm btn-green">Thêm khuyến mãi</button>
+              </div>
+  
+          </div>
+  
+       
+  
+      </div>
+  </form>
+</main>
+
+

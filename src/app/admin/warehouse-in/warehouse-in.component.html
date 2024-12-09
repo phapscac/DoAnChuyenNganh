@@ -1,0 +1,142 @@
+<header class="px-3 d-flex align-items-center justify-content-between gap-3">
+    <h4 class="m-0">Nhập kho</h4>
+    <div class="d-flex align-items-center gap-4">
+        <div class="notification-wrapper position-relative">
+            <a class="show-notification" href="javascript:void(0)">
+                <i class="fa-regular fa-bell"></i>
+            </a>
+            <div class="notification-content">
+                <p>Không có thông báo</p>
+            </div>
+        </div>
+        <div class="user-wrapper position-relative">
+            <div class="d-flex align-items-center gap-2">
+                <div class="user-image-wrapper">
+                    <img src="../user-no-image.svg" alt="" />
+                </div>
+                <i class="show-user-action fa-solid fa-chevron-down cursor-pointer"></i>
+            </div>
+            <div class="user-action d-flex flex-column gap-2">
+                <a href="javascript:void(0)" class="text-nowrap d-flex align-items-center">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span>Thông tin nhân viên</span>
+                </a>
+                <a href="javascript:void(0)" class="text-nowrap d-flex align-items-center click-logout">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Đăng xuất</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <form id="create-product" (ngSubmit)="save()">
+        <div class="row m-0 p-3">
+            <div class="col-12 p-0">
+                <div class="page-content-box no-border">
+                    <div class="d-flex align-items-start justify-content-between">
+                        <div class="page-content-header">Thông tin chung</div>
+                    </div>
+
+                    <div class="row p-0 m-0">
+                        <div class="col-12 col-lg-6">
+                            <div class="page-input-box">
+                                <label>Mã nhập kho</label>
+                                <div class="page-input">
+                                    <input type="text" id="product_id" placeholder="Nhập mã nhập kho" [(ngModel)]="productId" required />
+                                </div>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="page-input-box">
+                                <label>Ngày nhập</label>
+                                <div class="page-input">
+                                    <input type="date" id="hireDate" name="hireDate" placeholder="Chọn ngày nhập" required [(ngModel)]="entryDate" />
+                                </div>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="row m-0 p-0">
+                            <div class="col-12 col-lg-6">
+                                <div class="page-input-box">
+                                    <label>Kho hàng</label>
+                                    <div class="page-input">
+                                        <select [(ngModel)]="selectedWarehouse" required>
+                                            <option value="" disabled selected>--Chọn kho hàng--</option>
+                                            <option *ngFor="let warehouse of data.Warehouses" [value]="warehouse.warehouseId">{{ warehouse.warehouseName }}</option>
+                                        </select>
+                                    </div>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="page-input-box">
+                                    <label>Nhà cung cấp</label>
+                                    <div class="page-input">
+                                        <select [(ngModel)]="selectedSupplier" required>
+                                            <option value="" disabled selected>--Chọn nhà cung cấp--</option>
+                                            <option *ngFor="let supplier of data.Suppliers" [value]="supplier.supplierId">{{ supplier.supplierName }}</option>
+                                        </select>
+                                    </div>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-0 p-0">
+                            <div class="page-input-box">
+                                <label>Ghi chú</label>
+                                <div class="page-input">
+                                    <textarea class="form-control" id="dataDescription" name="dataDescription" placeholder="Nhập ghi chú nếu cần" [(ngModel)]="note"></textarea>
+                                </div>
+                                <span></span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-start justify-content-between">
+                            <div class="page-content-header">Chi tiết sản phẩm</div>
+                        </div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Sản Phẩm</th>
+                                    <th>Số Lượng</th>
+                                    <th>Đơn Giá</th>
+                                    <th>Thành Tiền</th>
+                                    <th>Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productDetails">
+                                <tr *ngFor="let product of selectedProducts; let i = index">
+                                    <td>
+                                        <select [(ngModel)]="product.productId" class="form-select" required>
+                                            <option value="" disabled selected>-- Chọn sản phẩm --</option>
+                                            <option *ngFor="let productItem of data.Products" [value]="productItem.productId">{{ productItem.productName }}</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" [(ngModel)]="product.quantity" class="form-control" min="1" placeholder="Số lượng" required /></td>
+                                    <td><input type="number" [(ngModel)]="product.price" class="form-control" min="0" placeholder="Đơn giá" required /></td>
+                                    <td class="text-end">{{ product.quantity * product.price }} VND</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-danger btn-sm" (click)="removeProduct(i)">Xóa</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-primary" id="addProduct" (click)="addProduct()">Thêm Sản Phẩm</button>
+                            <h5>Tổng Tiền: <span id="totalAmount">{{ total }} VND</span></h5>
+                        </div>
+
+                        <div class="mt-4 text-center">
+                            <button type="submit" class="btn btn-success me-2">Lưu Phiếu Nhập</button>
+                            <button type="button" class="btn btn-danger" (click)="cancel()">Hủy Bỏ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</main>

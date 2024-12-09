@@ -1,4 +1,16 @@
-//Lazy loading image
+
+
+
+
+
+
+
+
+
+
+
+
+
 function loadImg(img) {
     const url = img.getAttribute('lazy-src');
 
