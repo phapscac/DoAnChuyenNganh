@@ -25,11 +25,11 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { SharedModule } from './shared/shared.module';
 import { SearchResultsComponent } from './search-results/search-results.component';
 
+
 @NgModule({
   declarations: [	
     AppComponent,
     FooterComponent,
-    
     ProductDetailComponent,
     RegisterComponent,
     RegisterrComponent,
@@ -57,8 +57,6 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     HttpClientModule,
     FormsModule,
     SharedModule
- 
-    
 
   ],
   providers: [

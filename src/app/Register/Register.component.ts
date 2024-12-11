@@ -41,14 +41,8 @@ export class RegisterComponent implements OnInit {
           this.message='Đăng nhập thành công';
           this.isSuccess = true;
           localStorage.setItem('accessToken', data.data.token.accessToken);
-          localStorage.setItem('role', data.data.role);
           console.log(data);
-          if (data.data.role === 'admin') {
-            this.router.navigate(['/admin']);
-          } else {
-            this.router.navigate(['/home']);
-          }
-          
+          this.router.navigate(['/home']);
         } else {
           this.message='Đăng nhập thất bại';
           this.isSuccess = false;

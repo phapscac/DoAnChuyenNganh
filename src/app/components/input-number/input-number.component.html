@@ -1,0 +1,20 @@
+<p-inputNumber
+    styleClass="w-full"        
+    title="addCustomerVisible"
+    [inputStyleClass]="(required==true && allowNull && value ==null)?className+' ng-invalid':className"
+    [disabled]="disabled"
+    [(ngModel)]="value"
+    (ngModelChange)="onValueChange()" 
+    [ngModelOptions]="{standalone: true}"
+    [inputId]="inputId"
+    locale="vi-VN"                                                
+    autocomplete="off"
+    [min]="min"                                                      
+    [minFractionDigits]="0"
+    [maxFractionDigits]="globalServer.maxFractionDigits"
+    [allowEmpty]="allowNull"
+    [required]="required"
+    [maxlength]="maxlength"
+    (onFocus)="selectInput($event)"
+    >
+</p-inputNumber>

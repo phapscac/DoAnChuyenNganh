@@ -1,0 +1,378 @@
+<ng-container *ngIf="data.SaleInvoice">
+    <div id="printSession" class="print-style" style="display: none;">
+        <div class="row">
+            <div class="col-8 py-0">
+                <app-rpt-header></app-rpt-header>
+            </div>
+            <div class="col-4 py-0">
+                <ul class="list-unstyled text-right">
+                    <li><strong>Số CT: </strong>{{data.SaleInvoice.Code}}</li>
+                    <li><strong>Ngày CT: </strong><span [appFormatDate]="data.SaleInvoice.VoucherDate" format="dateFilter"></span></li>            
+                    <li><strong>Kho xuất: </strong>{{data.SaleInvoice.StockName}}</li>             
+                </ul>
+            </div>
+        </div>
+        <div class="row headerSession">
+            <div class="col-12 py-0">
+                <ul class="list-unstyled">
+                    <li class="text-center">
+                        <span class="text-uppercase"> Hóa đơn bán hàng</span>
+                        <span style="font-style:italic">(Liên 1)</span>
+                        <span *ngIf="data.SaleInvoicePrintData.SaleCode != ''"> - {{data.SaleInvoicePrintData.SaleCode}}</span>
+                        <div  *ngIf="data.SaleInvoicePrintData.PrintCount > 1" class="justify-content-center" style="font-style:italic;font-size: 13px;"><strong>-- In lần {{data.SaleInvoicePrintData.PrintCount}} --</strong></div>
+                        </li>
+                </ul>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-10 py-0 mb-3">
+                <ul class="list-unstyled">
+                    <!-- <li><strong>Nhân viên: </strong><span class="text-uppercase">{{data.SaleInvoice.UserName}} - {{data.SaleInvoice.OrderPhone}}</span></li> -->
+                    <li><strong>Mã KH: </strong><span class="text-uppercase">{{data.SaleInvoice.CustomerCode}}</span></li>
+                    <li><strong>Tên KH: </strong><span class="text-uppercase">{{data.SaleInvoice.CustomerName}}</span></li>
+                    <!-- <li><strong>Ngày giao: </strong>
+                        <span [appFormatDate]="data.SaleInvoice.AccountingDate" format="dateTimeFilter"></span></li>
+                    <li><strong>Ghi chú: </strong>{{ data.SaleInvoice.Notes}}</li> -->
+                    <li><strong>Địa chỉ giao hàng: </strong><span class="text-uppercase">{{data.SaleInvoice.ShipAddress}}</span></li>
+                </ul>
+            </div>
+            <div class="col-2 py-0 qrCode">
+                <img [src]="data.SaleInvoicePrintData.Barcode" alt="" data-action="zoom" />
+            </div>
+            
+        </div>
+        <div class="">
+            <div id="" class="position-relative table m-0" >
+                <table class="table table-edit m-0">
+                    <thead>
+                        <tr>
+                            <th>#</th>                
+                            <th class="text-left" style="width:20px">Mã hàng</th>
+                            <th class="text-left">Tên hàng</th>
+                            <th class="text-center" style="width:50px">ĐVT</th>
+                            <th class="text-center" style="width:30px">SL</th>
+                            <th class="text-center">Đơn giá</th>
+                            <!-- <th class="text-center">Giảm<br />(%)</th>
+                            <th class="text-center">Giảm<br />giá</th> -->
+                            <th class="text-center">Thành tiền</th>
+                            <th class="text-center">CK(%)</th>
+                            <th class="text-center">VAT</th>
+                            <!-- <th class="text-center">VAT</th> -->
+                            <th class="text-center">Ghi chú</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(item of data.SaleInvoiceDetails; track $index; let  i = $index){
+                            <tr >
+                                <td class="text-center">{{$index + 1}}</td>
+                                <td>{{item.ProductCode}}</td>
+                                <td>{{item.ProductName}}<br *ngIf="item.LocalName" /><i *ngIf="item.LocalName">({{item.LocalName}})</i></td>
+                                <td>{{item.UnitName}}</td>
+                                <td class="text-right font-bold" style="font-size: 15px;" [appFormatNumber]="item.Quantity" format="quantity" ></td>
+                                <td class="text-right" [appFormatNumber]="item.Price" format="currency" ></td>
+                                <!-- <td class="text-right" [appFormatNumber]="item.DiscountPercent" format="quantity" ></td>
+                                <td class="text-right" [appFormatNumber]="item.DiscountAmount" format="currency" ></td> -->
+                                <td class="text-right" [appFormatNumber]="item.Amount" format="currency" ></td>
+                                <!-- <td class="text-right" [appFormatNumber]="item.TaxID == 1 ? 0 : item.TaxPercent" format="currency" ></td>     -->
+                                <td class="text-right" [appFormatNumber]="item.DiscountPercent" format="quantity" ></td>
+                                <td class="text-right" [appFormatNumber]="item.TaxPercent" format="currency" ></td>
+                                <td>{{item.Notes}}{{item.Notes == null || item.Notes == '' ? '' : '-'}}{{item.UnitNotes}}</td>
+                            </tr>
+                        }       
+                    </tbody>       
+                </table>
+            </div>
+        </div>
+        <div class="clearfix">
+            <div class="row" >
+                <div class="col-6 py-0">
+                    <ul class="list-unstyled">
+                        <li><strong>Ghi chú:</strong> {{ data.SaleInvoice.Notes}} </li>
+                        <li *ngIf="data.SaleInvoice.OrderCode">
+                            Đặt hàng: {{data.SaleInvoicePrintData.OrderCreatedBy}} - {{data.SaleInvoicePrintData.OrderPhone}}
+                        </li>
+                        <li *ngIf="data.SaleInvoice.SalerName != ''">
+                            {{data.SaleInvoice.SalerName}}<span *ngIf="data.SaleInvoice.AccountantName != ''">/ {{data.SaleInvoice.AccountantName}}</span>
+                        </li>   
+                        <li *ngIf="data.SaleInvoice.OrderCode"><span >{{data.SaleInvoice.OrderCode}}</span><span *ngIf="data.SaleInvoicePrintData.OrderCreatedDate"> - </span><span *ngIf="data.SaleInvoicePrintData.OrderCreatedDate" [appFormatDate]="data.SaleInvoicePrintData.OrderCreatedDate" format="dateTimeFilter"></span></li>
+                        <li *ngIf="data.SaleInvoice.OrderCode"><span >{{data.SaleInvoicePrintData.OrderApproveName}}</span><span *ngIf="data.SaleInvoicePrintData.OrderApproveName"> - </span><span *ngIf="data.SaleInvoicePrintData.OrderApproveName" [appFormatDate]="data.SaleInvoicePrintData.OrderApprovedDate" format="dateTimeFilter"></span></li>
+                    </ul>
+                </div>
+                <div class="col-6 py-0">
+                    <div class="row">
+                        <span class="col-6 py-0 CompanyQRCode" style="position: relative">
+                            <img [src]="data.SaleInvoicePrintData.PaymentQRCode" class="CompanyQRCode" *ngIf="data.SaleInvoicePrintData.PaymentQRCode != null && data.SaleInvoicePrintData.PaymentQRCode != ''" />
+                            <span style="position: absolute; left: 0; bottom: -0px; font-size: 8px; width: 100%; white-space: nowrap">
+                                Quét mã để thanh toán
+                            </span>
+                        </span>
+                        <div class="pull-right py-0 col-5 col-offset-1">
+                            <table class="table-amount">
+                                <tbody>
+                                    <tr>
+                                        <td>Thành tiền:</td>
+                                        <td class="text-right"><span [appFormatNumber]="data.SaleInvoice.Amount" format="currency" class="text-right"></span></td>
+                                    </tr>
+                                    <!--Chiết khấu sản phẩm-->
+                                    <tr>
+                                        <td>Chiết khấu:</td>
+                                        <td class="text-right">
+                                            {{data.SaleInvoice.DiscountProductAmount > 0?'-': ''}}
+                                            <span [appFormatNumber]="data.SaleInvoice.DiscountProductAmount" format="currency" ></span>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr *ngIf="data.SaleInvoice.ChargeAmount>0">
+                                        <td>Chi phí</td>
+                                        <td class="text-right"><span [appFormatNumber]="data.SaleInvoice.ChargeAmount" format="currency"></span></td>
+                                    </tr>
+                                    <tr *ngIf="data.SaleInvoicePrintData.TaxAmount5>0">
+                                        <td>Thuế VAT 5%</td>
+                                        <td class="text-right"><span [appFormatNumber]="data.SaleInvoicePrintData.TaxAmount5" format="currency"></span></td>
+                                    </tr>
+                                    <tr *ngIf="data.SaleInvoicePrintData.TaxAmount8>0">
+                                        <td>Thuế VAT 8%</td>
+                                        <td class="text-right"><span [appFormatNumber]="data.SaleInvoicePrintData.TaxAmount8" format="currency"></span></td>
+                                    </tr>
+                                    <tr *ngIf="data.SaleInvoicePrintData.TaxAmount10>0">
+                                        <td>Thuế VAT 10%</td>
+                                        <td class="text-right"><span [appFormatNumber]="data.SaleInvoicePrintData.TaxAmount10" format="currency"></span></td>
+                                    </tr>
+                                    <!--Giảm giá hóa đơn-->
+                                    <tr *ngIf="data.SaleInvoice.DiscountAmount>0">
+                                        <td>Giảm giá:</td>
+                                        <td class="text-right">
+                                            {{data.SaleInvoice.DiscountAmount>0?'-': ''}}
+                                            <span [appFormatNumber]="data.SaleInvoice.DiscountAmount" format="currency"></span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td>Tổng tiền: </td>
+                                        <td class="text-right"><span [appFormatNumber]="data.SaleInvoice.TotalAmount" format="currency"></span>({{data.SaleInvoice.CurrencyID}})</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="signature">
+            <tr>
+                <td colspan="4" style="text-align:left">
+                    <b>
+                        Bằng chữ: {{data.SaleInvoicePrintData.AmountDescription}}
+                    </b>
+                    <br />
+                    <a *ngIf="data.SaleInvoicePrintData.PaymentContent != null">Chuyển khoản: {{data.SaleInvoicePrintData.PaymentContent}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td valign="bottom" class="vertical-align-top" >
+                    <strong *ngIf="data.SaleInvoice.DepositAmount == 0"> Hạn thanh toán: <span *ngIf="data.SaleInvoice.PaymentTermID == 1"  >{{data.SaleInvoicePrintData.PaymentDuedate}}</span></strong><br />
+                    <strong *ngIf="data.SaleInvoice.DepositAmount > 0"> Đã trả trước: <span [appFormatNumber]="data.SaleInvoice.DepositAmount" format="currency"></span></strong>
+                    <strong *ngIf="data.SaleInvoicePrintData.BalanceAmount > 0"> Công nợ: <span [appFormatNumber]="data.SaleInvoicePrintData.BalanceAmount" format="currency"></span></strong>
+                    <p>Người nhận</p>
+                    
+                  
+                </td>
+                <td>
+                    <p>Ngày giao: <span [appFormatDate]="data.SaleInvoice.DeliveryDate" format="dateTimeFilter"></span></p>
+                    <strong>Tổng SL: <span [appFormatNumber]="data.SaleInvoicePrintData.TotalQuantity" format="quantity"></span></strong>
+                    <p style="padding-top: 17px;">Người giao: {{data.SaleInvoice.ShipperName}}</p>
+                </td>
+                <!-- <td style="vertical-align: bottom"><p>Thủ kho</p></td> -->
+                <td>
+                    <p>{{data.SaleInvoicePrintData.PrintDateText}}</p>
+                    <p>Người lập lúc: <span [appFormatDate]="data.SaleInvoicePrintData.PrintDate" format="timeFilter"></span></p>
+                    <p style="padding-top: 17px;">{{data.SaleInvoice.UserName}} </p>
+                </td>
+                <!-- <td>
+                    <img src="{{storeInfo.QRCode}}" class="CompanyQRCode" ng-if="storeInfo.QRCode != null && storeInfo.QRCode != ''" />
+                </td> -->
+            </tr>
+
+        </table>
+        <div>
+            <p class="text-center" style="font-style: italic; width: 100%;padding-top: 40px;padding-bottom: 10px;">Cảm Ơn Quý Khách Và Hẹn Gặp Lại.</p>
+        </div>
+    </div>
+    <div id="printReceiptSession" class="printArea" style="display: none">
+        <style>
+            #printReceiptSession *:not(h1,h2,h3,h4){
+                font-size: 17px;
+            }
+            .container-in {
+                width: 100mm;
+                height: auto;
+                padding: 0mm 0mm 1mm 0mm;
+                *{
+                    font-family: 'Bodonitow';
+                }
+                
+            }
+            table {
+                width: 100%;
+            }
+            .footer-print {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            .footer-print p {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+            }
+            .header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+            .header h1 {
+                font-size: 26px;
+                text-transform: uppercase;
+            }
+            .inline-bottom {
+                border-bottom: 1px solid #111;
+                border-style: dashed;
+            }
+            .text-right-print {
+                width: 40%;
+            }
+            .table-data {
+                width: 100%;
+                font-size: 17px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .table-data a {
+                width: 25%;
+            }
+            .container-in header table tbody tr td span, .container-in header table tbody tr td {
+                font-size: 20px;
+            }
+            .container-in footer p span {
+                font-size: 18px;
+            }
+            .padding-top {
+                padding-top: 5px;
+            }
+            .quantity-flex {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .quantity-flex span {
+                padding: 0 10px;
+            }
+        </style>
+        <div class="container-in">
+            <header>
+                <div class="header">
+                    <h2 class="my-2">{{storeInfo.SiteName}}</h2>
+                    <span style="text-align: center; font-size: 18px;">{{storeInfo.AddressSite}}</span>
+                    <span style="font-size: 18px;">Điện thoại: {{storeInfo.PhoneSite}}</span>
+                    <h1 class="my-2">HÓA ĐƠN BÁN HÀNG</h1>
+                </div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td colspan="2">Số CT: <span>{{data.SaleInvoice.Code}}</span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Nhân viên: <span>{{data.SaleInvoice.UserName}}</span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Khách hàng: <span>{{data.SaleInvoice.CustomerName}} </span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">ĐC: <span>{{data.SaleInvoice.ShipAddress}} </span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">ĐT: <span>{{data.SaleInvoice.CustomerPhone}} </span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Ngày in: <span [appFormatDate]="data.SaleInvoicePrintData.PrintDate" format="dateTimeFilter"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </header>
+            <p class="padding-top"></p>
+            <p class="inline-bottom"></p>
+            <div>
+                <div>
+                    @for (row of data.SaleInvoiceDetails; track $index; let  index = $index) {
+                        <div>
+                            <div class="text-left">
+                                <div class="padding-top">
+                                    <a>
+                                        <span style="font-size: 18px; text-transform: uppercase;">
+                                            <span style="padding-right: 10px;">{{$index + 1}}.</span> {{row.ProductName}}
+                                        </span>
+                                    </a>
+                                    <div class="table-data padding-top">
+                                        <a class="quantity-flex">
+                                            <span class="text-left" [appFormatNumber]="row.Quantity" format="quantity"></span>
+                                            <span class="text-left">x</span>
+                                            <span class="text-left" [appFormatNumber]="row.Price" format="currency"></span>
+                                        </a>
+                                        <a class="text-right"><span *ngIf="row.DiscountAmount != '0' || row.DiscountAmount != 0"><span style="padding: 0 15px"></span>-<span [appFormatNumber]="row.DiscountAmount" format="currency"></span></span></a>
+                                        <!-- <a class=""><span [appFormatNumber]="row.TaxAmount" format="currency"></span></a> -->
+                                        <a class="text-right"><span [appFormatNumber]="row.TotalAmount" format="currency"></span></a>
+                                    </div>
+                                </div>
+                            </div>          
+                        </div>
+                    }
+                </div>
+                <p class="inline-bottom"></p>
+                <table>
+                    <tfoot>
+                        <tr>
+                            <td class="text-left text-right-print" style="font-size: 17px">Thành tiền:</td>
+                            <td colspan="2" class="text-right" style="font-size: 17px">
+                                <span [appFormatNumber]="data.SaleInvoice.Amount + data.SaleInvoice.TaxAmount - data.SaleInvoice.DiscountProductAmount" format="currency" style="font-size: 17px"></span>
+                                 ({{data.SaleInvoice.CurrencyID}})</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left text-right-print" style="font-size: 17px">Giảm giá:</td>
+                            <td colspan="2" class="text-right" style="font-size: 17px">
+                                {{data.SaleInvoice.DiscountAmount>0?'-': ''}}<span [appFormatNumber]="data.SaleInvoice.DiscountAmount" format="currency" style="font-size: 17px"></span>
+                                ({{data.SaleInvoice.CurrencyID}})</td>
+                        </tr>
+                        <tr class="mt-2">
+                            <td class="text-left text-right-print"><h3>Tổng tiền:</h3></td>
+                            <td colspan="2" class="text-right" style="font-size: 20px"><span [appFormatNumber]="data.SaleInvoice.TotalAmount" format="currency" style="font-size: 20px"></span>({{data.SaleInvoice.CurrencyID}})</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <b style="font-size: 18px">{{data.SaleInvoicePrintData.PaymentContent}}</b>
+                            </td>
+                        </tr>
+                        <!-- <tr>
+                            <td colspan="3">
+                                <b style="font-size: 18px">Chủ TK: {{accountBanking.AccountName}}</b>
+                            </td>
+                        </tr> -->
+                    </tfoot>
+                </table>
+                <footer class="footer-print">
+                    <p><span style="font-weight: bold; font-size: 20px">Cảm ơn quý khách và hẹn gặp lại!</span><span>Thank you and see you again!!!</span></p>
+                    <p><span style="font-weight: bold; font-size: 18px">Hàng mua rồi miễn trả lại. Đổi mẫu khác trong 3 ngày</span></p>
+                </footer>
+            </div>       
+        </div>
+    </div>
+</ng-container>

@@ -56,7 +56,7 @@ export class ChangePasswordComponent implements OnInit {
     };
 
     const accessToken = localStorage.getItem('accessToken');
-    console.log('Access Token:', accessToken);
+console.log('Access Token:', accessToken);
 
 
     const headers = new HttpHeaders({
