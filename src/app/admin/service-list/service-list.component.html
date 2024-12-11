@@ -35,195 +35,7 @@
 <main>
     <section class="page-wrapper">
 
-        <div class="d-flex align-items-center justify-content-between gap-2 flex-wrap">
-            <div class="filters-box flex-wrap">
-                <div class="filter-item filter-all">
-                    <div class="filter-btn">
-                        <i class="fa-solid fa-filter"></i>
-                        <span>Lọc theo</span>
-                    </div>
-    
-                    <div class="filter-contents">
-                        <div class="d-flex flex-wrap flex-lg-nowrap gap-4">
-                            <div>
-                                <p class="filter-content-header">Giá</p>
-    
-                                <div>
-                                </div>
-                            </div>
-    
-                            <div>
-                                <p class="filter-content-header">Tình trạng</p>
-    
-                                <div class="display-grid columns-3">
-                                    
-                                    
-                                    <input type="radio" value="" id="stt_filter-status-all" name="stt_filter-status" hidden />
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="d-flex flex-wrap flex-lg-nowrap gap-4">
-                            <div>
-                                <p class="filter-content-header">Danh mục</p>
-    
-                                <div class="display-grid columns-4">
-                                   
-                                </div>
-                            </div>
-    
-                            <div>
-                                <p class="filter-content-header">Hãng</p>
-    
-                                <div class="display-grid columns-4">
-                                    
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="filter-action-wrapper">
-                            <button class="filter-cancel-action page-btn">
-                                <span>BỎ CHỌN</span>
-                            </button>
-                        
-                            <button class="filter-submit-action page-btn btn-blue">
-                                <span>LỌC</span>
-                            </button>
-                        </div>
-    
-                    </div>
-                </div>
-    
-                <div class="filter-item filter-price-range">
-                    <div class="filter-btn">
-                        <span>Giá</span>
-                    </div>
-    
-                    <div class="filter-contents">
-    
-    
-                        <div class="filter-action-wrapper">
-                            <button class="filter-cancel-action page-btn">
-                                <span>BỎ CHỌN</span>
-                            </button>
-                        
-                            <button class="filter-submit-action page-btn btn-blue">
-                                <span>LỌC</span>
-                            </button>
-                        </div>
-    
-                    </div>
-                </div>
-    
-                <div class="filter-item filter-categories">
-                    <div class="filter-btn">
-                        <span>Danh mục</span>
-                    </div>
-    
-                    <div class="filter-contents">
-                        <div class="display-grid columns-3">
-                            
-                        </div>
-    
-                        <div class="filter-action-wrapper">
-                            <button class="filter-cancel-action page-btn">
-                                <span>BỎ CHỌN</span>
-                            </button>
-                        
-                            <button class="filter-submit-action page-btn btn-blue">
-                                <span>LỌC</span>
-                            </button>
-                        </div>
-    
-                    </div>
-                </div>
-    
-               
-    
-                <div class="filter-item filter-status">
-                    <div class="filter-btn">
-                        <span>Tình trạng</span>
-                    </div>
-    
-                    <div class="filter-contents">
-                        <div class="display-grid columns-2">
-                            
-    
-                            <input type="radio" value="" id="filter-status-all" name="filter-status" hidden />
-                        </div>
-    
-                        <div class="filter-action-wrapper">
-                            <button class="filter-cancel-action page-btn">
-                                <span>BỎ CHỌN</span>
-                            </button>
-                        
-                            <button class="filter-submit-action page-btn btn-blue">
-                                <span>LỌC</span>
-                            </button>
-                        </div>
-    
-                    </div>
-                </div>
-            </div>
-    
-            <div class="d-flex gap-2 flex-wrap">
-               
-    
-                <div class="page-dropdown sort-selection">
-                    <div class="page-dropdown-btn" data-selected="">
-                        <span>Sắp xếp theo</span>
-                        <i class="fa-solid fa-caret-down"></i>
-                    </div>
-                    <div class="page-dropdown-content">
-                        <div class="page-dropdown-item" data-value="" data-text="Sắp xếp theo">
-                            <span>Sắp xếp theo</span>
-                        </div>
-                        <div class="page-dropdown-item" data-value="price-ascending" data-text="Giá tăng dần">
-                            <span>Giá tăng dần</span>
-                        </div>
-                        <div class="page-dropdown-item" data-value="price-descending" data-text="Giá giảm dần">
-                            <span>Giá giảm dần</span>
-                        </div>
-                        <div class="page-dropdown-item" data-value="name-az" data-text="Tên A - Z">
-                            <span>Tên A - Z</span>
-                        </div>
-                        <div class="page-dropdown-item" data-value="name-za" data-text="Tên Z - A">
-                            <span>Tên Z - A</span>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="page-dropdown view-selection">
-                    <div class="page-dropdown-btn" data-selected="">
-                        <span>Dạng xem</span>
-                        <i class="fa-solid fa-caret-down"></i>
-                    </div>
-                    <div class="page-dropdown-content">
-                        <div class="page-dropdown-item" data-value="view-list" data-text="Danh sách">
-                            <span>Danh sách</span>
-                        </div>
-                        <div class="page-dropdown-item" data-value="view-grid" data-text="Lưới">
-                            <span>Lưới</span>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="position-relative">
-                    <form class="search-form @form_class_name">
-                        <input type="text" id="search" placeholder="Tìm theo tên/mã dịch vụ" value="" required />
-                        <button type="submit">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </form>
-                
-                    <div class="search-result-wrapper position-absolute show">
-                        <div class="search-result-list">
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     
         <div class="hidden-action mt-2">
             <button class="page-btn btn-red delete-selected-products">
@@ -272,11 +84,71 @@
                         </td>
                         <td>
                             <div class="">
-                                <img src="https://file.hstatic.net/1000026716/file/card-man-hinh-gigabyte-aorus-geforce-rtx-4090-xtreme-waterforce-24g_f5866b6a7df641f190286f9293dc2de1_grande.jpg" alt="" style="width: 2rem">
+                                <img src="https://i.imgur.com/Ozvlz6d.jpeg" alt="" style="width: 2rem">
                             </div>
                         </td>
                         <td>
-                            <span class="text-overflow-1">Sản phẩm 1</span>
+                            <span class="text-overflow-1">Lắp đặt tủ điện điều khiển palang</span>
+                        </td>
+                        <td>
+                            1.000.000đ
+                        </td>
+
+                        <td>
+                            <div class="d-flex gap-1 align-items-center justify-content-end">
+                                <a class="page-table-btn btn-lightblue" href="javascript:">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </a>
+                                <button class="page-table-btn btn-red delete-product" data-product="sp001">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-item="sp001">
+                        <td>
+                            <input type="checkbox" name="page-table-checkbox" value="sp001" />
+                        </td>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            <div class="">
+                                <img src="https://i.imgur.com/semQFZ8.jpeg" alt="" style="width: 2rem">
+                            </div>
+                        </td>
+                        <td>
+                            <span class="text-overflow-1">Lắp đặt cầu trục</span>
+                        </td>
+                        <td>
+                            5.00.000đ
+                        </td>
+
+                        <td>
+                            <div class="d-flex gap-1 align-items-center justify-content-end">
+                                <a class="page-table-btn btn-lightblue" href="javascript:">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </a>
+                                <button class="page-table-btn btn-red delete-product" data-product="sp001">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-item="sp001">
+                        <td>
+                            <input type="checkbox" name="page-table-checkbox" value="sp001" />
+                        </td>
+                        <td>
+                            3
+                        </td>
+                        <td>
+                            <div class="">
+                                <img src="https://i.imgur.com/s61uMui.jpeg" alt="" style="width: 2rem">
+                            </div>
+                        </td>
+                        <td>
+                            <span class="text-overflow-1">Lắp đặt tủ điệnc</span>
                         </td>
                         <td>
                             1.000.000đ
