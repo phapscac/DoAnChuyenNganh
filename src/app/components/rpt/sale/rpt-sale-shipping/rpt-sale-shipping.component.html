@@ -1,0 +1,111 @@
+<div id="printShipping" class="print-style-shipping">
+    <table id="printTemplate" class="table border-none" cellpadding="0" cellspacing="0">
+        <tbody>
+            <tr>
+                <td style="width: 14.65cm;">
+                    <ul class="boxData">
+                        <li><b>1. NGƯỜI GỞI: {{data.Store.Name}}</b></li>
+                        <li>ĐỊA CHỈ: {{data.Store.Address}}</li>
+                        <li>ĐIỆN THOẠI: {{data.Store.PhoneNumber}}</li>
+                        <li>SỐ KIỆN HÀNG: {{data.SaleInvoice.Code}}</li>
+                        <li>KHỐI LƯỢNG: </li>
+                        <li id="CheckTemp"><span>NHIỆT ĐỘ BẢO QUẢN: </span><span><input type="checkbox"> -18°C</span><span><input type="checkbox"> 3°C</span></li>
+                        <li><b>THANH TOÁN TIỀN HÀNG: {{data.AddressBook.Notes}}</b></li>
+                    </ul>                  
+                </td>
+                <td style="width: 14.65cm;">
+                    <ul class="boxData" style="padding-bottom: 50px">
+                        <li><b>CHÀNH XE GỞI: {{data.AddressBook.LocationNameFrom}}</b></li>
+                        <li>ĐỊA CHỈ: {{data.AddressBook.LocationAddressFrom}}</li>
+                        <li>BẢNG SỐ XE:</li>
+                        <li>LỊCH XE CHẠY:</li>
+                        <li>SỐ ĐIỆN THOẠI: {{data.AddressBook.LocationCellPhoneFrom}}</li>
+                        <li><b>GHI CHÚ: {{data.AddressBook.LocationNoteFrom}}</b></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 14.65cm;">
+                    <ul class="boxData">
+                        <li><b>2. NGƯỜI NHẬN: {{data.AddressBook.FullName}}</b></li>
+                        <li>ĐỊA CHỈ: {{data.AddressBook.FullAddress}}</li>
+                        <li>SỐ ĐIỆN THOẠI: {{data.AddressBook.CellPhone}}</li>
+                        
+                    </ul>
+                </td>
+                <td style="width: 14.65cm;">
+                    <ul class="boxData"  style="padding-bottom: 35px">
+                        <li><b>CHÀNH XE NHẬN: {{data.AddressBook.LocationNameTo}}</b></li>
+                        <li>ĐỊA CHỈ: {{data.AddressBook.LocationAddressTo}}</li>
+                        <li>SỐ ĐIỆN THOẠI: {{data.AddressBook.LocationCellPhoneTo}}</li>
+                        <li><b>GHI CHÚ: {{data.AddressBook.LocationNoteTo}}</b></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <!-- @*<td style="width: 14.65cm;">
+                    <ul class="boxData">
+                        <li><b>3. GIÁ CƯỚC:</b></li>
+                        <li>GIÁ CƯỚC: <span [appFormatNumber]="AddressBook.ShipCost" format="currency"></span></li>
+                        <li>GIÁ VẬN CHUYỂN TẬN NƠI: <span [appFormatNumber]="AddressBook.ShipToHomeFee" format="currency"></span></li>
+                        <li>PHÍ VÀO CỔNG: <span [appFormatNumber]="AddressBook.EntranceFee" format="currency"></span></li>
+                    </ul>
+                </td>*@ -->
+                <td style="width: 14.65cm;">
+                    <ul class="boxData"  style="padding-bottom: 40px">
+                        <li><b>PHÍ GIAO HÀNG</b></li>
+                        <li >{{data.SaleInvoice.DeliveryMethodPayment == 1 ? 'Khách chịu phí' : data.SaleInvoice.DeliveryMethodPayment == 2 ? 'Công ty trả phí': 'Công ty trả hộ'}}</li>
+                    </ul>
+                </td>
+                <td style="width: 14.65cm">
+                                <ul class="boxData">
+                                    <li><b>NHÀ VẬN CHUYỂN:</b></li>
+                                    <li><span>SỐ KIỂM ĐẾM:...............KIỆN</span></li>
+                                    <li><span>KHỐI LƯỢNG:................KG</span></li>
+                                    <li class="done">
+                                        <a><b>XÁC NHẬN</b><span>(ghi rõ họ, tên và số điện thoại)</span></a>
+                                    </li>
+                                </ul>
+                            </td>
+            </tr>
+            <!-- <tr>
+                <td colspan="2">
+                    <table style="width: 100%; border-spacing: 0; margin: 0; padding: 0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="width: 45%;">
+                                <ul class="boxData">
+                                    <li><b>4. NGƯỜI GỞI HÀNG:</b></li>
+                                    <li>NGƯỜI ĐÓNG HÀNG:</li>
+                                    <li>NGƯỜI GỞI HÀNG: {{data.SaleInvoice.ShipperName}}</li>
+                                    <li>NGƯỜI RA ĐƠN HÀNG: {{data.SaleInvoice.UserName}}</li>
+                                    <li><span>XÁC NHẬN ĐƠN HÀNG ĐÃ GỬI CHO KHÁCH: </span><input type="checkbox"></li>
+                                    <li>SỐ ĐIỆN THOẠI:</li>
+                                    <li>GHI CHÚ KHÁC:</li>
+                                </ul>
+
+                            </td>
+                            <td style="width: 25%; height: 200px;">
+                                <ul class="boxData">
+                                    <li><b>CHỨNG TỪ GỞI:</b></li>
+                                    <li><span>PHIẾU XUẤT KHO Ở KIỆN: </span> <input type="checkbox" checked></li>
+                                    <li><span>HÓA ĐƠN ĐỎ: </span><input type="checkbox"></li>
+                                    <li><span>KIỂM DỊCH: </span><input type="checkbox"></li>
+                                </ul>
+                            </td>
+                            <td style="width: 30%; height: 200px;">
+                                <ul class="boxData">
+                                    <li><b>NHÀ VẬN CHUYỂN:</b></li>
+                                    <li><span>SỐ KIỂM ĐẾM:...............KIỆN</span></li>
+                                    <li><span>KHỐI LƯỢNG:................KG</span></li>
+                                    <li class="done">
+                                        <a><b>XÁC NHẬN</b><span>(ghi rõ họ, tên và số điện thoại)</span></a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+</div>

@@ -301,7 +301,6 @@
                             <th>STT</th>
                             <th>Hình</th>
                             <th>Tên sản phẩm</th>
-                            <th>Giá so sánh</th>
                             <th>Giá bán</th>
                             <th>Trạng thái</th>
                             <th>Tồn kho</th>
@@ -309,115 +308,36 @@
                         </tr>
                     </thead>
                     <tbody class="product-list view-list" data-view="view-list">
-                        <tr data-item="sp001">
+                        <tr *ngFor="let product of data.ProductList; let i = index" [attr.data-item]="product.id">
                             <td>
-                                <input type="checkbox" name="page-table-checkbox" value="sp001" />
+                                <input type="checkbox" name="page-table-checkbox" [value]="product.id" />
                             </td>
                             <td>
-                                1
+                                {{ i + 1 }}
                             </td>
                             <td>
                                 <div class="">
-                                    <img src="https://file.hstatic.net/1000026716/file/card-man-hinh-gigabyte-aorus-geforce-rtx-4090-xtreme-waterforce-24g_f5866b6a7df641f190286f9293dc2de1_grande.jpg" alt="" style="width: 2rem">
+                                    <img [src]="product.productImages[0].imageUrl" alt="" style="width: 2rem">
                                 </div>
                             </td>
                             <td>
-                                <span class="text-overflow-1">Sản phẩm 1</span>
+                                <span class="text-overflow-1">{{ product.productName }}</span>
                             </td>
                             <td>
-                                1.000.000đ
+                                {{ product.price }}đ
                             </td>
                             <td>
-                                990.000đ
+                                <span [ngClass]="{'page-badge badge-success': product.status === 'Còn hàng', 'page-badge badge-warning': product.status === 'Sắp hết hàng', 'page-badge badge-error': product.status === 'Hết hàng'}">{{ product.status }}</span>
                             </td>
                             <td>
-                                <span class="page-badge badge-success">Còn hàng</span>
-                            </td>
-                            <td>
-                                20
+                                {{ product.stock }}
                             </td>
                             <td>
                                 <div class="d-flex gap-1 align-items-center justify-content-end">
                                     <a class="page-table-btn btn-lightblue" href="javascript:">
                                         <i class="fa-regular fa-pen-to-square"></i>
                                     </a>
-                                    <button class="page-table-btn btn-red delete-product" data-product="sp001">
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr data-item="sp002">
-                            <td>
-                                <input type="checkbox" name="page-table-checkbox" value="sp002" />
-                            </td>
-                            <td>
-                                2
-                            </td>
-                            <td>
-                                <div class="">
-                                    <img src="https://file.hstatic.net/1000026716/file/card-man-hinh-gigabyte-aorus-geforce-rtx-4090-xtreme-waterforce-24g_f5866b6a7df641f190286f9293dc2de1_grande.jpg" alt="" style="width: 2rem">
-                                </div>
-                            </td>
-                            <td>
-                                <span class="text-overflow-1">Sản phẩm 2</span>
-                            </td>
-                            <td>
-                                1.000.000đ
-                            </td>
-                            <td>
-                                990.000đ
-                            </td>
-                            <td>
-                                <span class="page-badge badge-warning">Sắp hết hàng</span>
-                            </td>
-                            <td>
-                                3
-                            </td>
-                            <td>
-                                <div class="d-flex gap-1 align-items-center justify-content-end">
-                                    <a class="page-table-btn btn-lightblue" href="javascript:">
-                                        <i class="fa-regular fa-pen-to-square"></i>
-                                    </a>
-                                    <button class="page-table-btn btn-red delete-product" data-product="sp001">
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr data-item="sp003">
-                            <td>
-                                <input type="checkbox" name="page-table-checkbox" value="sp003" />
-                            </td>
-                            <td>
-                                3
-                            </td>
-                            <td>
-                                <div class="">
-                                    <img src="https://file.hstatic.net/1000026716/file/card-man-hinh-gigabyte-aorus-geforce-rtx-4090-xtreme-waterforce-24g_f5866b6a7df641f190286f9293dc2de1_grande.jpg" alt="" style="width: 2rem">
-                                </div>
-                            </td>
-                            <td>
-                                <span class="text-overflow-1">Sản phẩm 3</span>
-                            </td>
-                            <td>
-                                1.000.000đ
-                            </td>
-                            <td>
-                                990.000đ
-                            </td>
-                            <td>
-                                <span class="page-badge badge-error">Hết hàng</span>
-                            </td>
-                            <td>
-                                0
-                            </td>
-                            <td>
-                                <div class="d-flex gap-1 align-items-center justify-content-end">
-                                    <a class="page-table-btn btn-lightblue" href="javascript:">
-                                        <i class="fa-regular fa-pen-to-square"></i>
-                                    </a>
-                                    <button class="page-table-btn btn-red delete-product" data-product="sp001">
+                                    <button class="page-table-btn btn-red delete-product" [attr.data-product]="product.id">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </button>
                                 </div>

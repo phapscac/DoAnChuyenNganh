@@ -1,0 +1,109 @@
+<ng-container *ngIf="data.SaleInvoice">
+    <div id="printSession" class="print-style" style="display: none;">
+        <div class="row">
+            <div class="col-8 py-0">
+                <app-rpt-header></app-rpt-header>
+            </div>
+            <div class="col-4 py-0">
+                <ul class="list-unstyled text-right">
+                    <li><strong>Ngày tạo: </strong><span [appFormatDate]="data.SaleInvoice.CreatedDate" format="dateFilter"></span></li>
+                    <li><strong>Mã đơn: </strong>{{ data.SaleInvoice.ChannelOrderID }}</li>            
+                    <li><strong>Người tạo: </strong>{{data.SaleInvoice.FullName}}</li>             
+                </ul>
+            </div>
+        </div>
+        <div class="row headerSession">
+            <div class="col-12 py-0">
+                <ul class="list-unstyled">
+                    <li class="text-center">
+                        <span class="text-uppercase"> PHÍ GIAO HÀNG</span>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-7 py-0 mb-3">
+                <ul class="list-unstyled">
+                    <li><strong>Mã đơn hàng: </strong><span class="text-uppercase">{{ data.SaleInvoice.ChannelOrderID }}</span></li>
+                    <li><strong>Nhà vận chuyển: </strong><span {{ getChannelName(data.SaleInvoice.ChannelID) }}></span></li>
+                    <li><strong>Ghi chú: </strong>{{ data.SaleInvoice.Notes }}</li>
+                </ul>
+            </div>
+            <div class="col-5 py-0 mb-3">
+                <ul class="list-unstyled">
+                    <li><strong>Giao hàng: </strong>{{ data.SaleInvoice.DriverName }}</li>
+                    <li><strong>SĐT: </strong>{{ data.SaleInvoice.DriverPhone }}</li>
+                    <li><strong>Hình thức: </strong>{{ (data.SaleInvoice.PaymentObject == 'S') ? 'Khách trả phí' : 'Công ty trả phí' }}</li>
+                </ul>
+            </div>
+            
+        </div>
+        <div class="">
+            <div id="" class="position-relative table m-0" >
+                <table class="table table-edit m-0">
+                    <thead>
+                        <tr>
+                            <th class="text-center white-space-nowrap">#</th>
+                            <th class="text-center white-space-nowrap">Mã đơn</th>
+                            <th class="text-center white-space-nowrap">Khách hàng</th>
+                            <th class="text-center white-space-nowrap">SĐT</th>
+                            <th class="text-center white-space-nowrap">Nơi đến</th>
+                            <th class="text-center white-space-nowrap">Ghi chú</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of data.SaleInvoiceDetails let i = index">
+                            <td class="text-center">{{ i + 1 }}</td>
+                            <td>{{ row.Code }}</td>
+                            <td>{{ row.CustomerName }}</td>
+                            <td>{{ row.CustomerPhone }}</td>
+                            <td>{{ row.ShipAddress }}</td>
+                            <td>{{ row.Notes }}</td>
+                        </tr>
+                    </tbody>       
+                </table>
+            </div>
+        </div>
+        <div class="clearfix">
+            <div class="pull-right py-0 col-5 col-offset-1">
+                <table class="table-amount">
+                    <tbody>
+                        <tr>
+                            <td>Phí: </td>
+                            <td class="text-right"><span [appFormatNumber]="data.SaleInvoice.Amount" format="currency" class="text-right"></span> {{data.SaleInvoice.CurrencyID}} </td>
+                        </tr>
+                        <tr>
+                            <td>Phí ưu tiên: </td>
+                            <td class="text-right"><span [appFormatNumber]="data.SaleInvoice.ExtraAmount" format="currency" class="text-right"></span> {{data.SaleInvoice.CurrencyID}} </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Tổng tiền: </td>
+                            <td class="text-right"><span [appFormatNumber]="data.SaleInvoice.TotalAmount" format="currency"></span> {{data.SaleInvoice.CurrencyID}} </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <table class="signature">
+            <tr id="footerPrint">
+                <td>
+                    <p>Người tạo<br />
+                    <span>(Ký, ghi rõ họ tên)</span></p>
+                    <span>{{data.SaleInvoice.FullName}}</span>
+                </td>
+                <td>
+                    <p>Người giao<br />
+                    <span>(Ký, ghi rõ họ tên)</span></p>
+                    <span>{{data.SaleInvoice.DriverName}}</span>
+                </td>
+                <td>
+                    <p>Quản lý<br />
+                    <span>(Ký, ghi rõ họ tên)</span></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</ng-container>

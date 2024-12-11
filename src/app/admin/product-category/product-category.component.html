@@ -78,6 +78,7 @@
                        
                         <td>
                             {{category.catalogId }}
+                        </td>
                         <td>
                             <div class="">
                                 <span class="text-overflow-1">{{category.catalogName }}</span>
@@ -85,12 +86,12 @@
                             </div>
                         </td>
                         <td>
+                        
                         </td>
-                        <td></td>
+
                         <td>
                             <div class="d-flex gap-1 align-items-center justify-content-end">
-                                <a  (click)="openModal()"
-                                             class="page-table-btn btn-lightblue" href="javascript:"(click)="editCategory(category)">
+                                <a class="page-table-btn btn-lightblue" href="javascript:">
                                     <i class="fa-regular fa-pen-to-square"></i>
                                 </a>
                                 <button class="page-table-btn btn-red delete-product" (click)=" deleteProductCategory(category.catalogId)">
@@ -104,62 +105,52 @@
             </table>
         </div>
     
+        <div class="d-flex justify-content-end mt-2 w-100">
+            <div class="pagination-box">
+                <a href="javascript:void(0)" class="pagination-item" data-page="previous">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </a>
+                <a href="javascript:void(0)" class="pagination-item current" data-page="1">1</a>
+                <a href="javascript:void(0)" class="pagination-item" data-page="2">2</a>
+                <a href="javascript:void(0)" class="pagination-item" data-page="3">3</a>
+                <a href="javascript:void(0)" class="pagination-item" data-page="4">4</a>
+                <a href="javascript:void(0)" class="pagination-item" data-page="5">5</a>
+                <a href="javascript:void(0)" class="pagination-item" data-page="next">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
         
         
         <div class="page-content-box no-border d-flex justify-content-end mt-3">
                                  
-            <button type="button"  class="form-submit-btn page-btn-sm btn-green" data-bs-toggle="modal" data-bs-target="#addModal">
+            <button type="button" class="form-submit-btn page-btn-sm btn-green" data-bs-toggle="modal" data-bs-target="#addModal">
                 Thêm
             </button>
             
-            <div id="addModal" class="modal fade" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true" #addModal>
+            <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
                 <div class="modal-dialog"> 
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="addModalLabel">Thêm loại sản phẩm</h5>
-                            <button type="button"  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body ">
-                            <form #addForm="ngForm" (ngSubmit)="addCategory()">
+                            <form #addForm="ngForm">
                                 <div class="mb-3">
                                     <label for="dataName" class="form-label">Mã loại sản phẩm</label>
-                                    <input type="text" class="form-control" id="dataName" name="dataName"  [(ngModel)]="productCategory.catalogId" required>
+                                    <input type="text" class="form-control" id="dataName" name="dataName" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="dataDescription" class="form-label">Tên loại sản phẩm</label>
-                                    <textarea class="form-control" id="dataDescription" name="dataDescription"  [(ngModel)]="productCategory.catalogName" required></textarea>
+                                    <textarea class="form-control" id="dataDescription" name="dataDescription" required></textarea>
                                 </div>
-                                <button type="submit"  class="form-submit-btn page-btn-sm btn-green " style="margin-left: 400px;" [disabled]="!addForm.form.valid">Lưu</button>
+                                <button type="submit" class="form-submit-btn page-btn-sm btn-green " style="margin-left: 400px;" [disabled]="!addForm.form.valid">Lưu</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div id="editModal" class="modal fade" tabindex="-1" aria-labelledby="editModalLabel"  [class.show]="isModalOpen" [attr.inert]="isModalOpen ? null : true" style="display: none;">
-
-                <div class="modal-dialog"> 
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="editModalLabel">Chỉnh sửa loại sản phẩm</h5>
-                      <button type="button" (click)="closeModal()"class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <form #editForm="ngForm" (ngSubmit)="updateCategory()">
-                        <div class="mb-3">
-                          <label for="editDataName" class="form-label">Mã loại sản phẩm</label>
-                          <input type="text" class="form-control" id="editDataName" name="editDataName" [(ngModel)]="productCategory.catalogId" required>
-                        </div>
-                        <div class="mb-3">
-                          <label for="editDataDescription" class="form-label">Tên loại sản phẩm</label>
-                          <textarea class="form-control" id="editDataDescription" name="editDataDescription" [(ngModel)]="productCategory.catalogName" required></textarea>
-                        </div>
-                        <button type="submit" class="form-submit-btn page-btn-sm btn-green" style="margin-left: 400px;" [disabled]="!editForm.form.valid">Lưu</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
             
         </div>
     

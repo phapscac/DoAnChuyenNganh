@@ -34,7 +34,6 @@
             
                 </div>
             </header>
-            
 
             <main>
                 <form id="create-product">
@@ -52,7 +51,7 @@
                                     <div class="page-input-box">
                                         <label>Mã sản phẩm</label>
                                         <div class="page-input">
-                                            <input type="text" id="product_id" placeholder="Nhập mã sản phẩm" />
+                                            <input  [(ngModel)]="product.productId" type="text" id="product_id" placeholder="Nhập mã sản phẩm"  [ngModelOptions]="{standalone: true}" />
                                         </div>
                                         <span></span> 
                                     </div>
@@ -60,7 +59,7 @@
                                     <div class="page-input-box">
                                         <label>Tên sản phẩm</label>
                                         <div class="page-input">
-                                            <input type="text" id="product_name" placeholder="Nhập tên sản phẩm" value="" />
+                                            <input [(ngModel)]="product.productName" type="text" id="product_name" placeholder="Nhập tên sản phẩm"  [ngModelOptions]="{standalone: true}" value="" />
                                         </div>
                                         <span></span>
                                     </div>
@@ -70,7 +69,7 @@
                                             <div class="page-input-box">
                                                 <label>Giá bán</label>
                                                 <div class="page-input">
-                                                    <input type="text" id="product_price" placeholder="Nhập giá bán" value="" />
+                                                    <input [(ngModel)]="product.price"type="text"  [ngModelOptions]="{standalone: true}" id="product_price" placeholder="Nhập giá bán" value="" />
                                                 </div>
                                                 <span></span>
                                             </div>
@@ -79,7 +78,7 @@
                                             <div class="page-input-box">
                                                 <label>Giá so sánh</label>
                                                 <div class="page-input">
-                                                    <input type="text" id="product_original_price" placeholder="Nhập giá so sánh" value="" />
+                                                    <input type="text"  id="product_original_price" placeholder="Nhập giá so sánh" value="" />
                                                 </div>
                                                 <span></span>
                                             </div>
@@ -100,7 +99,7 @@
                                             <div class="page-input-box">
                                                 <label>Thời gian bảo hành (tháng)</label>
                                                 <div class="page-input">
-                                                    <input type="text" id="product_warranty" placeholder="Nhập thời gian bảo hành" value="" />
+                                                    <input [(ngModel)]="product.warranty"  [ngModelOptions]="{standalone: true}" type="text" id="product_warranty" placeholder="Nhập thời gian bảo hành" value="" />
                                                 </div>
                                                 <span></span>
                                             </div>
@@ -123,18 +122,16 @@
 
                                         <div class="col-12 col-lg-6">
                                             <div class="page-input-box">
-                                                <label>Danh mục</label>
-                                                <div class="page-input">
-                                                    <select id="product_category">
-                                                        <option selected>Chọn danh mục</option>
-                                                        <option value="d1">Biến tầng</option>
-                                                    </select>
-                                                </div>
-                                                <span></span>
+                                              <label>Danh mục</label>
+                                              <div class="page-input">
+                                                <select id="product_category" [(ngModel)]="product.catalogIds" multiple>
+                                                  <option *ngFor="let category of data.Catalog" [value]="category.catalogId">{{ category.catalogName }}</option>
+                                                </select>
+                                              </div>
+                                              <span></span>
                                             </div>
-                                        </div>
+                                          </div>
                                     </div>
-                
                                 </div>
                             </div>
                 
@@ -142,46 +139,43 @@
                                 <div class="page-content-header d-flex justify-content-between">
                                     Hình ảnh
                 
-                                    <a href="javascript:" class="page-btn btn-border-only click-upload-image">
+                                    <a  href="javascript:" class="page-btn btn-border-only click-upload-image">
                                         <i class="fa-solid fa-plus"></i>
                                         <span>Thêm</span>
                                     </a>
                 
-                                    <input type="file" id="upload-product-images" accept="image/*" multiple hidden />
+                                    <input  type="file" id="upload-product-images" accept="image/*" multiple hidden (change)="onFileSelected($event)" />
                                 </div>
-                
                 
                                 <div class="display-grid columns-5 align-items-start gap-2 product-images-container">
                                     
                                 </div>
                             </div>
-                
-                
-                
                             <div class="page-content-box no-border mt-3">
                                 <div class="page-content-header">
                                     Mô tả ngắn
                                 </div>
-                
                                 <div class="position-relative">
-                                    <div id="short-description-editor">
-                                       
+                                    <div id="short-description-editorr">
+                                        <textarea [(ngModel)]="product.shortDescription" id="note" pInputTextarea class="form-control"
+                                         name="Notes" rows="4"
+                                        placeholder="Mô tả" type="text"></textarea>
                                     </div>
                                 </div>
                             </div>
-                
                             <div class="page-content-box no-border mt-3">
                                 <div class="page-content-header">
-                                    Mô tả sản phẩm
+                                    Mô tả ngắn
                                 </div>
-                
                                 <div class="position-relative">
-                                    <div id="description-editor">
-                                       
+                                    <div id="short-description-editorr">
+                                        <textarea [(ngModel)]="product.shortDescription" id="note" pInputTextarea class="form-control"
+                                         name="Notes" rows="4"
+                                        placeholder="Mô tả" type="text"></textarea>
                                     </div>
                                 </div>
                             </div>
-                
+                            
                             <div class="page-content-box no-border mt-3">
                                 <div class="page-content-header">
                                     Thông số kỹ thuật
@@ -196,7 +190,6 @@
                                             Giá trị thông số
                                         </div>
                                     </div>
-                                    
                                 </div>
                                 <div class="mt-3">
                                     <a href="javascript:" class="page-btn btn-border-only click-add-spec">
@@ -212,9 +205,6 @@
                             </div>
                 
                         </div>
-                
-                     
-                
                     </div>
                 </form>
             </main>

@@ -71,31 +71,30 @@
                   </tr>
               </thead>
               <tbody class="product-list view-list" data-view="view-list"  >
-                  <tr data-item="sp001" *ngFor="let category of data.WarehouseList " >
+                  <tr data-item="sp001"*ngFor="let category of data.WarehouseList " >
                       <td>
-                          <input type="checkbox" name="page-table-checkbox" value="sp001" [value]="category.warehouseId" (change)="toggleSelection(category.warehouseId, $event)"/>
+                          <input type="checkbox" name="page-table-checkbox" value="sp001" [value]="category.WarehouseId" (change)="toggleSelection(category.WarehouseId, $event)"/>
                       </td>
-                      
+                      {{category.WarehouseId }}
                       <td>
-                          {{category.warehouseId}}
+                          {{category.WarehouseName}}
                       </td>
                       <td>
                           <div class="">
-                              <span class="text-overflow-1">{{category.warehouseName}}</span>
+                              <span class="text-overflow-1">{{category.AddressId}}</span>
                              
                           </div>
                       </td>
-                      <td>{{ category.address.street }}, {{ category.address.ward }}, {{ category.address.district }}, {{ category.address.city }}</td>
-                     
-                     
-                      <td></td>
+                      <td>
+                      
+                      </td>
 
                       <td>
                           <div class="d-flex gap-1 align-items-center justify-content-end">
-                              <a (click)="openModal()" class="page-table-btn btn-lightblue" href="javascript:"(click)="editWarehouse(category)">
+                              <a class="page-table-btn btn-lightblue" href="javascript:">
                                   <i class="fa-regular fa-pen-to-square"></i>
                               </a>
-                              <button class="page-table-btn btn-red delete-product" (click)=" deleteProductCategory(category.warehouseId)">
+                              <button class="page-table-btn btn-red delete-product" (click)=" deleteProductCategory(category.catalogId)">
                                   <i class="fa-solid fa-trash-can"></i>
                               </button>
                           </div>
@@ -129,7 +128,7 @@
               Thêm
           </button>
           
-          <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true" #addModal>
+          <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
               <div class="modal-dialog"> 
                   <div class="modal-content">
                       <div class="modal-header">
@@ -137,75 +136,36 @@
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        <form #addForm="ngForm" (ngSubmit)="addWarehouse()">
-                            <div class="mb-3">
-                                <label for="warehouseId" class="form-label">Mã kho</label>
-                                <input type="text" class="form-control" id="warehouseId" name="warehouseId" [(ngModel)]="warehouse.warehouseId" required>
+                          <form #addForm="ngForm">
+                              <div class="mb-3">
+                                  <label for="dataName" class="form-label">Mã kho</label>
+                                  <input type="text" class="form-control" id="dataName" name="dataName" required>
+                              </div>
+                              <div class="mb-3">
+                                  <label for="dataDescription" class="form-label">Tên kho</label>
+                                  <input class="form-control" id="dataDescription" name="dataDescription" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="dataDescription" class="form-label">Đường</label>
+                                <input class="form-control" id="dataDescription" name="dataDescription" required>
                             </div>
                             <div class="mb-3">
-                                <label for="warehouseName" class="form-label">Tên kho</label>
-                                <input class="form-control" id="warehouseName" name="warehouseName" [(ngModel)]="warehouse.warehouseName">
+                                <label for="dataDescription" class="form-label">Phường</label>
+                                <input class="form-control" id="dataDescription" name="dataDescription" required>
                             </div>
                             <div class="mb-3">
-                                <label for="street" class="form-label">Đường</label>
-                                <input class="form-control" id="street" name="street" [(ngModel)]="warehouse.address.street" required>
+                                <label for="dataDescription" class="form-label">Quận</label>
+                                <input class="form-control" id="dataDescription" name="dataDescription" required>
                             </div>
                             <div class="mb-3">
-                                <label for="ward" class="form-label">Phường</label>
-                                <input class="form-control" id="ward" name="ward" [(ngModel)]="warehouse.address.ward" required>
+                                <label for="dataDescription" class="form-label">Thành phố</label>
+                                <input class="form-control" id="dataDescription" name="dataDescription" required>
                             </div>
-                            <div class="mb-3">
-                                <label for="district" class="form-label">Quận</label>
-                                <input class="form-control" id="district" name="district" [(ngModel)]="warehouse.address.district" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="city" class="form-label">Thành phố</label>
-                                <input class="form-control" id="city" name="city" [(ngModel)]="warehouse.address.city" required>
-                            </div>
-                            <button type="submit" class="form-submit-btn page-btn-sm btn-green" style="margin-left: 400px;" [disabled]="!addForm.form.valid">Lưu</button>
-                        </form>
-                    </div>
+                              <button type="submit" class="form-submit-btn page-btn-sm btn-green " style="margin-left: 400px;" [disabled]="!addForm.form.valid">Lưu</button>
+                          </form>
+                      </div>
                   </div>
               </div>
-          </div>
-          <div id="editModal" class="modal fade" tabindex="-1" aria-labelledby="editModalLabel"  [class.show]="isModalOpen" [attr.inert]="isModalOpen ? null : true" style="display: none;">
-            <div class="modal-dialog"> 
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="addModalLabel">Chỉnh sửa kho</h5>
-                        <button type="button" (click)="closeModal()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form #addForm="ngForm" (ngSubmit)="updateWarehouse()">
-                            <div class="mb-3">
-                                <label for="warehouseId" class="form-label">Mã kho</label>
-                                <input type="text" class="form-control" id="warehouseId" name="warehouseId" [(ngModel)]="warehouse.warehouseId" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="warehouseName" class="form-label">Tên kho</label>
-                                <input class="form-control" id="warehouseName" name="warehouseName" [(ngModel)]="warehouse.warehouseName">
-                            </div>
-                            <div class="mb-3">
-                                <label for="street" class="form-label">Đường</label>
-                                <input class="form-control" id="street" name="street" [(ngModel)]="warehouse.address.street" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="ward" class="form-label">Phường</label>
-                                <input class="form-control" id="ward" name="ward" [(ngModel)]="warehouse.address.ward" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="district" class="form-label">Quận</label>
-                                <input class="form-control" id="district" name="district" [(ngModel)]="warehouse.address.district" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="city" class="form-label">Thành phố</label>
-                                <input class="form-control" id="city" name="city" [(ngModel)]="warehouse.address.city" required>
-                            </div>
-                            <button type="submit" class="form-submit-btn page-btn-sm btn-green" style="margin-left: 400px;" [disabled]="!addForm.form.valid">Lưu</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
           </div>
           
       </div>

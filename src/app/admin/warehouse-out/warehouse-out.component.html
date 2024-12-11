@@ -75,7 +75,7 @@
                                               <label>Kho hàng</label>
                                               <div class="page-input">
                                                   <select id="product_brand">
-                                                      <option selected *ngFor="let warehouse of data.Warehouses" [value]="warehouse.warehouseId">{{ warehouse.warehouseName }}</option>
+                                                      <option selected>--Chọn kho hàng--</option>
                                                       <option value="hang1">Kho A</option>
                                                   </select>
                                               </div>
@@ -87,7 +87,7 @@
                                           <label>Hợp đồng</label>
                                           <div class="page-input">
                                               <select id="product_brand">
-                                                  <option selected *ngFor="let constract of data.Constracts" [value]="constract.constractId">{{ constract.constractName }}</option>
+                                                  <option selected>--Chọn hợp đồng--</option>
                                                   <option value="hang1">Hãng 1</option>
                                               </select>
                                           </div>

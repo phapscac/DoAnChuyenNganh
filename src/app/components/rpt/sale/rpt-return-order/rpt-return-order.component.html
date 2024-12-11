@@ -1,0 +1,132 @@
+<ng-container *ngIf="data.SaleReturnOrder">
+    <div id="printSession" class="print-style" style="display: none;">
+        <div class="row">
+            <div class="col-8 py-0">
+                <app-rpt-header></app-rpt-header>
+            </div>
+            <div class="col-4 py-0">
+                <ul class="list-unstyled text-right">
+                    <li><strong>Số CT: </strong>{{data.SaleReturnOrder.Code}}</li>
+                    <li><strong>Ngày CT: </strong><span [appFormatDate]="data.SaleReturnOrder.VoucherDate" format="dateFilter"></span></li>
+                    <li *ngIf="data.SaleInvoiceCode"><strong>CT bán hàng: </strong>{{data.SaleInvoiceCode}}</li>
+                                
+                </ul>
+            </div>
+        </div>
+        <div class="row headerSession">
+            <div class="col-12 py-0">
+                <ul class="list-unstyled">
+                    <li class="text-uppercase text-center font-medium">Phiếu yêu cầu nhận hàng trả</li>
+                </ul>
+            </div>          
+        </div>
+        <div class="row mt-2">
+            <div class="col-10 py-0 mb-3">
+                <ul class="list-unstyled">
+                    <li><strong>Tên KH: </strong><span class="text-uppercase">{{data.SaleReturnOrder.CustomerCode}} - {{data.SaleReturnOrder.CustomerName}}</span></li>
+                    <li><strong>Địa chỉ: </strong><span class="text-uppercase">{{data.SaleReturnOrder.Address}}</span></li>
+                    <li><strong>Điện thoại: </strong><span class="text-uppercase">{{data.SaleReturnOrder.CustomerPhone}}</span></li>
+                    <li>
+                        <strong>Lý do: </strong>{{data.SaleReturnOrder.CancelationText}}
+                    </li> 
+                    <li><strong>Ghi chú: </strong>{{data.SaleReturnOrder.Notes}}</li>
+                </ul>
+            </div>
+            <div class="col-2 py-0 qrCode">
+                <img class="mt-2" [src]="data.Barcode" alt="" data-action="zoom" />
+            </div>
+            
+        </div>
+        <div class="">
+            <div id="" class="position-relative table m-0" >
+                <table class="table table-edit m-0">
+                    <thead>
+                        <tr>
+                            <th>#</th>                
+                            <th class="text-left" style="white-space: nowrap">Mã hàng</th>
+                            <th class="text-left" style="white-space: nowrap">Tên hàng</th>
+                            <th class="text-center" style="white-space: nowrap">ĐVT</th>
+                            <th class="text-center" style="white-space: nowrap">SL</th>
+                            <th class="text-center" style="white-space: nowrap">Đơn giá</th>                           
+                            <th class="text-center" style="white-space: nowrap">Thành tiền</th>
+                            <th class="text-center" style="white-space: nowrap">Giảm(%)</th>
+                            <th class="text-center" style="white-space: nowrap">Giảm giá</th>
+                            <!-- <th class="text-center">CK(%)</th> -->
+                            <th class="text-center" style="white-space: nowrap">Tiền Thuế</th>
+                            <!-- <th class="text-center">VAT</th> -->
+                            <th class="text-center" style="white-space: nowrap">Tổng tiền</th>
+                            <th class="text-center w-7rem" style="white-space: nowrap">Ghi chú</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(item of data.SaleReturnOrderDetails; track $index; let  i = $index){
+                            <tr >
+                                <td class="text-center">{{$index + 1}}</td>
+                                <td>{{item.ProductCode}}</td>
+                                <td>{{item.ProductName}}
+                                    <!-- <br *ngIf="item.LocalName" /><i *ngIf="item.LocalName">({{item.LocalName}})</i> -->
+                                </td>
+                                <td>{{item.UnitName}}</td>
+                                <td class="text-right font-bold" [appFormatNumber]="item.Quantity" format="quantity" ></td>
+                                <td class="text-right" [appFormatNumber]="item.Price" format="currency" ></td>
+
+                                <td class="text-right" [appFormatNumber]="item.Amount" format="currency" ></td>
+                                <td class="text-right" [appFormatNumber]="item.DiscountPercent" format="quantity" ></td>
+                                <td class="text-right" [appFormatNumber]="item.DiscountAmount" format="currency" ></td>                                
+                                <!-- <td class="text-right" [appFormatNumber]="item.TaxID == 1 ? 0 : item.TaxPercent" format="currency" ></td>     -->
+                                <!-- <td class="text-right" [appFormatNumber]="item.DiscountPercent" format="quantity" ></td> -->
+                                <td class="text-right" [appFormatNumber]="item.TaxAmount" format="currency" ></td>
+                                <td class="text-right" [appFormatNumber]="item.TotalAmount" format="currency" ></td>
+                                <td>{{item.Notes}}{{item.Notes == null || item.Notes == '' ? '' : '-'}}{{item.UnitNotes}}</td>
+                            </tr>
+                        }       
+                    </tbody>       
+                </table>
+            </div>
+        </div>
+        <div class="clearfix">         
+            <div class="pull-right py-0 col-4 col-offset-8">
+                <table class="table-amount">
+                    <tbody>
+                        <tr>
+                            <td>Thành tiền:</td>
+                            <td class="text-right"><span [appFormatNumber]="data.SaleReturnOrder.Amount + data.SaleReturnOrder.TaxAmount" format="currency" class="text-right"></span> ({{data.SaleReturnOrder.CurrencyID}})</td>
+                        </tr>               
+                        <!--Giảm giá hóa đơn-->
+                        <tr>
+                            <td>Giảm giá:</td>
+                            <td class="text-right">
+                                {{data.SaleReturnOrder.DiscountTotalAmount>0?'-': ''}}
+                                <span [appFormatNumber]="data.SaleReturnOrder.DiscountTotalAmount?data.SaleReturnOrder.DiscountTotalAmount:0" format="currency"></span> ({{data.SaleReturnOrder.CurrencyID}})
+                            </td>
+                        </tr>                     
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Tổng tiền: </td>
+                            <td class="text-right"><span [appFormatNumber]="data.SaleReturnOrder.TotalAmount" format="currency"></span> ({{data.SaleReturnOrder.CurrencyID}})</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>          
+        </div>
+        <table class="signature mt-4"> 
+            <tr>
+                <td>
+                    <p>Người lập</p><br/>                                      
+                </td>          
+                <td>                  
+                    <p>Quản lý<br/><span>(Ký, ghi rõ họ tên)</span></p>
+                </td>
+                <!-- <td style="vertical-align: bottom"><p>Thủ kho</p></td> -->              
+            </tr>
+            <tr><br/></tr>
+            <tr id="footerPrint">
+                <td>
+                    <p>{{data.SaleReturnOrder.FullName}}</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    </ng-container>

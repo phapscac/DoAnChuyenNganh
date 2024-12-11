@@ -1,0 +1,93 @@
+<p-dialog *ngIf="data"
+    [(visible)]="isVisible" 
+    [modal]="true"
+    class="history-dialog" 
+    [breakpoints]="{ '1199px': '75vw', '575px': '50vw' }" 
+    styleClass="dialog-llg" 
+    [resizable]="false"
+    (onHide)="close()">
+    <ng-template pTemplate="header" class="p-2">
+        <div class="inline-flex align-items-center w-full f gap-2 border-bottom-1">
+            <span class="font-bold white-space-nowrap text-xl">
+                PHIẾU CHUYỂN TIỀN GIỮA 2 TÀI KHOẢN
+            </span>          
+        </div>
+    </ng-template>
+    <div class="row w-full">
+        <div class="col-sm-6 align-items-center justify-content-center">
+            <div class="form-horizontal">               
+                <div class="form-group row">
+                    <label class="col-sm-5 col-md-4 col-lg-3 control-label">Tài khoản chuyển</label>
+                    <div class="col-sm-7 col-md-8">{{data.master.AccountBankingDescription}}</div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-5 col-md-4 col-lg-3 control-label">Tài khoản nhận</label>
+                    <div class="col-sm-7 col-md-8">{{data.master.AccountBankingDescriptionTo}}</div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-5 col-md-4 col-lg-3 control-label">Ghi chú</label>
+                    <div class="col-sm-7 col-md-8" ng-bind="">{{data.master.Notes}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-5 offset-md-1 align-items-center justify-content-center">
+            <div class="form-horizontal">
+                <div class="row form-group">
+                    <label class="col-sm-6 control-label">Số chứng từ</label>
+                    <div class="col-sm-6">{{data.master.Code}}</div>
+                </div>
+                <div class="row form-group">
+                    <label class="col-sm-6 control-label">Ngày chứng từ</label>
+                    <div class="col-sm-6">
+                        <span [appFormatDate]="data.master.VoucherDate" format="dateTimeFilter"></span>                                  
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="col-sm-6 control-label">Ngày hạch toán</label>
+                    <div class="col-sm-6">
+                        <span [appFormatDate]="data.master.AccountingDate" format="dateTimeFilter"></span> 
+                    </div>
+                </div>                                     
+                <div class="row form-group">
+                    <label class="col-sm-6 control-label">Ngày tạo</label>
+                    <div class="col-sm-6">
+                        <span [appFormatDate]="data.master.CreatedDate" format="dateTimeFilter"></span> 
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="col-sm-6 control-label">Người tạo</label>
+                    <div class="col-sm-6">
+                        {{data.master.UserName}}
+                    </div>
+                </div>                
+                <div class="row form-group">
+                    <label class="col-sm-6 control-label">Tiền chi</label>
+                    <div class="col-sm-6">
+                        <span [appFormatNumber]="data.master.Amount" format="currency"></span> {{data.master.CurrencyID}}
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="col-sm-6 control-label">Phí chuyển khoản</label>
+                    <div class="col-sm-6">
+                        <span [appFormatNumber]="data.master.FeeAmount" format="currency"></span> {{data.master.CurrencyID}}
+                    </div>
+                </div>                 
+                <div class="row form-group">
+                    <label class="col-sm-6 control-label">Tổng tiền</label>
+                    <div class="col-sm-6">
+                        <span [appFormatNumber]="data.master.TotalAmount" format="currency"></span> {{data.master.CurrencyID}}
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <ng-template pTemplate="footer">
+        <div class="border-top-1">
+            <p-button 
+            label="Đóng" 
+            severity="success" 
+            (onClick)="isVisible = false" /> 
+        </div>            
+    </ng-template>
+</p-dialog>

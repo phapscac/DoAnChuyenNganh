@@ -33,3 +33,30 @@
 a.page-btn {
   text-decoration: none;
 }
+.page-content-box {
+  max-height: 100vh; /* Giới hạn chiều cao tối đa bằng kích thước khung nhìn */
+  overflow-y: auto; /* Cho phép cuộn nếu nội dung vượt quá chiều cao */
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: #f8f9fa; /* Màu nền cho header */
+  padding: 10px 20px;
+}
+
+main {
+  max-height: calc(100vh - 60px); /* Giả sử chiều cao header là 60px */
+  overflow-y: auto; /* Thêm thanh cuộn dọc */
+  padding: 20px;
+}
+
+.page-content-box {
+  border: 1px solid #dee2e6; /* Viền cho các box */
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #fff; /* Màu nền cho box */
+}

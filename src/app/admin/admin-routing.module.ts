@@ -6,6 +6,8 @@ import { AddProductComponent } from '../add-product/add-product.component';
 import { ProductListComponent } from '../product-list/product-list.component';
 import { ServiceListComponent } from './service-list/service-list.component';
 import{AddServiceComponent} from './add-service/add-service.component';
+<<<<<<< HEAD
+=======
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { AddContractComponent } from './add-contract/add-contract.component';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
@@ -19,9 +21,9 @@ import { WarehouseListComponent } from './warehouse-list/warehouse-list.componen
 import { WarehouseInComponent } from './warehouse-in/warehouse-in.component';
 import { WarehouseOutComponent } from './warehouse-out/warehouse-out.component';
 import { ReportComponent } from './report/report.component';
-import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 
 
+>>>>>>> parent of 0bd40ba (Merge branch 'oanh')
 
 
 
@@ -35,6 +37,8 @@ const routes: Routes = [
       {path: 'product-list', component: ProductListComponent},
       {path : 'service-list', component: ServiceListComponent},
       {path : 'add-service', component: AddServiceComponent},
+<<<<<<< HEAD
+=======
       {path : 'add-employee', component: AddEmployeeComponent},
       {path : 'add-contract', component: AddContractComponent},
       {path : 'add-customer', component: AddCustomerComponent},
@@ -48,7 +52,7 @@ const routes: Routes = [
       {path : 'warehouse-in', component: WarehouseInComponent},
       {path : 'warehouse-out', component: WarehouseOutComponent},
       {path : 'report', component: ReportComponent},
-      {path : 'edit-customer/:id', component: EditCustomerComponent},
+>>>>>>> parent of 0bd40ba (Merge branch 'oanh')
       // Thêm các route con khác tại đây
     ]
   }
