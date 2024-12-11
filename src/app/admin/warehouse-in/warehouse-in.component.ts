@@ -1,23 +1,15 @@
-<<<<<<< HEAD
-import { Component } from '@angular/core';
-=======
-import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
->>>>>>> parent of 0bd40ba (Merge branch 'oanh')
+import { Component ,AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Router } from '@angular/router';
+import { ApiService } from '../../api.service'; // Giả sử bạn có một WarehouseService để gọi API
+import { isPlatformBrowser } from '@angular/common'
+
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-<<<<<<< HEAD
-  styleUrl: './dashboard.component.css'
+  selector: 'app-warehouse-in',
+  templateUrl: './warehouse-in.component.html',
+  styleUrls: ['./warehouse-in.component.css']
 })
-export class DashboardComponent {
-
-}
-=======
-  styleUrls: ['./dashboard.component.css']
-})
-export class DashboardComponent implements AfterViewInit {
+export class WarehouseInComponent implements AfterViewInit {
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngAfterViewInit() {
@@ -47,4 +39,3 @@ export class DashboardComponent implements AfterViewInit {
     }
   }
 }
->>>>>>> parent of 0bd40ba (Merge branch 'oanh')

@@ -35,6 +35,7 @@ export class ApiService {
 
     return this.http
         .post(`${this.apiUrl}/${url}`, payload, options)
+<<<<<<< HEAD
         .pipe(catchError(this.handleError));;
 
   }
@@ -43,6 +44,8 @@ export class ApiService {
 
     return this.http
         .post(`${url}`, payload, options)
+=======
+>>>>>>> parent of 0bd40ba (Merge branch 'oanh')
         .pipe(catchError(this.handleError));;
 
   }

@@ -42,6 +42,7 @@ export class RegisterComponent implements OnInit {
           this.isSuccess = true;
           localStorage.setItem('accessToken', data.data.token.accessToken);
           console.log(data);
+         /* console.log(data);*/
           this.router.navigate(['/home']);
         } else {
           this.message='Đăng nhập thất bại';

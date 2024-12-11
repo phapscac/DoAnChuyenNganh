@@ -1,0 +1,237 @@
+  
+       
+            <header class="px-3 d-flex align-items-center justify-content-between gap-3">
+                <h4 class="m-0">Thêm khách hàng</h4>
+            
+                <div class="d-flex align-items-center gap-4">
+                    <div class="notification-wrapper position-relative">
+                        <a class="show-notification" href="javscript:void(0)">
+                            <i class="fa-regular fa-bell"></i>
+                        </a>
+                        <div class="notification-content">
+                            <p>Không có thông báo</p>
+                        </div>
+                    </div>
+            
+                    <div class="user-wrapper position-relative">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="user-image-wrapper">
+                                <img src="../user-no-image.svg" alt="" />
+                            </div>
+                            <i class="show-user-action fa-solid fa-chevron-down cursor-pointer"></i>
+                        </div>
+                        <div class="user-action d-flex flex-column gap-2">
+                            <a href="javascript:void(0)" class="text-nowrap d-flex align-items-center">
+                                <i class="fa-solid fa-circle-info"></i>
+                                <span>Thông tin nhân viên</span>
+                            </a>
+                            <a href="javascript:void(0)" class="text-nowrap d-flex align-items-center click-logout">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                <span>Đăng xuất</span>
+                            </a>
+                        </div>
+                    </div>
+            
+                </div>
+            </header>
+            
+
+            <main>
+                <form id="create-product">
+                    <div class="row m-0 p-3">
+                        <div class="col-12 p-0">
+                            <div class="page-content-box no-border">
+                                <div class="d-flex align-items-start justify-content-between">
+                                    <div class="page-content-header">
+                                        Thông tin chung
+                                    </div>
+                                </div>
+                
+                                <div class="row p-0 m-0">
+                                    <div class="col-12 col-lg-6">
+                                    <div class="page-input-box">
+                                        <label>Mã khách hàng</label>
+                                        <div class="page-input">
+                                            <input type="text" id="product_id" placeholder="Nhập mã khách hàng" />
+                                        </div>
+                                        <span></span> 
+                                    </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                    <div class="page-input-box">
+                                        <label>Tên khách hàng</label>
+                                        <div class="page-input">
+                                            <input type="text" id="product_name" placeholder="Nhập tên khách hàng" value="" />
+                                        </div>
+                                        <span></span>
+                                    </div>
+                                    </div>
+                                    
+                                    <div class="row m-0 p-0">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Số điện thoại</label>
+                                                <div class="page-input">
+                                                    <input type="text" id="product_price" placeholder="Nhập số điện thoại" value="" />
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Email</label>
+                                                <div class="page-input">
+                                                    <input type="text" id="product_original_price" placeholder="Email" value="" />
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row m-0 p-0">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Giới tính</label>
+                                                <div class="page-input">
+                                                    <select id="product_brand">
+                                                        <option selected>Chọn</option>
+                                                        <option value="hang1">Nam</option>
+                                                        <option value="hang1">Nữ</option>
+                                                    </select>
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Thành viên từ ngày</label>
+                                                <div class="page-input">
+                                                  <input type="date" id="hireDate" name="hireDate" placeholder="Chọn ngày tuyển" required />
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row m-0 p-0">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Mã số thuế</label>
+                                                <div class="page-input">
+                                                    <input type="text" id="product_price" placeholder="Nhập mã số thuế" value="" />
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Đường</label>
+                                                <div class="page-input">
+                                                    <input type="text" id="product_price" placeholder="Nhập đường" value="" />
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     
+                                    <div class="row m-0 p-0">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Thành phố</label>
+                                                <div class="page-input">
+                                                    <input type="text" id="product_price" placeholder="Nhập thành phố" value="" />
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row m-0 p-0">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Phường/xã</label>
+                                                <div class="page-input">
+                                                    <input type="text" id="product_price" placeholder="Nhập phường/xã" value="" />
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Quận/huyện</label>
+                                                <div class="page-input">
+                                                    <input type="text" id="product_price" placeholder="Nhập quận/huyện" value="" />
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     
+                                    <div class="row m-0 p-0">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Tên công ty</label>
+                                                <div class="page-input">
+                                                    <input type="text" id="product_price" placeholder="Nhập công ty" value="" />
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Vị trí trong công ty</label>
+                                                <div class="page-input">
+                                                    <input type="text" id="product_original_price" placeholder="Nhập vị trí trong công ty" value="" />
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row m-0 p-0">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Loại khách hàng</label>
+                                                <div class="page-input">
+                                                    <select id="product_brand">
+                                                        <option selected>Chọn</option>
+                                                        <option value="hang1">Khách thường</option>
+                                                        <option value="hang1">Doanh nghiệp</option>
+                                                    </select>
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="page-input-box">
+                                                <label>Số fax</label>
+                                                <div class="page-input">
+                                                    <input type="text" id="product_price" placeholder="Nhập số fax" value="" />
+                                                </div>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                
+                
+                                </div>
+                            </div>
+                
+                        
+                
+                
+                            <div class="page-content-box no-border d-flex justify-content-end mt-3">
+                                
+                                <button type="submit" class="form-submit-btn page-btn-sm btn-green">Thêm khách hàng</button>
+                            </div>
+                
+                        </div>
+                
+                     
+                
+                    </div>
+                </form>
+            </main>
+       
+
+    

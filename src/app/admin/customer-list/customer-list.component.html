@@ -1,5 +1,5 @@
 <header class="px-3 d-flex align-items-center justify-content-between gap-3">
-    <h4 class="m-0">Danh mục loại  dịch vụ</h4>
+    <h4 class="m-0">Quản lý khách hàng</h4>
 
     <div class="d-flex align-items-center gap-4">
         <div class="notification-wrapper position-relative">
@@ -36,24 +36,57 @@
     <section class="page-wrapper">
 
         <div class="d-flex align-items-center justify-content-between gap-2 flex-wrap">
-          
+            <div class="filters-box flex-wrap">
+            </div>
     
             <div class="d-flex gap-2 flex-wrap">
                
     
-             
-               
+                <div class="page-dropdown sort-selection">
+                    <div class="page-dropdown-btn" data-selected="">
+                        <span>Sắp xếp theo</span>
+                        <i class="fa-solid fa-caret-down"></i>
+                    </div>
+                    <div class="page-dropdown-content">
+                        <div class="page-dropdown-item" data-value="" data-text="Sắp xếp theo">
+                            <span>Sắp xếp theo</span>
+                        </div>
+                        
+                        <div class="page-dropdown-item" data-value="name-az" data-text="Tên A - Z">
+                            <span>Tên A - Z</span>
+                        </div>
+                        <div class="page-dropdown-item" data-value="name-za" data-text="Tên Z - A">
+                            <span>Tên Z - A</span>
+                        </div>
+                    </div>
+                </div>
     
-               
+                
+    
+                <div class="position-relative">
+                    <form class="search-form @form_class_name">
+                        <input type="text" id="search" placeholder="Tìm theo tên/mã khách hàng" value="" required />
+                        <button type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                
+                    <div class="search-result-wrapper position-absolute show">
+                        <div class="search-result-list">
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     
         <div class="hidden-action mt-2">
-            <button class="page-btn btn-red delete-selected-products" (click)="deleteSelectedProducts()">
+            <button class="page-btn btn-red delete-selected-products">
                 <i class="fa-solid fa-trash-can"></i>
-                <span>Xóa dịch vụ đã chọn</span>
+                <span>Xóa khách hàng đã chọn</span>
             </button>
     
+            
             
         </div>
         <div class="page-table-wrapper mt-2">
@@ -61,46 +94,54 @@
                 <thead class="page-table-header">
                     <tr>
                         <th>
-                            <input type="checkbox" id="page-table-checkbox-all" (change)="toggleAll($event)"/>
+                            <input type="checkbox" id="page-table-checkbox-all" />
                         </th>
-                        <th>Mã loại dịch vụ</th>
-                        <th>Tên loại dịch vụ</th>
-                        <th></th>
-                        <th></th>
+                        <th>STT</th>
+                        <th>Mã khách hàng</th>
+                        <th>Tên khách hàng</th>
+                        <th>Số điện thoại </th>
+                        <th>Địa chỉ</th>
+                        <th>Email</th>
+                        <th>Loại khách hàng</th>
+
+                       
                         <th></th>
                     </tr>
                 </thead>
-                <tbody class="product-list view-list" data-view="view-list"  >
-                    <tr data-item="sp001"*ngFor="let category of data.ServiceCategoryList " >
+                <tbody class="product-list view-list" data-view="view-list">
+                    <tr data-item="sp001" *ngFor="let customer of data. CustomerList ">
                         <td>
-                            <input type="checkbox" name="page-table-checkbox" value="sp001" [value]="category.catalogId" (change)="toggleSelection(category.catalogId, $event)"/>
-                        </td>
-                       
-                        <td>
-                            {{category.catalogId }}
+                            <input type="checkbox" name="page-table-checkbox" value="sp001" />
                         </td>
                         <td>
-                            <div class="">
-                                <span class="text-overflow-1">{{category.catalogName }}</span>
-                               
-                            </div>
+                            {{customer.FullName}} 
                         </td>
                         <td>
+                            <span class="text-overflow-1">{{customer.phoneNumber}}</span>
+                        </td>
+                        <td>
+                            <span class="text-overflow-1">{{customer.faxNumber}}</span>
+                        </td>
+                        <td>
+                            1.000.000đ
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>    
                         
-                        </td>
 
                         <td>
                             <div class="d-flex gap-1 align-items-center justify-content-end">
                                 <a class="page-table-btn btn-lightblue" href="javascript:">
                                     <i class="fa-regular fa-pen-to-square"></i>
                                 </a>
-                                <button class="page-table-btn btn-red delete-product" (click)=" deleteProductCategory(category.catalogId)">
+                                <button class="page-table-btn btn-red delete-product" data-product="sp001">
                                     <i class="fa-solid fa-trash-can"></i>
                                 </button>
                             </div>
                         </td>
                     </tr>
-                
+                  
                 </tbody>
             </table>
         </div>
@@ -119,40 +160,6 @@
                     <i class="fa-solid fa-chevron-right"></i>
                 </a>
             </div>
-        </div>
-        <div class="page-content-box no-border d-flex justify-content-end mt-3">
-                                
-                               <!-- Nút Thêm -->
-                                      <!-- Nút Thêm -->
-                    <button type="button" class="form-submit-btn page-btn-sm btn-green" data-bs-toggle="modal" data-bs-target="#addModal">
-                      Thêm
-                    </button>
-                    
-                    <!-- Modal -->
-                    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="addModalLabel">Thêm loại dịch vụ</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            <!-- Form Nhập Dữ Liệu -->
-                            <form #addForm="ngForm">
-                              <div class="mb-3">
-                                <label for="dataName" class="form-label">Mã loại dịch vụ</label>
-                                <input type="text" class="form-control" id="dataName" name="dataName"  required>
-                              </div>
-                              <div class="mb-3">
-                                <label for="dataDescription" class="form-label">Tên loại dịch vụ</label>
-                                <textarea class="form-control" id="dataDescription" name="dataDescription"  required></textarea>
-                              </div>
-                              <button type="submit" class="form-submit-btn page-btn-sm btn-green " style="margin-left: 400px;" [disabled]="!addForm.form.valid">Lưu</button>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
         </div>
     
     </section>
