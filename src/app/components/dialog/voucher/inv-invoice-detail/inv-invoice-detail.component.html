@@ -1,8 +1,0 @@
-<ng-container *ngIf="data.master && voucherReferenceSelected">
-    <ng-container *ngIf="voucherReferenceSelected.Type != -1">
-        <!-- Đơn đặt hàng -->
-        <ng-container *ngIf="[2, 8].includes(voucherReferenceSelected.Type)">   
-            <app-inv-invoice-detail-stock-out-dialog1 [(isVisible)]="isVisible" (isVisibleChange)="close()" [data]="data"></app-inv-invoice-detail-stock-out-dialog1>        
-        </ng-container>       
-    </ng-container>
-</ng-container>

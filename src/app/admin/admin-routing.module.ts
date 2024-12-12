@@ -6,6 +6,7 @@ import { AddProductComponent } from '../add-product/add-product.component';
 import { ProductListComponent } from '../product-list/product-list.component';
 import { ServiceListComponent } from './service-list/service-list.component';
 import{AddServiceComponent} from './add-service/add-service.component';
+import { ContractComponent } from './contract/contract.component';
 
 
 
@@ -19,6 +20,7 @@ const routes: Routes = [
       {path: 'product-list', component: ProductListComponent},
       {path : 'service-list', component: ServiceListComponent},
       {path : 'add-service', component: AddServiceComponent},
+      {path : 'contract', component: ContractComponent}
       // Thêm các route con khác tại đây
     ]
   }
